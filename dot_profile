@@ -1,0 +1,60 @@
+LD_LIBRARY_PATH="/usr/lib64:/usr/lib"
+PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+case "$(uname -s)" in
+    ("Darwin") export CLICOLOR=1 ;;
+    ("Linux") ;;
+esac
+
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_DATA_HOME="${HOME}/.local/share"
+
+export DOTS="${HOME}/.files"
+
+export APPDIR="${HOME}/Applications"
+
+export GOPATH="${APPDIR}/go"
+
+_brew="${APPDIR}/brew"
+[ -d "${_brew}/bin" ] && PATH="${_brew}/bin:${PATH}"
+[ -d "${_brew}/sbin" ] && PATH="${_brew}/sbin:${PATH}"
+
+PATH="${GOPATH}/bin:${PATH}"
+PATH="${HOME}/.cargo/bin:${PATH}"
+
+if [ -d "${_brew}/bin" ]; then
+    _forge="$(brew --caskroom)/miniforge/base/etc/profile.d/conda.sh"
+    [ -f "${_forge}" ] && source "${_forge}"
+fi
+
+_conda="${APPDIR}/miniconda/etc/profile.d/conda.sh"
+[ -f "${_conda}" ] && source "${_conda}"
+unset _conda
+
+# PATH="${APPDIR}/poetry/bin:$PATH"
+
+PATH="$(readlink -f ${DOTS})/bin:${PATH}"
+
+[ -d /labs ] && PATH="/labs/bin:${PATH}"
+
+export LD_LIBRARY_PATH
+
+export LC_COLLATE=C
+
+export DATA="${HOME}/Data"
+export LOGS="${HOME}/Logs"
+
+export EDITOR="vim"
+export VISUAL="vim" # "emacsclient -nc"
+
+# export PATH="$HOME/.poetry/bin:$PATH"
+export PATH
+
+export _Z_DATA="${XDG_DATA_HOME}/z/data"
+[ -d "$(dirname ${_Z_DATA})" ] || mkdir -p $(dirname ${_Z_DATA})
+export _Z_OWNER=$(whoami)
+export _Z_NO_RESOLVE_SYMLINKS="true"
+
+unset _brew
+unset _forge
+unset _conda

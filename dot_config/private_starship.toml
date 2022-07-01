@@ -1,0 +1,40 @@
+format = """\
+$conda\
+$singularity\
+$kubernetes\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$package\
+$python\
+$ruby\
+$julia\
+$cmd_duration\
+$line_break\
+$time\
+$character\
+"""
+
+[character]
+success_symbol = "🎮"
+error_symbol = "🔥"
+vicmd_symbol = "🔮"
+
+[conda]
+symbol = "🅒 "
+# color = "bold blue"
+ignore_base = false
+format = "[$symbol$environment]($style) "
+
+[singularity]
+symbol = "📦 "
+
+[python]
+
+
+[julia]
+format = ":: [$symbol($version)]($style) "

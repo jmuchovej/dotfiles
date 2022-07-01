@@ -1,0 +1,44 @@
+#: #############################################################################
+#: @ionlights/.zshrc
+#: Thanks for taking a look at my dotfiles! :blush:
+#: However, it's definitely necessary to cite my sources, which made building
+#:   this so much easier. :sweat_smile:
+#:   - https://carlosbecker.com/posts/speeding-up-zsh/
+#:   - https://blog.callstack.io/supercharge-your-terminal-with-zsh-8b369d689770
+#: #############################################################################
+# load-modules
+
+#: font to be used: "Fira Code", https://github.com/tonsky/FiraCode/releases
+conda activate base
+
+#: source all the things
+for file in $(ls ${ZSH}/??-*.zsh); do
+    source $file
+done
+
+source ${ZSH}/@$(uname).zsh
+
+#: Antibody Config & Setup
+# fpath=(${DOTS}/completions $fpath)
+[ ! -f "${PLUGINS}-$(uname)" ] && plugins "setup"
+plugins "load"
+
+#: prompt configuration
+eval "$(starship init zsh)"
+
+#: setup additional hooks and whatnot
+[ $(which direnv) ] && eval "$(direnv hook zsh)"
+
+#: fuzzy-finder
+[ $(which fzf) ] && source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
+[ $(which fzf) ] && source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
+
+to_source=()
+# The next line updates PATH for Netlify's Git Credential Helper.
+to_source+="${HOME}/.netlify/helper/path.zsh.inc"
+to_source+="${XDG_DATA_HOME}/funky/funky.sh"
+for file in "${to_source[@]}"; do
+    [ -f ${file} ] && source ${file}
+done
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

@@ -1,0 +1,52 @@
+#!/usr/bin/env zsh
+#
+# function add-host {
+#     if ! sudo true; then
+#         return
+#     fi
+#
+#     me=$(whoami)
+#
+#     # ${EDITOR} ${DOTS}/homedir/.hosts
+#     # gpg -c ${DOTS}/homedir/.hosts
+#     case $OS in
+#         "linux") sys_hosts_path="/etc/hosts" ;;
+#         "macos") sys_hosts_path="/private/etc/hosts" ;;
+#     esac
+#     my_hosts_copy="${DOTS}/@${OS}/preferences/hosts"
+#
+#     sudo ${EDITOR} ${hosts_path}
+#     sudo cp ${sys_hosts_path} ${my_hosts_copy}
+#     sudo chmod ${me}:${me} ${my_hosts_copy}
+#     gpg -c ${my_hosts_copy}
+# }
+
+#: ---------------------------------------------------------------------------
+#: Hook Functions: http://zsh.sourceforge.net/Doc/Release/Functions.html
+#: ---------------------------------------------------------------------------
+
+#: Don't store failed commands
+#:   Pulled from: https://superuser.com/a/902508
+zshaddhistory() {
+  whence ${${(z)1}[1]} >| /dev/null || return 1
+}
+
+# autoload -Uz add-zsh-hook
+# #: try to activate pertinent conda environments
+# chpwd_conda() {
+#     here="$(pwd)"
+#     base="$(basename "${here}")"
+#     envs="$(ls "$(conda info --base)/envs")"
+#     curr="${CONDA_DEFAULT_ENV}"
+#
+#     echo "${here}, ${base}, ${envs}, ${curr}"
+#
+#     if [[ $(echo "${here}" | grep "${curr}" -c) -eq 1 ]]; then
+#         conda activate ${curr}
+#     elif [[ $(echo ${envs} | grep ${here} -c) -eq 1 ]]; then
+#         conda activate ${dir}
+#     else
+#         conda activate
+#     fi
+# }
+# add-zsh-hook -Uz chpwd chpwd_conda

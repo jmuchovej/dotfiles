@@ -1,0 +1,5 @@
+[ -f "${HOME}/.profile" ] && source "${HOME}/.profile"
+
+export BASH="${XDG_CONFIG_HOME}/bash"
+
+[ -f "${HOME}/.bashrc" ] && source "${HOME}/.bashrc"
