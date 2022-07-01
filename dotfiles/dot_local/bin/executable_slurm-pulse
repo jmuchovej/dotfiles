@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+users=$(squeue -h -O username | sort | uniq -c)
+opts=${1:-.}
+
+echo "------------------------------------------------------------------------"
+echo "# General usage"
+echo "------------------------------------------------------------------------"
+squeue -h -O username | sort | uniq -c | sort -h
+
+echo ""
+echo "------------------------------------------------------------------------"
+echo "# Partition usage"
+echo "------------------------------------------------------------------------"
+squeue -h -O username,nodelist | sort | uniq -c | sort -h
+
+echo
+echo "------------------------------------------------------------------------"
+echo "# GPU Usage"
+echo "------------------------------------------------------------------------"
+squeue -h -O NodeList,tres-per-node --states "r" | grep -v "N/A" | sort | uniq -c | sort -h

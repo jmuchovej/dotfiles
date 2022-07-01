@@ -1,0 +1,88 @@
+#!/usr/bin/env python
+# Largely driven by: https://github.com/ddimick/proxmox-lxc-idmapper/blob/master/run.py
+import argparse
+
+
+# validates user input
+def parser_validate(value, min = 1, max = 65535):
+    try:
+        uid, gid = value.split(":")
+    except ValueError:
+        uid, gid = value, value
+
+    try:
+        uid = int(uid)
+    except ValueError:
+        uid = -1
+    finally:
+        assert min <= abs(uid) <= max
+
+    try:
+        gid = int(gid)
+    except ValueError:
+        gid = uid
+    finally:
+        assert min <= abs(gid) <= max
+
+    return uid, gid
+
+
+# creates lxc mapping strings
+def create_map(id_type, id_list):
+    idmap_adjust = lambda s_id, offset, n_ids: f"lxc.idmap: {id_type} {s_id} {offset} {n_ids}"
+    idmap_single = lambda uid: f"lxc.idmap: {id_type} {uid} {uid} 1"
+
+    import pdb; pdb.set_trace()
+
+    s_ids = [-1, ] + id_list
+    e_ids = id_list.copy()
+
+    idmap = []
+    pairs = list(zip(s_ids, e_ids))
+    for prev_id, targ_id in pairs:
+        idmap += [ idmap_adjust(prev_id + 1, prev_id + 100_001, targ_id - 1 - prev_id), ]
+        idmap += [ idmap_single(targ_id), ]
+
+    uid = id_list[-1]
+    idmap += [ idmap_adjust(uid + 1, uid + 100_001, 65_535 - uid)]
+
+    return idmap
+
+
+if __name__ == "__main__":
+    # collect user input
+    parser = argparse.ArgumentParser(description="Proxmox unprivileged container to host uid:gid mapping syntax tool.")
+    parser.add_argument(
+          "id",
+          nargs="+",
+          type=parser_validate,
+          metavar="uid[:gid]",
+          help="Container uid and optional gid to map to host. If a gid is not specified, the uid will be used for the gid value."
+    )
+    parser_args = parser.parse_args()
+
+    # create sorted uid/gid lists
+    uid_list = sorted([i[0] for i in parser_args.id])
+    uid_list = list(filter(lambda x: x >= 0, uid_list))
+    gid_list = sorted([i[1] for i in parser_args.id])
+    gid_list = list(filter(lambda x: x >= 0, gid_list))
+
+    # calls function that creates mapping strings
+    uid_map = create_map("u", uid_list)
+    gid_map = create_map("g", gid_list)
+
+    # output mapping strings
+    print()
+    print("# Add to /etc/pve/lxc/<container_id>.conf:")
+    print("\n".join(uid_map))
+    print("\n".join(gid_map))
+    print()
+
+    print("# Add to /etc/subuid:")
+    print("\n".join([f"root:{uid}:1" for uid in uid_list]))
+    print()
+
+    print("# Add to /etc/subgid:")
+    print("\n".join([f"root:{gid}:1" for gid in gid_list]))
+    print()
+

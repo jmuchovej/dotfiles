@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+_sh="$(basename ${SHELL})"
+cfg=${XDG_CONFIG_HOME}/${_sh}
+
+[ ${1} = "-l" ] && {la ${cfg}/ && return}
+filename=${1}
+
+list=$(ls ${cfg}/ | grep -i ${filename})
+file=$(echo $list | grep -i ${_sh})
+
+if [ ! ${file} ]; then
+    file=$(echo ${list} | cut -d$'\n' -f 1)
+fi
+
+${EDITOR} ${cfg}/${file}
+source ${HOME}/.${_sh}rc

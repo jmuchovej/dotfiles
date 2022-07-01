@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#: https://stackoverflow.com/a/8944284/2714651
+
+stdout=$(mktemp)
+stderr=$(mktemp)
+
+eval $@ > $stdout 2> $stderr
+if [ ! $? ]; then
+    cat $stderr >&2
+    rm -f $stdout $stderr
+    exit 1
+fi
+
+rm -f $stdout $stderr

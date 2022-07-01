@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Reference implementation: https://superuser.com/a/198868/433083
+
+if [ $# -lt 2 ]; then
+    echo "Invalid number of arguments. Usage: \`multitar <mode> <directory> [<size>]\`"
+    exit 1
+fi
+
+mode=${1}
+dir=${2}
+
+siz=${3:-1G}
+
+case "${mode}" in
+    "a"|"assemble")
+        tar -cvf - "${dir}" | split --bytes="${siz}" --suffix-length=6 --numeric-suffix - "${dir}.tar."
+        ;;
+    "r"|"recombine")
+        cat "${dir}.tar.*" | tar xvf -
+        ;;
+    *)
+        echo "Please specify a valid \`mode\` \{assemble recombine\}"
+        exit 1
+        ;;
+esac
+

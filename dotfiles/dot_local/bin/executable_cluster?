@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+function part-of {
+    part="${1}"
+    node=$(host -TtA $(hostname) | grep "has address" | awk '{print $1}')
+    if [[ $(echo ${node} | grep -i "$part" -c) -eq 1 ]]; then
+        echo "1"
+    fi
+}
+
+[ $(part-of "homelab") ] && echo "lab"
+[ $(part-of "ib.cluster") ] && echo "openmind"
+[ $(part-of "rc.fas.harvard.edu") ] && echo "fasrc"
+[ $(part-of "rc.fas.harvard.edu") ] && echo "fasrc"

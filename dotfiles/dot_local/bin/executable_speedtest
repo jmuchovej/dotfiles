@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+SCRIPT="${0}"
+conda activate
+
+python ${SCRIPT}.py ${1:-run} ${@:2}
+

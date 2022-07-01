@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+opts="${1}"
+
+squeue -u $(whoami) -h -O jobid ${opts} | xargs -n1 scancel

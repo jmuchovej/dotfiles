@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+user="-u ${1:-$(whoami)}"
+opts="${2}"
+
+squeue ${user} -O JobID,ArrayJobID,JobArrayID,Name,Account,Username,TimeLimit,TimeLeft,ReasonList,${opts}
