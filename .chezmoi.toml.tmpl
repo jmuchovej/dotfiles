@@ -1,0 +1,11 @@
+{{- $osid := .chezmoi.os -}}
+{{- if hasKey .chezmoi.osRelease "id" -}}
+  {{- $osid = printf "%s-%s" .chezmoi.os .chezmoid.osRelease.id -}}
+{{- end -}}
+
+[data]
+  osid = {{ $osid | quote }}
+  appDir = "{{ .chezmoi.homeDir }}/Applicatons"
+
+[diff]
+  exclude = ["scripts", "@setup"]
