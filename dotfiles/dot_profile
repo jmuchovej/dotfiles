@@ -9,13 +9,9 @@ esac
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_DATA_HOME="${HOME}/.local/share"
 
-export DOTS="${HOME}/.files"
+export GOPATH="${XDG_DATA_HOME}/go"
 
-export APPDIR="${HOME}/Applications"
-
-export GOPATH="${APPDIR}/go"
-
-_brew="${APPDIR}/brew"
+_brew="${XDG_DATA_HOME}/brew"
 [ -d "${_brew}/bin" ] && PATH="${_brew}/bin:${PATH}"
 [ -d "${_brew}/sbin" ] && PATH="${_brew}/sbin:${PATH}"
 
@@ -31,9 +27,9 @@ _conda="${APPDIR}/miniconda/etc/profile.d/conda.sh"
 [ -f "${_conda}" ] && source "${_conda}"
 unset _conda
 
-# PATH="${APPDIR}/poetry/bin:$PATH"
+# PATH="${XDG_DATA_HOME}/poetry/bin:$PATH"
 
-PATH="$(readlink -f ${DOTS})/bin:${PATH}"
+PATH="${HOME}/.local/bin:${PATH}"
 
 [ -d /labs ] && PATH="/labs/bin:${PATH}"
 
@@ -47,7 +43,7 @@ export LOGS="${HOME}/Logs"
 export EDITOR="vim"
 export VISUAL="vim" # "emacsclient -nc"
 
-# export PATH="$HOME/.poetry/bin:$PATH"
+# export PATH="${XDG_DATA_HOME}/poetry/bin:$PATH"
 export PATH
 
 export _Z_DATA="${XDG_DATA_HOME}/z/data"
