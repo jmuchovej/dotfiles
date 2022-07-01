@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-source /.profile
+echo "Running... \`conda-installer\`..."
 
 {{- if eq .chezmoi.os "darwin" }}
 # Updating to install MiniForge, instead of Miniconda
@@ -14,13 +13,13 @@ echo "- Installing Miniconda..."
 url="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
 quiet "curl -fsSL -o ${HOME}/miniconda.sh ${url}"
 chmod +x "${HOME}/miniconda.sh"
-bash ${HOME}/miniconda.sh -b -p {{ .appDir }}/miniconda
+bash ${HOME}/miniconda.sh -b -p {{ .appdir }}/miniconda
 rm "${HOME}/miniconda.sh"
 {{ end -}}
 
-conda install -c conda-forge mamba --yes
-
 echo "- Update conda \`base\` environment..."
-source dot_profile
+source {{ .chezmoi.homeDir }}/.profile
+
+conda install -c conda-forge mamba --yes
 
 quiet "mamba env update -n base -f {{ .chezmoi.sourceDir }}/@setup/env.yml"
