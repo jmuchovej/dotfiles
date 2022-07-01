@@ -18,10 +18,9 @@ done
 
 source ${ZSH}/@$(uname).zsh
 
-#: Antibody Config & Setup
-# fpath=(${DOTS}/completions $fpath)
-[ ! -f "${PLUGINS}-$(uname)" ] && plugins "setup"
-plugins "load"
+#: Antigen Config & Setup
+source "~/.local/share/antidote/antidote.zsh"
+antidote load ${ZSH}/plugins
 
 #: prompt configuration
 eval "$(starship init zsh)"
@@ -30,15 +29,15 @@ eval "$(starship init zsh)"
 [ $(which direnv) ] && eval "$(direnv hook zsh)"
 
 #: fuzzy-finder
-[ $(which fzf) ] && source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
-[ $(which fzf) ] && source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
+# [ $(which fzf) ] && source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
+# [ $(which fzf) ] && source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
 
-to_source=()
+# to_source=()
 # The next line updates PATH for Netlify's Git Credential Helper.
-to_source+="${HOME}/.netlify/helper/path.zsh.inc"
-to_source+="${XDG_DATA_HOME}/funky/funky.sh"
-for file in "${to_source[@]}"; do
-    [ -f ${file} ] && source ${file}
-done
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# to_source+="${HOME}/.netlify/helper/path.zsh.inc"
+# to_source+="${XDG_DATA_HOME}/funky/funky.sh"
+# for file in "${to_source[@]}"; do
+#     [ -f ${file} ] && source ${file}
+# done
+# 
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
