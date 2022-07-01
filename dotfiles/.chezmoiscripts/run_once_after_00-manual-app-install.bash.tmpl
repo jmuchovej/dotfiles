@@ -17,3 +17,5 @@ echo "- Installing Brew if non-existent..."
 
 url="https://github.com/homebrew/brew/tarball/master"
 [ ! $(command -v brew) ] && curl -L "${url}" | tar xz --strip 1 -C "{{ .appdir }}/brew"
+
+{{ .appdir }}/brew/bin/brew
