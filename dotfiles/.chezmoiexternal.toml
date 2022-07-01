@@ -1,7 +1,7 @@
 [".local/share/brew"]
   type = "archive"
   url = "https://github.com/homebrew/brew/tarball/master"
-  format = "xz"
+ # format = "xz"
   stripComponents = 1
 
 [".local/share/antidote"]
