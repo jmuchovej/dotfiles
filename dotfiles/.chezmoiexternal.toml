@@ -18,7 +18,7 @@
   url = "https://github.com/plexus/chemacs"
   refreshPeriod = "168h"
 
-ln -sf "${APPDIR}/chemacs/.emacs" "${HOME}/.emacs"
+# ln -sf "${APPDIR}/chemacs/.emacs" "${HOME}/.emacs"
 
 # ["{{ .chezmoi.homeDir }}/Applications/brew"]
 #   type = "archive"
