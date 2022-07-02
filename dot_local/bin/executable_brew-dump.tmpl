@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+
+set -e
+
+BREWFILE="${XDG_CONFIG_HOME}/{{ .osid }}.Brewfile"
+
+echo "Dumping new dependencies to ${BREWFILE}"
+rm ${BREWFILE}
+brew bundle dump --describe --file ${BREWFILE}
+
+#: Push updates to dotfiles
+chezmoi add ${BREWFILE}
+chezmoi cd
+
+git add ${BREWFILE}
+git commit -m "📌 Update Brewfile for {{ .osid }}"
+git push -u origin main

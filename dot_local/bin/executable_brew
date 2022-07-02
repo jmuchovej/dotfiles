@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+set -e
+
+BREWFILE="${XDG_CONFIG_HOME}/darwin.Brewfile"
+BREW="${XDG_PACKAGE_HOME}/brew/bin/brew"
+
+$BREW "${@:1}"
+
+if [[ "${1}" = "install" || "${1}" = "uninstall" || "${1}" = "reinstall" ]]; then
+  brew-dump
+fi
