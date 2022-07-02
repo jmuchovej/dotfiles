@@ -116,6 +116,8 @@ cask "font-lato"
 cask "font-pt-sans"
 # Client for the Google Drive storage service
 cask "google-drive"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
 # File system integration
 cask "macfuse"
 # Install, use, and try Maxon products
