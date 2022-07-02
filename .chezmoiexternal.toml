@@ -1,0 +1,74 @@
+[".tmux.conf"]
+  type = "file"
+  url = "https://github.com/gpakosz/.tmux/raw/master/.tmux.conf"
+  exact = true
+
+[".local/src/z.sh"]
+  type = "git-repo"
+  url = "https://github.com/rupa/z"
+  refreshPeriod = "168h"
+
+# [".local/share/SpaceVim.d"]
+#   type = "git-repo"
+#   url = "https://github.com/SpaceVim/SpaceVim"
+
+# [".local/share/brew"]
+#   type = "archive"
+#   url = "https://github.com/homebrew/brew/tarball/master"
+#   # format = "xz"
+#   stripComponents = 1
+
+[".local/share/antidote"]
+  type = "git-repo"
+  url = "https://github.com/mattmc3/antidote.git"
+  refreshPeriod = "168h"  # Refresh once a week
+
+[".local/share/doom-emacs"]
+  type = "git-repo"
+  url = "https://github.com/hlissner/doom-emacs"
+  refreshPeriod = "168h"
+
+[".local/share/spacemacs"]
+  type = "git-repo"
+  url = "https://github.com/syl20bnr/spacemacs"
+  refreshPeriod = "168h"
+
+[".local/share/chemacs"]
+  type = "git-repo"
+  url = "https://github.com/plexus/chemacs"
+  refreshPeriod = "168h"
+
+{{- $ship_vendor := "" }}
+{{- if eq .chezmoi.os "darwin" }}
+  {{ $ship_vendor = "apple" }}
+{{- else if eq .chezmoi.os "linux" }}
+  {{ $ship_vendor = "unkown" }}
+{{- end }}
+
+{{- $ship_arch := "" }}
+{{- if eq .chezmoi.arch "amd64" }}
+  {{ $ship_arch = "x86_64" }}
+{{- else if eq .chezmoi.arch "arm64" }}
+  {{ $ship_arch = "aarch64" }}
+{{- end }}
+
+{{- $ship_os := "" }}
+{{- if eq .chezmoi.os "darwin" }}
+  {{ $ship_os = "darwin" }}
+{{- else if eq .chezmoi.os "linux" }}
+  {{ $ship_os = "linux-musl" }}
+{{- end }}
+
+[".local/bin/starship"]
+  type = "file"
+  url = "https://github.com/starship/starship/releases/latest/download/starship-{{ $ship_arch }}-{{ $ship_vendor }}-{{ $ship_os }}.tar.gz" 
+  executable = true
+  [".local/bin/starship".filter]
+    command = "tar"
+    args = ["--extract", "--gzip", "--file", "/dev/stdin", "--to-stdout", "starship"]
+
+[".local/bin/direnv"]
+  type = "file"
+  url = "https://github.com/direnv/direnv/releases/latest/download/direnv.{{ .chezmoi.os }}-{{ .chezmoi.arch }}"
+  executable = true
+  refreshPeriod = "168h"

@@ -107,6 +107,8 @@ brew "heroku/brew/heroku"
 brew "zerotier/tap/zeronsd"
 # Command-line helper for the 1Password password manager
 cask "1password-cli"
+# Menu bar icon organizer
+cask "bartender"
 # Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
 cask "font-iosevka"
 # Typeface made for developers
@@ -149,6 +151,8 @@ cask "protonmail-bridge"
 # VPN client focusing on security
 cask "protonvpn"
 cask "sunsama"
+# Real time file synchronization software
+cask "syncthing"
 # To-do list
 cask "todoist"
 # Development environment

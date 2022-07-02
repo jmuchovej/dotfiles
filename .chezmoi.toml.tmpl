@@ -6,6 +6,7 @@
 [data]
   osid = {{ $osid | quote }}
   appDir = "{{ .chezmoi.homeDir }}/.local/share"
+  brewfile = "{{ .chezmoi.homeDir }}/.config/{{ .osid }}.Brewfile"
 
 [diff]
   exclude = ["scripts"]

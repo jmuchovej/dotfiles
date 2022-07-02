@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+set -e
+
+echo "Running... \`conda-installer\`..."
+
+{{- $conda_os := "" }}
+{{- if eq .chezmoi.os "darwin" }}
+  {{ $conda_os = "MacOSX" }}
+{{- else if eq .chezmoi.os "linux" }}
+  {{ $conda_os = "Linux" }}
+{{- end }}
+
+{{- $conda_arch := "" }}
+{{- if eq .chezmoi.arch "arm64" }}
+  {{ $conda_arch = "arm64" }}
+{{- else if eq .chezmoi.arch "amd64" }}
+  {{ $conda_arch = "x86_64" }}
+{{- end }}
+
+echo "  - Cleaning existing conda install (if it exists)"
+\rm -rf ~/.local/opt/mambaforge
+
+#: Setting up MambaForge
+echo "  - Installing MambaForge..."
+curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
+bash Mambaforge-$(uname)-$(uname -m).sh -b -u -p ~/.local/opt/mambaforge
+rm Mambaforge-$(uname)-$(uname -m).sh
+
+# url="https://github.comnda.com/miniconda/Miniconda3-latest-{{ $conda_os }}-{{ $conda_arch }}.sh"
+# curl -fsSL -o ${HOME}/miniconda.sh ${url}
+# chmod +x "${HOME}/miniconda.sh"
+# bash ${HOME}/miniconda.sh -b -u -p ~/.local/opt/conda
+# rm "${HOME}/miniconda.sh"
+
+export CONDA_ALWAYS_YES="true"
+
+echo "  - Activate \`conda\`/\`mamba\`..."
+source ~/.local/opt/mambaforge/etc/profile.d/conda.sh
+source ~/.local/opt/mambaforge/etc/profile.d/mamba.sh
+
+echo "- Installing base packages..."
+mamba env update -q -n base -f ~/.config/conda/env.yaml
+
+unset CONDA_ALWAYS_YES
