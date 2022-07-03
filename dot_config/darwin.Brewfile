@@ -6,6 +6,7 @@ tap "homebrew/cask-versions"
 tap "homebrew/command-not-found"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "planetscale/tap"
 tap "zerotier/tap"
 # Automatically restart SSH sessions and tunnels
 brew "autossh"
@@ -23,6 +24,8 @@ brew "glib"
 brew "pkg-config"
 # Vector graphics library with cross-device output support
 brew "cairo"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
 # Cross-platform make
 brew "cmake"
 # GNU File, Shell, and Text utilities
@@ -37,6 +40,8 @@ brew "editorconfig"
 brew "fd"
 # Collection of GNU find, xargs, and locate
 brew "findutils"
+# Distributed revision control system
+brew "git"
 # Interactive command-line tool for using emoji in commit messages
 brew "gitmoji"
 # GNU Pretty Good Privacy (PGP) package
@@ -57,6 +62,8 @@ brew "jq"
 brew "krb5"
 # Mac App Store command-line interface
 brew "mas"
+# Open source relational database management system
+brew "mysql-client"
 # Fast, highly customisable system info script
 brew "neofetch"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -87,6 +94,8 @@ brew "starship"
 brew "syncthing", restart_service: true
 # Terminal multiplexer
 brew "tmux"
+# Tmux session manager. Built on libtmux
+brew "tmuxp"
 # Command-line interface to the freedesktop.org trashcan
 brew "trash-cli"
 # Display directories as trees (with optional color/HTML output)
@@ -103,6 +112,8 @@ brew "yq"
 brew "zsh"
 # Everything you need to get started with Heroku
 brew "heroku/brew/heroku"
+# The PlanetScale CLI
+brew "planetscale/tap/pscale"
 # Name service for ZeroTier Central
 brew "zerotier/tap/zeronsd"
 # Command-line helper for the 1Password password manager
@@ -153,6 +164,8 @@ cask "protonvpn"
 cask "sunsama"
 # Real time file synchronization software
 cask "syncthing"
+# Music streaming service with high fidelity sound and hi-def video quality
+cask "tidal"
 # To-do list
 cask "todoist"
 # Development environment
