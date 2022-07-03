@@ -2,16 +2,24 @@
 
 set -e
 
+echo "=> Attempting to update Brewfile"
 BREWFILE="${XDG_CONFIG_HOME}/{{ .osid }}.Brewfile"
 
-echo "Dumping new dependencies to ${BREWFILE}"
+#: Dump updates to Brewfile
+echo "  - Dumping new dependencies to ${BREWFILE}"
 rm ${BREWFILE}
 brew bundle dump --describe --file ${BREWFILE}
 
 #: Push updates to dotfiles
+echo "  - Attempting to update the \`chezmoi\` copy"
 chezmoi add ${BREWFILE}
-chezmoi cd
+path="$(echo "$(chezmoi source-path ~/.config/darwin.Brewfile)" | sed "s|$(chezmoi source-path)/||g")"
+cd $(chezmoi source-path)
 
-git add ${BREWFILE}
+#: Add and push to git repo
+echo "  - Adding, committing, and pushing"
+git add ${path}
 git commit -m "📌 Update Brewfile for {{ .osid }}"
 git push -u origin main
+
+echo "  🎉 Completed Brewfile update"
