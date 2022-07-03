@@ -1,0 +1,19 @@
+{{- $osid := .chezmoi.os -}}
+{{- if hasKey .chezmoi.osRelease "id" -}}
+  {{- $osid = printf "%s-%s" .chezmoi.os .chezmoid.osRelease.id -}}
+{{- end -}}
+
+data:
+  osid: {{ $osid | quote }}
+  appdir:  "{{ .chezmoi.homeDir }}/.local/share"
+  brewfile: "{{ .chezmoi.homeDir }}/.config/{{ .osid }}.Brewfile"
+  macos:
+    iterm:
+      theme:
+        dark: "Smoooooth"
+        light: "Smoooooth"
+
+diff:
+  exclude: 
+    - "scripts"
+
