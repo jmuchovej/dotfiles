@@ -155,6 +155,8 @@ cask "mullvadvpn"
 cask "nextcloud"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# App to write, plan, collaborate, and get organized
+cask "notion"
 # Cloud storage client
 cask "onedrive"
 # Home media player
