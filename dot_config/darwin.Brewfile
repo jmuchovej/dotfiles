@@ -40,6 +40,8 @@ brew "editorconfig"
 brew "fd"
 # Collection of GNU find, xargs, and locate
 brew "findutils"
+# GitHub command-line tool
+brew "gh"
 # Distributed revision control system
 brew "git"
 # Interactive command-line tool for using emoji in commit messages
