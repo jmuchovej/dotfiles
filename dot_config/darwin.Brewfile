@@ -169,6 +169,8 @@ cask "plex"
 cask "protonmail-bridge"
 # VPN client focusing on security
 cask "protonvpn"
+# Team communication and collaboration software
+cask "slack"
 cask "sunsama"
 # Real time file synchronization software
 cask "syncthing"
