@@ -122,6 +122,8 @@ brew "zerotier/tap/zeronsd"
 cask "1password-cli"
 # Menu bar icon organizer
 cask "bartender"
+# App to build and share containerized applications and microservices
+cask "docker"
 # Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
 cask "font-iosevka"
 # Typeface made for developers
