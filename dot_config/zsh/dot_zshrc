@@ -1,0 +1,18 @@
+# drive config with antidote
+ANTIDOTE_HOME="${XDG_CACHE_HOME}/antidote"
+zstyle ':antidote:bundle' use-friendly-names 'yes'
+
+# load antidote
+if [[ ! ${ZDOTDIR}/.zplugins.zsh -nt ${ZDOTDIR}/.zplugins ]]; then
+  source ${XDG_DATA_HOME}/antidote/antidote.zsh
+  antidote bundle < ${ZDOTDIR}/.zplugins > ${ZDOTDIR}/.zplugins.zsh
+fi
+source ${ZDOTDIR}/.zplugins.zsh
+
+# local settings
+[[ -f ${ZDOTDIR}/.zshrc.local ]] && source ${ZDOTDIR}/.zshrc.local
+
+mamba activate base
+
+eval "$(starship init zsh)"
+

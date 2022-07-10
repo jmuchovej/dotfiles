@@ -1,0 +1,68 @@
+#: #############################################################################
+#: antibody-plugins
+#: #############################################################################
+zshzoo/macos
+
+mattmc3/zshrc.d
+
+olets/zsh-abbr
+
+joshskidmore/zsh-fzf-history-search
+
+zsh-users/zsh-history-substring-search
+zdharma-continuum/fast-syntax-highlighting
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions
+
+# denysdovhan/spaceship-prompt
+ohmyzsh/ohmyzsh path:plugins/direnv
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+# ohmyzsh/ohmyzsh path:plugins/battery
+# ohmyzsh/ohmyzsh path:plugins/rsync
+ohmyzsh/ohmyzsh path:plugins/sudo
+# ohmyzsh/ohmyzsh path:plugins/vscode
+ohmyzsh/ohmyzsh path:plugins/z
+ohmyzsh/ohmyzsh path:plugins/command-not-found
+ohmyzsh/ohmyzsh path:plugins/tmux
+ohmyzsh/ohmyzsh path:plugins/zsh-interactive-cd
+
+#: Completions
+ohmyzsh/ohmyzsh path:plugins/fd
+ohmyzsh/ohmyzsh path:plugins/pip
+ohmyzsh/ohmyzsh path:plugins/yarn
+ohmyzsh/ohmyzsh path:plugins/poetry
+ohmyzsh/ohmyzsh path:plugins/heroku
+ohmyzsh/ohmyzsh path:plugins/python
+# ohmyzsh/ohmyzsh path:plugins/kubectl
+# ohmyzsh/ohmyzsh path:plugins/golang
+
+ohmyzsh/ohmyzsh path:plugins/gh
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/gitignore
+
+# ohmyzsh/ohmyzsh path:plugins/macos
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/gnu-utils
+ohmyzsh/ohmyzsh path:plugins/gnu-utils
+ohmyzsh/ohmyzsh path:plugins/systemd
+
+# bobthecow/git-flow-completion path:plugins/git-flow-completion
+# bobthecow/git-flow-completion
+
+#: thefuck
+# ohmyzsh/ohmyzsh path:plugins/thefuck
+
+#: golang
+
+#: aws
+# ohmyzsh/ohmyzsh path:plugins/aws
+#: heroku
+# ohmyzsh/ohmyzsh path:plugins/heroku
+
+#: docker-compose
+# ohmyzsh/ohmyzsh path:plugins/docker-compose
+
+#: archlinux
+# ohmyzsh/ohmyzsh path:plugins/archlinux
+
+#: conda completion
+# esc/conda-zsh-completion
