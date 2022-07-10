@@ -48,6 +48,8 @@ brew "git"
 brew "gitmoji"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
+# Terminal based graphical activity monitor inspired by gtop and vtop
+brew "gotop"
 # GNU grep, egrep and fgrep
 brew "grep"
 # Open-source video transcoder available for Linux, Mac, and Windows
@@ -93,7 +95,7 @@ brew "speedtest-cli"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Open source continuous file synchronization application
-brew "syncthing", restart_service: true
+brew "syncthing", link: false
 # Terminal multiplexer
 brew "tmux"
 # Tmux session manager. Built on libtmux
