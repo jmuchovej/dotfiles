@@ -18,8 +18,10 @@ cd $(chezmoi source-path)
 
 #: Add and push to git repo
 echo "  - Adding, committing, and pushing"
+gitmoji -r
 git add ${brewfilePath}
 git commit -m "📌 Update Brewfile for {{ .osid }}"
 git push -u origin main
+gitmoji -i
 
 echo "  🎉 Completed Brewfile update"
