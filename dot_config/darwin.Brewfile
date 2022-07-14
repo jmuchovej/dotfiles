@@ -167,6 +167,8 @@ cask "notion"
 cask "onedrive"
 # Home media player
 cask "plex"
+# Collaboration platform for API development
+cask "postman"
 # Bridges ProtonMail to email clients supporting IMAP and SMTP protocols
 cask "protonmail-bridge"
 # VPN client focusing on security
