@@ -184,6 +184,8 @@ cask "tidal"
 cask "todoist"
 # Development environment
 cask "vagrant"
+# Desktop client for WhatsApp
+cask "whatsapp"
 # Mesh VPN client
 cask "zerotier-one"
 # Video communication and virtual meeting platform
