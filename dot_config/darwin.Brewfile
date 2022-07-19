@@ -163,6 +163,8 @@ cask "nextcloud"
 cask "ngrok"
 # App to write, plan, collaborate, and get organized
 cask "notion"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 # Cloud storage client
 cask "onedrive"
 # Home media player
