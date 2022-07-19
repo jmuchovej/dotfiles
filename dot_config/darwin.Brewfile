@@ -139,6 +139,8 @@ cask "google-drive"
 cask "hey"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
+# Privacy-first, open-source platform for knowledge sharing and management
+cask "logseq"
 # File system integration
 cask "macfuse"
 # Install, use, and try Maxon products
