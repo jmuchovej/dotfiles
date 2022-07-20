@@ -72,3 +72,18 @@
   url = "https://github.com/direnv/direnv/releases/latest/download/direnv.{{ .chezmoi.os }}-{{ .chezmoi.arch }}"
   executable = true
   refreshPeriod = "168h"
+
+{{- $rclone_os := "" }}
+{{- if eq .chezmoi.os "darwin" }}
+  {{ $rclone_os = "osx" }}
+{{- else if eq .chezmoi.os "linux" }}
+  {{ $rclone_os = "linux" }}
+{{- end }}
+[".local/bin/rclone"]
+  type = "file"
+  url = "https://downloads.rclone.org/rclone-current-{{ $rclone_os }}-{{ .chezmoi.arch }}.zip"
+  executable = true
+  refreshPeriod = "168h"
+  [".local/bin/rclone".filter]
+    command = "tar"
+    args = ["--extract", "--file", "/dev/stdin", "--to-stdout", "**/rclone"]

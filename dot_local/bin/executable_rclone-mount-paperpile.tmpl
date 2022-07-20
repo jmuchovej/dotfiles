@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+{{ .chezmoi.homeDir }}/.local/bin/rclone mount Paperpile: {{ .chezmoi.homeDir }}/Paperpile \
+    --allow-other \
+    --uid {{ .chezmoi.uid }} \
+    --gid {{ .chezmoi.gid }} \
+    --dir-perms 0770 \
+    --file-perms 0770 \
+    --poll-interval 10s
