@@ -82,6 +82,8 @@ brew "openssl@3"
 brew "postgresql", restart_service: true
 # File browser
 brew "ranger"
+# Rsync for cloud storage
+brew "rclone"
 # Find duplicate files based on content (NOT file names)
 brew "rdfind"
 # Search tool like grep and The Silver Searcher
