@@ -3,6 +3,10 @@
   {{- $osid = printf "%s-%s" .chezmoi.os .chezmoid.osRelease.id -}}
 {{- end -}}
 
+encryption: "age"
+age:
+  passphrase: true
+
 data:
   osid: {{ $osid | quote }}
   appdir:  "{{ .chezmoi.homeDir }}/.local/share"
