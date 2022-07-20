@@ -87,3 +87,20 @@
   [".local/bin/rclone".filter]
     command = "tar"
     args = ["--extract", "--file", "/dev/stdin", "--to-stdout", "**/rclone"]
+
+# Pulled from https://github.com/twpayne/dotfiles/blob/master/home/.chezmoiexternal.toml#L23-L37
+{{- $ageVersion := "1.0.0" }}
+[".local/bin/age"]
+    type = "file"
+    url = "https://github.com/FiloSottile/age/releases/download/v{{ $ageVersion }}/age-v{{ $ageVersion }}-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz"
+    executable = true
+    [".local/bin/age".filter]
+        command = "tar"
+        args = ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "age/age"]
+[".local/bin/age-keygen"]
+    type = "file"
+    url = "https://github.com/FiloSottile/age/releases/download/v{{ $ageVersion }}/age-v{{ $ageVersion }}-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz"
+    executable = true
+    [".local/bin/age-keygen".filter]
+        command = "tar"
+        args = ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "age/age-keygen"]
