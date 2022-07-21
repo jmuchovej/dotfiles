@@ -32,8 +32,6 @@ brew "cmake"
 brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
-# Tool for managing dock items
-brew "dockutil"
 # Maintain consistent coding style between multiple editors
 brew "editorconfig"
 # Simple, fast and user-friendly alternative to find
@@ -95,7 +93,7 @@ brew "speedtest-cli"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Open source continuous file synchronization application
-brew "syncthing", link: false
+brew "syncthing", restart_service: true, link: false
 # Terminal multiplexer
 brew "tmux"
 # Tmux session manager. Built on libtmux
@@ -149,6 +147,8 @@ cask "google-drive"
 cask "hey"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
+# JetBrains tools manager
+cask "jetbrains-toolbox"
 # Privacy-first, open-source platform for knowledge sharing and management
 cask "logseq"
 # File system integration
