@@ -165,8 +165,6 @@ cask "microsoft-powerpoint"
 cask "microsoft-remote-desktop"
 # Word processor
 cask "microsoft-word"
-# Minimal installer for conda specific to conda-forge
-cask "miniforge"
 # VPN client
 cask "mullvadvpn"
 # Desktop sync client for Nextcloud software products
