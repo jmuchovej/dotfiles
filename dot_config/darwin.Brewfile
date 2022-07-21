@@ -181,6 +181,11 @@ cask "postman"
 cask "protonmail-bridge"
 # VPN client focusing on security
 cask "protonvpn"
+# All-in-one bookmark manager
+cask "raindropio"
+# Client for Old School RuneScape
+cask "runelite"
+cask "runescape"
 # Team communication and collaboration software
 cask "slack"
 cask "sunsama"
