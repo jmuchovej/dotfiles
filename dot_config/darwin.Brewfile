@@ -124,6 +124,8 @@ brew "zerotier/tap/zeronsd"
 cask "1password-cli"
 # Menu bar icon organizer
 cask "bartender"
+# Web browser focusing on privacy
+cask "brave-browser"
 # App to build and share containerized applications and microservices
 cask "docker"
 # Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
