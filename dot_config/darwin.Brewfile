@@ -122,6 +122,8 @@ brew "planetscale/tap/pscale"
 brew "zerotier/tap/zeronsd"
 # Command-line helper for the 1Password password manager
 cask "1password-cli"
+# Application launcher and productivity software
+cask "alfred"
 # Menu bar icon organizer
 cask "bartender"
 # Web browser focusing on privacy
@@ -196,3 +198,8 @@ cask "whatsapp"
 cask "zerotier-one"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
