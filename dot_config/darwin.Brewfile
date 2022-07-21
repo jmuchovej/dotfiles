@@ -104,6 +104,8 @@ brew "tmuxp"
 brew "trash-cli"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Vi 'workalike' with many additional features
+brew "vim"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # Display word differences between text files
