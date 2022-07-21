@@ -120,8 +120,12 @@ brew "heroku/brew/heroku"
 brew "planetscale/tap/pscale"
 # Name service for ZeroTier Central
 brew "zerotier/tap/zeronsd"
+# Password manager that keeps all passwords secure behind one password
+cask "1password"
 # Command-line helper for the 1Password password manager
 cask "1password-cli"
+# Professional graphic design software
+cask "affinity-designer"
 # Application launcher and productivity software
 cask "alfred"
 # Menu bar icon organizer
