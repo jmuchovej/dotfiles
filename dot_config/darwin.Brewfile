@@ -190,8 +190,12 @@ cask "raindropio"
 # Client for Old School RuneScape
 cask "runelite"
 cask "runescape"
+# Instant messaging application focusing on security
+cask "signal"
 # Team communication and collaboration software
 cask "slack"
+# Video game digital distribution service
+cask "steam"
 cask "sunsama"
 # Real time file synchronization software
 cask "syncthing"
