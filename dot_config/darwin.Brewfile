@@ -211,9 +211,7 @@ cask "whatsapp"
 cask "zerotier-one"
 # Video communication and virtual meeting platform
 cask "zoom"
-mas "GarageBand", id: 682658836
 mas "Grocy Mobile", id: 1567803209
-mas "iMovie", id: 408981434
 mas "Infuse", id: 1136220934
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
