@@ -1,0 +1,35 @@
+{
+    // Favorites
+    // @jlab-enhanced/favorites:favorites
+    // Favorites settings.
+    // **********************************
+
+    // Favorites
+    // The list of favorites.
+    "favorites": [
+        {
+            "root": "/Users/jmuchovej",
+            "path": "Documents/research/spatial-pragmatics",
+            "contentType": "directory",
+            "iconLabel": "ui-components:folder"
+        },
+        {
+            "root": "/Users/jmuchovej",
+            "path": "Documents/research/mtom-behavior",
+            "contentType": "directory",
+            "iconLabel": "ui-components:folder"
+        },
+        {
+            "root": "/Users/jmuchovej",
+            "path": "Documents/research/animacy",
+            "contentType": "directory",
+            "iconLabel": "ui-components:folder"
+        },
+        {
+            "root": "/Users/jmuchovej",
+            "path": "Documents/research/loopholes-adults",
+            "contentType": "directory",
+            "iconLabel": "ui-components:folder"
+        }
+    ]
+}

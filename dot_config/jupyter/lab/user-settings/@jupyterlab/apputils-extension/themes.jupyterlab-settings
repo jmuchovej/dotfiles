@@ -1,0 +1,12 @@
+{
+    "theme": "OpenBayes",
+    "theme-scrollbars": true,
+    "overrides": {
+        "code-font-family": "\"JetBrains Mono\", monospace",
+        "code-font-size": "12",
+        "content-font-family": null,
+        "content-font-size1": null,
+        "ui-font-family": null,
+        "ui-font-size1": null
+    }
+}

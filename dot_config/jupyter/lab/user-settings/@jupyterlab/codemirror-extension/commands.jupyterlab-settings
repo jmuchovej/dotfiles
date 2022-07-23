@@ -1,0 +1,9 @@
+{
+    "keyMap": "default",
+    "theme": "jupyter",
+    "scrollPastEnd": true,
+    "styleActiveLine": true,
+    "styleSelectedText": true,
+    "selectionPointer": false,
+    "lineWiseCopyCut": true
+}

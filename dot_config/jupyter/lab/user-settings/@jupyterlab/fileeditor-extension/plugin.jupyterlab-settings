@@ -1,0 +1,28 @@
+{
+    "editorConfig": {
+        "autoClosingBrackets": true,
+        "codeFolding": true,
+        "cursorBlinkRate": 530,
+        "fontFamily": "monospacee",
+        "fontSize": null,
+        "insertSpaces": true,
+        "lineHeight": null,
+        "lineNumbers": true,
+        "lineWrap": "on",
+        "matchBrackets": true,
+        "readOnly": false,
+        "rulers": [],
+        "showTrailingSpace": false,
+        "tabSize": 4,
+        "wordWrapColumn": 80
+    },
+    "toolbar": [
+        {
+            "name": "insert",
+            "args": {},
+            "command": "plugin-playground:load-as-extension",
+            "disabled": false,
+            "rank": 20
+        }
+    ]
+}
