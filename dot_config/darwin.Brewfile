@@ -120,10 +120,22 @@ brew "heroku/brew/heroku"
 brew "planetscale/tap/pscale"
 # Name service for ZeroTier Central
 brew "zerotier/tap/zeronsd"
+# Password manager that keeps all passwords secure behind one password
+cask "1password"
 # Command-line helper for the 1Password password manager
 cask "1password-cli"
+# Professional graphic design software
+cask "affinity-designer"
+# Application launcher and productivity software
+cask "alfred"
 # Menu bar icon organizer
 cask "bartender"
+# Web browser focusing on privacy
+cask "brave-browser"
+# Free and open-source web browser
+cask "chromium"
+# Download and manage your addons and mods
+cask "curseforge"
 # App to build and share containerized applications and microservices
 cask "docker"
 # Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
@@ -173,12 +185,21 @@ cask "onedrive"
 cask "plex"
 # Collaboration platform for API development
 cask "postman"
-# Bridges ProtonMail to email clients supporting IMAP and SMTP protocols
+# Bridges Proton Mail to email clients supporting IMAP and SMTP protocols
 cask "protonmail-bridge"
 # VPN client focusing on security
 cask "protonvpn"
+# All-in-one bookmark manager
+cask "raindropio"
+# Client for Old School RuneScape
+cask "runelite"
+cask "runescape"
+# Instant messaging application focusing on security
+cask "signal"
 # Team communication and collaboration software
 cask "slack"
+# Video game digital distribution service
+cask "steam"
 cask "sunsama"
 # Real time file synchronization software
 cask "syncthing"
@@ -194,3 +215,10 @@ cask "whatsapp"
 cask "zerotier-one"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "Grocy Mobile", id: 1567803209
+mas "Infuse", id: 1136220934
+mas "iStat Menus", id: 1319778037
+mas "Keynote", id: 409183694
+mas "Magnet", id: 441258766
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
