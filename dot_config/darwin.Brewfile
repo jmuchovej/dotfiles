@@ -146,6 +146,8 @@ cask "font-iosevka"
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-lato"
+cask "font-merriweather"
+cask "font-merriweather-sans"
 cask "font-pt-sans"
 # Client for the Google Drive storage service
 cask "google-drive"
