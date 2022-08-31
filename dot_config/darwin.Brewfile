@@ -77,7 +77,7 @@ brew "openconnect"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
 # Object-relational database system
-brew "postgresql", restart_service: true
+brew "postgresql@14"
 # File browser
 brew "ranger"
 # Find duplicate files based on content (NOT file names)
@@ -195,6 +195,8 @@ cask "protonmail-bridge"
 cask "protonvpn"
 # All-in-one bookmark manager
 cask "raindropio"
+# Data science software focusing on R and Python
+cask "rstudio"
 # Client for Old School RuneScape
 cask "runelite"
 cask "runescape"
@@ -219,11 +221,3 @@ cask "whatsapp"
 cask "zerotier-one"
 # Video communication and virtual meeting platform
 cask "zoom"
-mas "GarageBand", id: 682658836
-mas "Grocy Mobile", id: 1567803209
-mas "iMovie", id: 408981434
-mas "Infuse", id: 1136220934
-mas "Keynote", id: 409183694
-mas "Magnet", id: 441258766
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
