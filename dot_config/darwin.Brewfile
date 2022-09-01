@@ -185,6 +185,8 @@ cask "notion"
 cask "obsidian"
 # Cloud storage client
 cask "onedrive"
+# Create, edit, convert and sign PDF documents
+cask "pdfelement"
 # Home media player
 cask "plex"
 # Collaboration platform for API development
