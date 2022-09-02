@@ -177,8 +177,6 @@ cask "microsoft-powerpoint"
 cask "microsoft-remote-desktop"
 # Word processor
 cask "microsoft-word"
-# VPN client
-cask "mullvadvpn"
 # Desktop sync client for Nextcloud software products
 cask "nextcloud"
 # Reverse proxy, secure introspectable tunnels to localhost
