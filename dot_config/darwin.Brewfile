@@ -130,6 +130,8 @@ cask "1password-cli"
 cask "affinity-designer"
 # Application launcher and productivity software
 cask "alfred"
+# Multi-track audio editor and recorder
+cask "audacity"
 # Menu bar icon organizer
 cask "bartender"
 # Web browser focusing on privacy
