@@ -213,6 +213,8 @@ cask "steam"
 cask "sunsama"
 # Real time file synchronization software
 cask "syncthing"
+# Messaging app with a focus on speed and security
+cask "telegram"
 # Music streaming service with high fidelity sound and hi-def video quality
 cask "tidal"
 # To-do list
