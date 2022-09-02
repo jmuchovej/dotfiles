@@ -126,6 +126,8 @@ brew "zerotier/tap/zeronsd"
 cask "1password"
 # Command-line helper for the 1Password password manager
 cask "1password-cli"
+# Collection of apps and services for photography, design, video, web, and UX
+cask "adobe-creative-cloud"
 # Professional graphic design software
 cask "affinity-designer"
 # Application launcher and productivity software
