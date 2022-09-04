@@ -8,6 +8,8 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "planetscale/tap"
 tap "zerotier/tap"
+# Run your GitHub Actions locally 🚀
+brew "act"
 # Automatically restart SSH sessions and tunnels
 brew "autossh"
 # GNU database manager
