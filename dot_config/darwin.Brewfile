@@ -201,8 +201,6 @@ cask "protonmail-bridge"
 cask "protonvpn"
 # All-in-one bookmark manager
 cask "raindropio"
-# Data science software focusing on R and Python
-cask "rstudio"
 # Client for Old School RuneScape
 cask "runelite"
 cask "runescape"
