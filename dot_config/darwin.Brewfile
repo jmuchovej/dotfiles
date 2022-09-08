@@ -80,8 +80,6 @@ brew "openconnect"
 brew "openssl@3"
 # Object-relational database system
 brew "postgresql@14"
-# Software environment for statistical computing
-brew "r"
 # File browser
 brew "ranger"
 # Find duplicate files based on content (NOT file names)
@@ -204,8 +202,6 @@ cask "protonmail-bridge"
 cask "protonvpn"
 # All-in-one bookmark manager
 cask "raindropio"
-# Data science software focusing on R and Python
-cask "rstudio"
 # Client for Old School RuneScape
 cask "runelite"
 cask "runescape"
