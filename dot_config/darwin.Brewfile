@@ -98,10 +98,6 @@ brew "starship"
 brew "subversion"
 # Open source continuous file synchronization application
 brew "syncthing", link: false
-# Terminal multiplexer
-brew "tmux"
-# Tmux session manager. Built on libtmux
-brew "tmuxp"
 # Command-line interface to the freedesktop.org trashcan
 brew "trash-cli"
 # Display directories as trees (with optional color/HTML output)
