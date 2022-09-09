@@ -97,7 +97,7 @@ brew "starship"
 # Version control system designed to be a better CVS
 brew "subversion"
 # Open source continuous file synchronization application
-brew "syncthing", restart_service: true, link: false
+brew "syncthing", link: false
 # Terminal multiplexer
 brew "tmux"
 # Tmux session manager. Built on libtmux
