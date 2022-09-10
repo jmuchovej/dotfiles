@@ -146,6 +146,8 @@ cask "chromium"
 cask "curseforge"
 # App to build and share containerized applications and microservices
 cask "docker"
+# Matrix collaboration client
+cask "element"
 # Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
 cask "font-iosevka"
 # Typeface made for developers
