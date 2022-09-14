@@ -219,6 +219,8 @@ cask "signal"
 cask "slack"
 # Video game digital distribution service
 cask "steam"
+# Text editor for code, markup and prose
+cask "sublime-text"
 cask "sunsama"
 # Real time file synchronization software
 cask "syncthing"
