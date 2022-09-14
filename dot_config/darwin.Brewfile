@@ -196,6 +196,8 @@ cask "onedrive"
 cask "pdfelement"
 # Home media player
 cask "plex"
+# Music player focusing on visuals
+cask "plexamp"
 # Collaboration platform for API development
 cask "postman"
 # Bridges Proton Mail to email clients supporting IMAP and SMTP protocols
