@@ -6,6 +6,7 @@ tap "homebrew/cask-versions"
 tap "homebrew/command-not-found"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "netbirdio/tap"
 tap "planetscale/tap"
 tap "zerotier/tap"
 # Run your GitHub Actions locally 🚀
@@ -124,6 +125,8 @@ brew "yq"
 brew "zsh"
 # Everything you need to get started with Heroku
 brew "heroku/brew/heroku"
+# Netbird project.
+brew "netbirdio/tap/netbird"
 # The PlanetScale CLI
 brew "planetscale/tap/pscale"
 # Name service for ZeroTier Central
