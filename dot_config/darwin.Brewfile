@@ -236,6 +236,8 @@ cask "todoist"
 cask "vagrant"
 # Open-source code editor
 cask "visual-studio-code"
+# Multimedia player
+cask "vlc"
 # Desktop client for WhatsApp
 cask "whatsapp"
 # Mesh VPN client
