@@ -100,6 +100,8 @@ brew "starship"
 brew "subversion"
 # Open source continuous file synchronization application
 brew "syncthing", link: false
+# Manipulate and query tags on macOS files
+brew "tag"
 # Terminal multiplexer
 brew "tmux"
 # Tmux session manager. Built on libtmux
