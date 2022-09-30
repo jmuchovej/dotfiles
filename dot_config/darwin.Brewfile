@@ -81,6 +81,8 @@ brew "nmap"
 brew "openconnect"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
+# Python package management tool
+brew "poetry"
 # Object-relational database system
 brew "postgresql@14"
 # File browser
@@ -251,3 +253,12 @@ cask "whatsapp"
 cask "zerotier-one"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "GarageBand", id: 682658836
+mas "Grocy Mobile", id: 1567803209
+mas "iMovie", id: 408981434
+mas "Infuse", id: 1136220934
+mas "iStat Menus", id: 1319778037
+mas "Keynote", id: 409183694
+mas "Magnet", id: 441258766
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
