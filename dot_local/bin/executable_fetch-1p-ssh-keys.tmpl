@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Using some inspiration from: https://serverfault.com/a/872231
+op item list --categories "SSH Key" --vault Personal --format json | \
+  jq -M -r '.[] | {id: .id, file: (
+    .title | ascii_downcase | sub("[ /]"; "-"; "g") | sub(".pem"; "") | "1p-" + . + ".pub"
+  )} | .id, .file' | \
+  while read -r ident; read -r filename; do
+    echo "Fetching ${ident} & Writing to ~/.ssh/${filename}"
+    pubkey="$(op item get ${ident} --fields label='public key')"
+    echo -n "${pubkey}" > {{ .chezmoi.homeDir }}/.ssh/${filename}
+  done
