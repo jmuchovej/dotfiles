@@ -239,6 +239,8 @@ cask "syncthing"
 cask "telegram"
 # Music streaming service with high fidelity sound and hi-def video quality
 cask "tidal"
+# Automatic time and productivity tracking app
+cask "timing"
 # To-do list
 cask "todoist"
 # Development environment
