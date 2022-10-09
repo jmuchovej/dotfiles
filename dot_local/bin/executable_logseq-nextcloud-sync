@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+rsync -av --log-file /Users/jm/.local/state/logseq-nextcloud-sync.log \
+    /Users/jm/Library/Mobile\ Documents/iCloud~com~logseq~logseq/Documents/ \
+    /Users/jm/Nextcloud/Logseq
