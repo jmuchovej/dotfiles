@@ -67,6 +67,8 @@ brew "jq"
 brew "krb5"
 # Mac App Store command-line interface
 brew "mas"
+# Graphics Library
+brew "mesa"
 # Open source relational database management system
 brew "mysql-client"
 # NCurses Disk Usage
