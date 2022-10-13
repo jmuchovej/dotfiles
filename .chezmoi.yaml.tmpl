@@ -3,6 +3,18 @@
   {{- $osid = printf "%s-%s" .chezmoi.os .chezmoid.osRelease.id -}}
 {{- end -}}
 
+{{- $condaOS := .chezmoi.os -}}
+{{- if eq $condaOS "darwin" }}
+  {{- $condaOS = "osx" -}}
+{{- end -}}
+
+{{ $condaArch := .chezmoi.arch }}
+{{- if (and (eq $condaOS "linux") (eq $condaArch "arm64")) -}}
+  {{- $condaArch = "aarch64" -}}
+{{- else if (eq $condaArch "amd64") -}}
+  {{- $condaArch = "64" -}}
+{{- end -}}
+
 encryption: "age"
 age:
   passphrase: true
@@ -10,12 +22,15 @@ age:
 data:
   osid: {{ $osid | quote }}
   appdir:  "{{ .chezmoi.homeDir }}/.local/share"
-  brewfile: "{{ .chezmoi.homeDir }}/.config/{{ .osid }}.Brewfile"
+  brewfile: "{{ .chezmoi.homeDir }}/.config/{{ $osid }}.Brewfile"
   macos:
     iterm:
       theme:
         dark: "Smoooooth"
         light: "Smoooooth"
+  conda:
+    subdir: {{ printf "%s-%s" $condaOS $condaArch | quote }}
+    clean: {{ promptBool "Clear current conda installation?" false }}
 
 diff:
   exclude: 

@@ -1,0 +1,67 @@
+add_anaconda_token: True
+add_pip_as_python_dependency: True
+aggressive_update_packages:
+  - ca-certificates
+  - certifi
+  - openssl
+auto_activate_base: True
+auto_stack: 0
+auto_update_conda: True
+changeps1: False
+channel_alias: https://conda.anaconda.org
+channel_priority: flexible
+channels:
+  - conda-forge
+create_default_packages:
+  - python=3
+  - nodejs
+croot: {{ .chezmoi.homeDir }}/.local/opt/conda/conda-bld
+custom_channels:
+  pkgs/main: https://repo.anaconda.com
+  pkgs/r: https://repo.anaconda.com
+  pkgs/pro: https://repo.anaconda.com
+custom_multichannels:
+  defaults: 
+    - https://repo.anaconda.com/pkgs/main
+    - https://repo.anaconda.com/pkgs/r
+  local: 
+debug: False
+default_channels:
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+default_python: 3.10
+default_threads: 8
+env_prompt: ({default_env}) 
+envs_dirs:
+  - {{ .chezmoi.homeDir }}/.local/opt/conda/envs
+  - {{ .chezmoi.homeDir }}/.conda/envs
+error_upload_url: https://conda.io/conda-post/unexpected-error
+execute_threads: 4
+experimental_solver: classic
+notify_outdated_conda: True
+override_channels_enabled: True
+path_conflict: clobber
+pip_interop_enabled: True
+pkgs_dirs:
+  - {{ .chezmoi.homeDir }}/.local/opt/conda/pkgs
+  - {{ .chezmoi.homeDir }}/.conda/pkgs
+repodata_fns:
+  - current_repodata.json
+  - repodata.json
+repodata_threads: 4
+root_prefix: {{ .chezmoi.homeDir }}/.local/opt/conda
+safety_checks: warn
+shortcuts: True
+solver_ignore_timestamps: False
+ssl_verify: True
+subdir: {{ .conda.subdir }}
+subdirs:
+  - {{ .conda.subdir }}
+  - noarch
+unsatisfiable_hints: True
+unsatisfiable_hints_check_depth: 2
+update_modifier: update_specs
+verbosity: 0
+verify_threads: 4
+whitelist_channels:
+  - "conda-forge"
