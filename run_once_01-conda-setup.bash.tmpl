@@ -18,12 +18,14 @@ echo "Running... \`conda-installer\`..."
 {{- end }}
 
 echo "  - Cleaning existing conda install (if it exists)"
-\rm -rf ~/.local/opt/mambaforge
+{{- if .conda.clean -}}
+\rm -rf ~/.local/opt/conda
+{{- end -}}
 
 #: Setting up MambaForge
 echo "  - Installing MambaForge..."
 curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
-bash Mambaforge-$(uname)-$(uname -m).sh -b -u -p ~/.local/opt/mambaforge
+bash Mambaforge-$(uname)-$(uname -m).sh -b -u -p ~/.local/opt/conda/
 rm Mambaforge-$(uname)-$(uname -m).sh
 
 # url="https://github.comnda.com/miniconda/Miniconda3-latest-{{ $conda_os }}-{{ $conda_arch }}.sh"
@@ -35,8 +37,8 @@ rm Mambaforge-$(uname)-$(uname -m).sh
 export CONDA_ALWAYS_YES="true"
 
 echo "  - Activate \`conda\`/\`mamba\`..."
-source ~/.local/opt/mambaforge/etc/profile.d/conda.sh
-source ~/.local/opt/mambaforge/etc/profile.d/mamba.sh
+source ~/.local/opt/conda/etc/profile.d/conda.sh
+source ~/.local/opt/conda/etc/profile.d/mamba.sh
 
 echo "- Installing base packages..."
 mamba env update -q -n base -f ~/.config/conda/env.yaml
