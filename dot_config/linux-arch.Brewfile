@@ -8,6 +8,10 @@ brew "direnv"
 brew "gitmoji"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Terminal multiplexer
+brew "tmux"
+# Tracks most-used directories to make cd smarter
+brew "z"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Fish-like fast/unobtrusive autosuggestions for zsh
