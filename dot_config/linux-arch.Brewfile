@@ -2,6 +2,8 @@ tap "homebrew/bundle"
 tap "homebrew/core"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
+# Load/unload environment variables based on $PWD
+brew "direnv"
 # Interactive command-line tool for using emoji in commit messages
 brew "gitmoji"
 # Ambitious Vim-fork focused on extensibility and agility
