@@ -22,7 +22,9 @@ age:
 data:
   osid: {{ $osid | quote }}
   appdir:  "{{ .chezmoi.homeDir }}/.local/share"
-  brewfile: "{{ .chezmoi.homeDir }}/.config/{{ $osid }}.Brewfile"
+  brew:
+    path: "{{ .chezmoi.homeDir }}/.local/opt/brew" 
+    file: "{{ .chezmoi.homeDir }}/.config/{{ $osid }}.Brewfile"
   macos:
     iterm:
       theme:
@@ -31,6 +33,7 @@ data:
   conda:
     subdir: {{ printf "%s-%s" $condaOS $condaArch | quote }}
     clean: {{ promptBool "Clear current conda installation?" false }}
+    path: "{{ .chezmoi.homeDir }}/.local/opt/conda"
 
 diff:
   exclude: 

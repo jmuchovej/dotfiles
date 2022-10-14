@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-# {{ .chezmoi.os }}.Brewfile hash: {{ include .brewfile | sha256sum }}
+# {{ .osid }}.Brewfile hash: {{ include .brew.file | sha256sum }}
 echo "- \`brew bundle\`"
-~/.local/opt/brew/bin/brew bundle install --file {{ .brewfile }}
+{{ .brew.path }}/bin/brew bundle install --file {{ .brew.file }}

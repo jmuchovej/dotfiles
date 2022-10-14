@@ -11,23 +11,19 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 
 export GOPATH="${XDG_DATA_HOME}/go"
 
-_brew="${XDG_DATA_HOME}/brew"
-[ -d "${_brew}/bin" ] && PATH="${_brew}/bin:${PATH}"
-[ -d "${_brew}/sbin" ] && PATH="${_brew}/sbin:${PATH}"
+[ -d "{{ .brew.path }/bin" ] && PATH="{{ .brew.path }}/bin:${PATH}"
+[ -d "{{ .brew.path }}/sbin" ] && PATH="{{ .brew.path }}/sbin:${PATH}"
 
 PATH="${GOPATH}/bin:${PATH}"
 PATH="${HOME}/.cargo/bin:${PATH}"
 
-if [ -d "${_brew}/bin" ]; then
-    _forge="$(brew --caskroom)/miniforge/base/etc/profile.d/conda.sh"
-    [ -f "${_forge}" ] && source "${_forge}"
-fi
-
-_conda="${APPDIR}/miniconda/etc/profile.d/conda.sh"
+_conda="{{ .conda.path }}/etc/profile.d/conda.sh"
 [ -f "${_conda}" ] && source "${_conda}"
 unset _conda
 
-# PATH="${XDG_DATA_HOME}/poetry/bin:$PATH"
+_mamba="{{ .conda.path }}/etc/profile.d/conda.sh"
+[ -f "${_mamba}" ] && source "${_mamba}"
+unset _mamba
 
 PATH="${HOME}/.local/bin:${PATH}"
 
@@ -43,14 +39,9 @@ export LOGS="${HOME}/Logs"
 export EDITOR="vim"
 export VISUAL="vim" # "emacsclient -nc"
 
-# export PATH="${XDG_DATA_HOME}/poetry/bin:$PATH"
 export PATH
 
 export _Z_DATA="${XDG_DATA_HOME}/z/data"
 [ -d "$(dirname ${_Z_DATA})" ] || mkdir -p $(dirname ${_Z_DATA})
 export _Z_OWNER=$(whoami)
 export _Z_NO_RESOLVE_SYMLINKS="true"
-
-unset _brew
-unset _forge
-unset _conda

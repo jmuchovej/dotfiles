@@ -3,25 +3,22 @@
 set -e
 
 echo "=> Attempting to update Brewfile"
-BREWFILE="${XDG_CONFIG_HOME}/{{ .osid }}.Brewfile"
 
 #: Dump updates to Brewfile
-echo "  - Dumping new dependencies to ${BREWFILE}"
-[ -f "${BREWFILE}" ] && rm ${BREWFILE}
-brew bundle dump --describe --file ${BREWFILE}
+echo "  - Dumping new dependencies to {{ .brew.file }}"
+[ -f "{{ .brew.file }}" ] && rm {{ .brew.file }}
+brew bundle dump --describe --file {{ .brew.file }}
 
 #: Push updates to dotfiles
 echo "  - Attempting to update the \`chezmoi\` copy"
-chezmoi add ${BREWFILE}
-brewfilePath="$(echo "$(chezmoi source-path ${BREWFILE})" | sed "s|$(chezmoi source-path)/||g")"
+chezmoi add {{ .brew.file }}
+brewfilePath="$(echo "$(chezmoi source-path {{ .brew.file }})" | sed "s|$(chezmoi source-path)/||g")"
 cd $(chezmoi source-path)
 
 #: Add and push to git repo
 echo "  - Adding, committing, and pushing"
-gitmoji -r
 git add ${brewfilePath}
-git commit -m "📌 Update Brewfile for {{ .osid }}"
+git commit --no-verify -m "📌 Update Brewfile for {{ .osid }}"
 git push -u origin main
-gitmoji -i
 
 echo "  🎉 Completed Brewfile update"

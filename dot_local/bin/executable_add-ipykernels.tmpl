@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-source ${CONDA_PREFIX}/etc/profile.d/conda.sh
-source ${CONDA_PREFIX}/etc/profile.d/mamba.sh
+source {{ .conda.path }}/etc/profile.d/conda.sh
+source {{ .conda.path }}/etc/profile.d/mamba.sh
 mamba activate
 
 MY_ENVS="$(conda info --envs | tail -n +4 | awk '{ print $1 }')"
