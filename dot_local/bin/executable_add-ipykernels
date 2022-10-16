@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+export MAMBA_NO_BANNER=1
+
+MY_ENVS="$(conda info --json | jq -r '.envs[]' | grep envs | xargs -n1 basename)"
+
+for env in "base" ${MY_ENVS[@]}; do
+  echo "=> Searching \`${env}\` for Python, R, or Julia..."
+  pkgs="$(mamba list -n ${env} --json)"
+
+  _python="$(echo "${pkgs}" | jq -r '.[] | select(.name == "python")')"
+  if [ "${_python}" ]; then
+    mamba install -n ${env} -yq ipykernel > /dev/null
+    pythonV="$(echo "${_python}" | jq -r ".version")"
+    echo "    Adding Python ${pythonV} from ${env} to Kernels..."
+    conda run -n ${env} \
+      python -m ipykernel install --user --name ${env}-py --display-name "${env} ~ Python ${pythonV}" \
+      > /dev/null 2> /dev/null
+    echo "    Success!"
+  fi
+
+  _julia="$(echo "${pkgs}" | jq -r '.[] | select(.name == "juliaup")')"
+  if [ "${_julia}" ]; then
+    # https://stackoverflow.com/a/23658810/2714651
+    juliaV="$(julialauncher --version | grep -Eo "([0-9]{1,}\.)+[0-9]{1,}")"
+    echo "    Adding Julia ${juliaV} from ${env} to Kernels..."
+    conda run -n ${env} \
+      julialauncher -E "import Pkg; Pkg.add(\"IJulia\"); import IJulia; IJulia.installkernel(\"${env} ~ Julia\"; specname=\"${env}-julia\")" \
+      > /dev/null 2> /dev/null
+    echo "    Success!"
+  fi
+
+  _R="$(echo "${pkgs}" | jq -r '.[] | select(.name == "r-base")')"
+  if [ "${_R}" ]; then
+    rV="$(echo "${_R}" | jq -r ".version")"
+    mamba install -n ${env} -yq r-irkernel
+    echo "    Adding R ${rV} from ${env} to Kernels..."
+    conda run -n ${env} \
+      R -e "IRkernel::installspec(name='${env}-r', displayname='${env} ~ R ${rV}', user=TRUE)" \
+      > /dev/null 2> /dev/null
+    echo "    Success!"
+  fi
+done
+
+jupyter kernelspec list
+
+# TODO only keep Kernels around that are installed
+# EXISTING="$(jupyter kernelspec list --json 2> /dev/null | jq -r '.kernelspecs | keys[]')"
+# for env in EXISTING; do
+# done
+
