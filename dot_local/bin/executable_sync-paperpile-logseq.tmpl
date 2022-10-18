@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+cd {{ .chezmoi.homeDir }}/Nextcloud
+rclone copy Paperpile: Paperpile/ --quiet
+
+tmp=$(mktemp)
+grep -oR "file://Paperpile/.*.pdf" Logseq/pages/ | awk -F"file://Paperpile/" '{print $2}' >> ${tmp}
+echo "paperpile.bib" >> ${tmp}
+
+echo "Attempting to sync the following:"
+cat ${tmp}
+
+rsync -av --progress --files-from=${tmp} Paperpile/ Logseq/assets/Paperpile
