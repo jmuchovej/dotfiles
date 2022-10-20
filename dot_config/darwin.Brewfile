@@ -1,3 +1,4 @@
+tap "heroku/brew"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
@@ -40,6 +41,8 @@ brew "editorconfig"
 brew "fd"
 # Collection of GNU find, xargs, and locate
 brew "findutils"
+# Command-line tools for fly.io services
+brew "flyctl"
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system
@@ -256,6 +259,7 @@ cask "whatsapp"
 cask "zerotier-one"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "Affinity Designer", id: 824171161
 mas "GarageBand", id: 682658836
 mas "Grocy Mobile", id: 1567803209
 mas "iMovie", id: 408981434
