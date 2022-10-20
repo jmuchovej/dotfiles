@@ -29,6 +29,8 @@ brew "pkg-config"
 brew "cairo"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
+# Cloudflare Tunnel client (formerly Argo Tunnel)
+brew "cloudflared"
 # Cross-platform make
 brew "cmake"
 # GNU File, Shell, and Text utilities
@@ -157,6 +159,8 @@ cask "bartender"
 cask "brave-browser"
 # Free and open-source web browser
 cask "chromium"
+# Free app that makes your Internet safer
+cask "cloudflare-warp"
 # Download and manage your addons and mods
 cask "curseforge"
 # App to build and share containerized applications and microservices
