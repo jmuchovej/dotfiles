@@ -1,7 +1,13 @@
 #: #############################################################################
 #: antibody-plugins
 #: #############################################################################
+{{- if (eq .chezmoi.os "darwin") }}
 zshzoo/macos
+ohmyzsh/ohmyzsh path:plugins/gnu-utils
+# ohmyzsh/ohmyzsh path:plugins/macos
+{{- else if (eq .chezmoi.os "linux") }}
+ohmyzsh/ohmyzsh path:plugins/systemd
+{{- end }}
 
 mattmc3/zshrc.d
 
@@ -27,23 +33,18 @@ ohmyzsh/ohmyzsh path:plugins/tmux
 ohmyzsh/ohmyzsh path:plugins/zsh-interactive-cd
 
 #: Completions
-ohmyzsh/ohmyzsh path:plugins/fd
+#ohmyzsh/ohmyzsh path:plugins/fd
 ohmyzsh/ohmyzsh path:plugins/pip
 ohmyzsh/ohmyzsh path:plugins/yarn
-ohmyzsh/ohmyzsh path:plugins/poetry
-ohmyzsh/ohmyzsh path:plugins/heroku
+#ohmyzsh/ohmyzsh path:plugins/poetry
+#ohmyzsh/ohmyzsh path:plugins/heroku
 ohmyzsh/ohmyzsh path:plugins/python
 # ohmyzsh/ohmyzsh path:plugins/kubectl
 # ohmyzsh/ohmyzsh path:plugins/golang
 
-ohmyzsh/ohmyzsh path:plugins/gh
+#ohmyzsh/ohmyzsh path:plugins/gh
 ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/gitignore
-
-# ohmyzsh/ohmyzsh path:plugins/macos
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/gnu-utils
-ohmyzsh/ohmyzsh path:plugins/gnu-utils
-ohmyzsh/ohmyzsh path:plugins/systemd
 
 # bobthecow/git-flow-completion path:plugins/git-flow-completion
 # bobthecow/git-flow-completion
@@ -61,8 +62,10 @@ ohmyzsh/ohmyzsh path:plugins/systemd
 #: docker-compose
 # ohmyzsh/ohmyzsh path:plugins/docker-compose
 
+{{- if (eq .osid "linux-arch") }}
 #: archlinux
 # ohmyzsh/ohmyzsh path:plugins/archlinux
+{{- end }}
 
 #: conda completion
 # esc/conda-zsh-completion
