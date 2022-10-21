@@ -8,6 +8,7 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "netbirdio/tap"
 tap "planetscale/tap"
+tap "ubuntu/microk8s"
 tap "zerotier/tap"
 # Run your GitHub Actions locally 🚀
 brew "act"
@@ -143,6 +144,8 @@ brew "heroku/brew/heroku"
 brew "netbirdio/tap/netbird"
 # The PlanetScale CLI
 brew "planetscale/tap/pscale"
+# Small, fast, single-package Kubernetes for developers, IoT and edge
+brew "ubuntu/microk8s/microk8s"
 # Name service for ZeroTier Central
 brew "zerotier/tap/zeronsd"
 # Password manager that keeps all passwords secure behind one password
