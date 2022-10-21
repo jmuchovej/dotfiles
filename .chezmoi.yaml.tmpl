@@ -32,7 +32,7 @@ data:
         light: "Smoooooth"
   conda:
     subdir: {{ printf "%s-%s" $condaOS $condaArch | quote }}
-    clean: {{ promptBool "Clear current conda installation?" false }}
+    clean: {{ promptBool "Clear current conda installation" false }}
     path: "{{ .chezmoi.homeDir }}/.local/opt/conda"
 
 diff:
