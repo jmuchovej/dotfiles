@@ -20,7 +20,7 @@ echo "Running... \`conda-installer\`..."
 echo "  - Cleaning existing conda install (if it exists)"
 {{- if .conda.clean -}}
 \rm -rf ~/.local/opt/conda
-{{- end -}}
+{{- end }}
 
 #: Setting up MambaForge
 echo "  - Installing MambaForge..."
