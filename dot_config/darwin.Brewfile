@@ -206,6 +206,8 @@ cask "microsoft-powerpoint"
 cask "microsoft-remote-desktop"
 # Word processor
 cask "microsoft-word"
+# Orchestrates virtual Ubuntu instances
+cask "multipass"
 # Desktop sync client for Nextcloud software products
 cask "nextcloud"
 # Reverse proxy, secure introspectable tunnels to localhost
