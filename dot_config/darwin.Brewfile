@@ -23,8 +23,6 @@ brew "awscli"
 brew "fontconfig"
 # Core application library for C
 brew "glib"
-# Manage compile and link flags for libraries
-brew "pkg-config"
 # Vector graphics library with cross-device output support
 brew "cairo"
 # Manage your dotfiles across multiple diverse machines, securely
@@ -37,6 +35,8 @@ brew "cmake"
 brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# Tool for managing dock items
+brew "dockutil"
 # Maintain consistent coding style between multiple editors
 brew "editorconfig"
 # Simple, fast and user-friendly alternative to find
@@ -59,6 +59,8 @@ brew "gotop"
 brew "grep"
 # Open-source video transcoder available for Linux, Mac, and Windows
 brew "handbrake"
+# Kubernetes package manager
+brew "helm"
 # Improved top (interactive process viewer)
 brew "htop"
 # Configurable static site generator
@@ -105,14 +107,14 @@ brew "shellcheck"
 brew "speedtest-cli"
 # Cross-shell prompt for astronauts
 brew "starship"
-# Version control system designed to be a better CVS
-brew "subversion"
 # Open source continuous file synchronization application
 brew "syncthing", link: false
 # Manipulate and query tags on macOS files
 brew "tag"
 # Command-line tool to interact with Gitea servers
 brew "tea"
+# Modern SSH server for teams managing distributed infrastructure
+brew "teleport"
 # Terminal multiplexer
 brew "tmux"
 # Tmux session manager. Built on libtmux
@@ -174,8 +176,6 @@ cask "font-jetbrains-mono"
 # Developer targeted fonts with a high number of glyphs
 cask "font-jetbrains-mono-nerd-font"
 cask "font-lato"
-cask "font-merriweather"
-cask "font-merriweather-sans"
 cask "font-pt-sans"
 # Client for the Google Drive storage service
 cask "google-drive"
