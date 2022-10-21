@@ -1,10 +1,9 @@
 LD_LIBRARY_PATH="/usr/lib64:/usr/lib"
 PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
-case "$(uname -s)" in
-    ("Darwin") export CLICOLOR=1 ;;
-    ("Linux") ;;
-esac
+{{- if (eq .chezmoi.os "darwin") -}}
+export CLICOLOR=1
+{{- end -}}
 
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_DATA_HOME="${HOME}/.local/share"
@@ -45,3 +44,5 @@ export _Z_DATA="${XDG_DATA_HOME}/z/data"
 [ -d "$(dirname ${_Z_DATA})" ] || mkdir -p $(dirname ${_Z_DATA})
 export _Z_OWNER=$(whoami)
 export _Z_NO_RESOLVE_SYMLINKS="true"
+
+export MAMBA_NO_BANNER="1"
