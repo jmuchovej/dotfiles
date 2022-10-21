@@ -78,6 +78,8 @@ brew "kubernetes-cli"
 brew "mas"
 # Graphics Library
 brew "mesa"
+# Run a Kubernetes cluster locally
+brew "minikube"
 # Open source relational database management system
 brew "mysql-client"
 # NCurses Disk Usage
