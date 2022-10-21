@@ -71,6 +71,8 @@ brew "imagemagick"
 brew "jq"
 # Network authentication protocol
 brew "krb5"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
 # Mac App Store command-line interface
 brew "mas"
 # Graphics Library
