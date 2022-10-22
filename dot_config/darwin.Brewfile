@@ -172,6 +172,8 @@ cask "chromium"
 cask "cloudflare-warp"
 # Download and manage your addons and mods
 cask "curseforge"
+# App to build and share containerized applications and microservices
+cask "docker"
 # Matrix collaboration client
 cask "element"
 # Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
@@ -186,6 +188,8 @@ cask "font-pt-sans"
 cask "google-drive"
 # Access the HEY email service
 cask "hey"
+# HTTP and GraphQL Client
+cask "insomnia"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
 # JetBrains tools manager
@@ -258,8 +262,6 @@ cask "tidal"
 cask "timing"
 # To-do list
 cask "todoist"
-# Development environment
-cask "vagrant"
 # Open-source code editor
 cask "visual-studio-code"
 # Multimedia player
@@ -270,6 +272,9 @@ cask "whatsapp"
 cask "zerotier-one"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "1Password for Safari", id: 1569813296
+mas "AdBlock Pro", id: 1018301773
+mas "AdGuard for Safari", id: 1440147259
 mas "Affinity Designer", id: 824171161
 mas "GarageBand", id: 682658836
 mas "Grocy Mobile", id: 1567803209
@@ -280,3 +285,4 @@ mas "Keynote", id: 409183694
 mas "Magnet", id: 441258766
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "SimpleLogin", id: 1494051017
