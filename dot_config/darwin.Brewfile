@@ -78,8 +78,6 @@ brew "kubernetes-cli"
 brew "mas"
 # Graphics Library
 brew "mesa"
-# Run a Kubernetes cluster locally
-brew "minikube"
 # Open source relational database management system
 brew "mysql-client"
 # NCurses Disk Usage
@@ -146,8 +144,6 @@ brew "heroku/brew/heroku"
 brew "netbirdio/tap/netbird"
 # The PlanetScale CLI
 brew "planetscale/tap/pscale"
-# Small, fast, single-package Kubernetes for developers, IoT and edge
-brew "ubuntu/microk8s/microk8s"
 # Name service for ZeroTier Central
 brew "zerotier/tap/zeronsd"
 # Password manager that keeps all passwords secure behind one password
