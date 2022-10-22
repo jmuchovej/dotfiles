@@ -232,8 +232,6 @@ cask "protonvpn"
 cask "r"
 # All-in-one bookmark manager
 cask "raindropio"
-# Kubernetes and container management on the desktop
-cask "rancher"
 # Data science software focusing on R and Python
 cask "rstudio"
 # Client for Old School RuneScape
