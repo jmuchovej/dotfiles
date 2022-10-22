@@ -36,6 +36,8 @@ brew "cmake"
 brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# Pack, ship and run any application as a lightweight container
+brew "docker", link: false
 # Tool for managing dock items
 brew "dockutil"
 # Maintain consistent coding style between multiple editors
