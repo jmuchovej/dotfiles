@@ -8,34 +8,34 @@
   url = "https://github.com/rupa/z"
   refreshPeriod = "168h"
 
-# [".local/share/SpaceVim.d"]
-#   type = "git-repo"
-#   url = "https://github.com/SpaceVim/SpaceVim"
+[".local/opt/SpaceVim"]
+  type = "git-repo"
+  url = "https://github.com/SpaceVim/SpaceVim.git"
+  refreshPeriod = "168h"
 
-# [".local/share/brew"]
-#   type = "archive"
-#   url = "https://github.com/homebrew/brew/tarball/master"
-#   # format = "xz"
-#   stripComponents = 1
+[".local/opt/brew"]
+  type = "git-repo"
+  url = "https://github.com/homebrew/brew.git"
+  refreshPeriod = "24h"
 
-[".local/share/antidote"]
+[".local/opt/antidote"]
   type = "git-repo"
   url = "https://github.com/mattmc3/antidote.git"
   refreshPeriod = "168h"  # Refresh once a week
 
-[".local/share/doom-emacs"]
+[".local/opt/doom-emacs"]
   type = "git-repo"
-  url = "https://github.com/hlissner/doom-emacs"
+  url = "https://github.com/hlissner/doom-emacs.git"
   refreshPeriod = "168h"
 
-[".local/share/spacemacs"]
+[".local/opt/spacemacs"]
   type = "git-repo"
-  url = "https://github.com/syl20bnr/spacemacs"
+  url = "https://github.com/syl20bnr/spacemacs.git"
   refreshPeriod = "168h"
 
-[".local/share/chemacs"]
+[".emacs.d"]
   type = "git-repo"
-  url = "https://github.com/plexus/chemacs"
+  url = "https://github.com/plexus/chemacs2.git"
   refreshPeriod = "168h"
 
 {{- $ship_vendor := "" }}
