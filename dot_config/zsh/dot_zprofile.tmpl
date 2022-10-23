@@ -58,12 +58,13 @@ path=(
   $path
 )
 
+{{ if .conda.install -}}
 source {{ .conda.path }}/etc/profile.d/conda.sh
 source {{ .conda.path }}/etc/profile.d/mamba.sh
+{{- end }}
 
 path=(
   ~/.local/bin
-  ${ZDOTDIR}/bin
   $path
 )
 
