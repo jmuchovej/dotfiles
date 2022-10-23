@@ -2,4 +2,6 @@
 
 # {{ .osid }}.Brewfile hash: {{ include .brew.file | sha256sum }}
 echo "- \`brew bundle\`"
+{{ if .brew.install -}}
 {{ .brew.path }}/bin/brew bundle install --file {{ .brew.file }}
+{{- end }}
