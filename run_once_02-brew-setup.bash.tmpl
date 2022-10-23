@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+# Put .brew.install conditional here to prevent .brew.file from throwing an
+#   error for not existing...
+{{ if .brew.install -}}
 # {{ .osid }}.Brewfile hash: {{ include .brew.file | sha256sum }}
 echo "- \`brew bundle\`"
-{{ if .brew.install -}}
 {{ .brew.path }}/bin/brew bundle install --file {{ .brew.file }}
 {{- end }}
