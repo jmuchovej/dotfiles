@@ -42,7 +42,7 @@
 {{- if eq .chezmoi.os "darwin" }}
   {{ $ship_vendor = "apple" }}
 {{- else if eq .chezmoi.os "linux" }}
-  {{ $ship_vendor = "unkown" }}
+  {{ $ship_vendor = "unknown" }}
 {{- end }}
 
 {{- $ship_arch := "" }}
