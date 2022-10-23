@@ -12,12 +12,14 @@ tap "ubuntu/microk8s"
 tap "zerotier/tap"
 # Run your GitHub Actions locally 🚀
 brew "act"
-# Automatically restart SSH sessions and tunnels
-brew "autossh"
 # GNU database manager
 brew "gdbm"
 # GNU internationalization (i18n) and localization (l10n) library
 brew "gettext"
+# Automate deployment, configuration, and upgrading
+brew "ansible"
+# Automatically restart SSH sessions and tunnels
+brew "autossh"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # XML-based font configuration API for X Windows
