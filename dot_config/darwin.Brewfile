@@ -16,6 +16,8 @@ brew "act"
 brew "gdbm"
 # GNU internationalization (i18n) and localization (l10n) library
 brew "gettext"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
 # Automatically restart SSH sessions and tunnels
