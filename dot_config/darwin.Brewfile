@@ -40,8 +40,6 @@ brew "cmake"
 brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
-# Tool for managing dock items
-brew "dockutil"
 # Maintain consistent coding style between multiple editors
 brew "editorconfig"
 # Simple, fast and user-friendly alternative to find
