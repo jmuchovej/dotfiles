@@ -48,6 +48,8 @@ brew "fd"
 brew "findutils"
 # Command-line tools for fly.io services
 brew "flyctl"
+# Automatic updates of GeoIP2 and GeoIP Legacy databases
+brew "geoipupdate"
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system
