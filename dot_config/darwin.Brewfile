@@ -238,8 +238,6 @@ cask "postman"
 cask "protonmail-bridge"
 # VPN client focusing on security
 cask "protonvpn"
-# Environment for statistical computing and graphics
-cask "r"
 # All-in-one bookmark manager
 cask "raindropio"
 # Kubernetes and container management on the desktop
