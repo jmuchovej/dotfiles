@@ -160,6 +160,8 @@ cask "1password-cli"
 cask "adobe-creative-cloud"
 # Professional graphic design software
 cask "affinity-designer"
+# GPU-accelerated terminal emulator
+cask "alacritty"
 # Application launcher and productivity software
 cask "alfred"
 # Multi-track audio editor and recorder
