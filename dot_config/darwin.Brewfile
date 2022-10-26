@@ -222,6 +222,8 @@ cask "notion"
 cask "obsidian"
 # Cloud storage client
 cask "onedrive"
+# Web browser
+cask "opera"
 # Create, edit, convert and sign PDF documents
 cask "pdfelement"
 # Home media player
@@ -266,6 +268,8 @@ cask "timing"
 cask "todoist"
 # Open-source code editor
 cask "visual-studio-code"
+# Web browser with built-in email client focusing on customization and control
+cask "vivaldi"
 # Multimedia player
 cask "vlc"
 # Desktop client for WhatsApp
