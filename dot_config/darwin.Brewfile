@@ -242,8 +242,6 @@ cask "protonvpn"
 cask "raindropio"
 # Kubernetes and container management on the desktop
 cask "rancher"
-# Data science software focusing on R and Python
-cask "rstudio"
 # Client for Old School RuneScape
 cask "runelite"
 cask "runescape"
