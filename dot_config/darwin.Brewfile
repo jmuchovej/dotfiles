@@ -94,6 +94,8 @@ cask "chromium"
 cask "cloudflare-warp"
 # Download and manage your addons and mods
 cask "curseforge"
+# Web browser focusing on privacy
+cask "duckduckgo"
 # Matrix collaboration client
 cask "element"
 # Web browser
