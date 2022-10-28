@@ -24,6 +24,8 @@ brew "ansible"
 brew "autossh"
 # XML-based font configuration API for X Windows
 brew "fontconfig"
+# Official Amazon AWS command-line interface
+brew "awscli"
 # Core application library for C
 brew "glib"
 # Manage compile and link flags for libraries
