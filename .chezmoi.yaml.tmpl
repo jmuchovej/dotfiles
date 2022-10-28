@@ -15,15 +15,17 @@
   {{- $condaArch = "64" -}}
 {{- end -}}
 
+{{- $appdir := printf "%s/.local/opt" .chezmoi.homeDir -}}
+
 encryption: "age"
 age:
   passphrase: true
 
 data:
   osid: {{ $osid | quote }}
-  appdir:  "{{ .chezmoi.homeDir }}/.local/opt"
+  appdir:  {{ $appdir | quote }}
   brew:
-    path: "{{ .appdir }}/brew" 
+    path: "{{ $appdir }}/brew" 
     file: "{{ .chezmoi.homeDir }}/.config/{{ $osid }}.Brewfile"
     install: {{ promptBool "Install Homebrew" true }}
   macos:
@@ -34,7 +36,7 @@ data:
   conda:
     subdir: {{ printf "%s-%s" $condaOS $condaArch | quote }}
     clean: {{ promptBool "Clear current conda installation" false }}
-    path: "{{ .appdir }}/conda"
+    path: "{{ $appdir }}/conda"
     install: {{ promptBool "Install Conda/Mamba" true }}
 
 diff:
