@@ -10,5 +10,7 @@ brew "xz"
 brew "gcc"
 # GitHub command-line tool
 brew "gh"
+# Interactive command-line tool for using emoji in commit messages
+brew "gitmoji"
 # JavaScript package manager
 brew "yarn"
