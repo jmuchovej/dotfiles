@@ -24,7 +24,7 @@ age:
 data:
   osid: {{ $osid | quote }}
   appdir:  {{ $appdir | quote }}
-  cluster: {{ prompBool "On a compute cluster" false }}
+  cluster: {{ promptBool "On a compute cluster" false }}
   brew:
     path: "{{ $appdir }}/brew" 
     file: "{{ .chezmoi.homeDir }}/.config/{{ $osid }}.Brewfile"
