@@ -38,6 +38,11 @@ data:
     clean: {{ promptBool "Clear current conda installation" false }}
     path: "{{ $appdir }}/conda"
     install: {{ promptBool "Install Conda/Mamba" true }}
+  cloudflared:
+    homelab:
+      rootname: "muchovej.net"
+      user: "john"
+      hostnames: ["redmatter", "section-31", "discovery", "starbase-01", "starbase-02"]
 
 diff:
   exclude: 
