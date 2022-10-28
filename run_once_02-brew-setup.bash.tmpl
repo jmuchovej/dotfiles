@@ -3,6 +3,9 @@
 # Put .brew.install conditional here to prevent .brew.file from throwing an
 #   error for not existing...
 {{ if .brew.install -}}
+cd {{ .brew.path }}
+git branch --set-upstream-to=origin/master stable
+
 # {{ .osid }}.Brewfile hash: {{ include .brew.file | sha256sum }}
 echo "- \`brew bundle\`"
 {{ .brew.path }}/bin/brew bundle install --file {{ .brew.file }}
