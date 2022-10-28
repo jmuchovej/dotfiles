@@ -60,6 +60,8 @@ brew "ripgrep"
 brew "shellcheck"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Crypto and x509 Swiss-Army-Knife
+brew "step"
 # Open source continuous file synchronization application
 brew "syncthing", link: false
 # Manipulate and query tags on macOS files
