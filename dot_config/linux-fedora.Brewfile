@@ -10,3 +10,5 @@ brew "xz"
 brew "gcc"
 # GitHub command-line tool
 brew "gh"
+# JavaScript package manager
+brew "yarn"
