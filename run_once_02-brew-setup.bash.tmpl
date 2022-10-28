@@ -4,7 +4,7 @@
 #   error for not existing...
 {{ if .brew.install -}}
 cd {{ .brew.path }}
-git branch --set-upstream-to=origin/master stable
+git branch --set-upstream-to=origin/master $(git branch --show-current)
 
 # {{ .osid }}.Brewfile hash: {{ include .brew.file | sha256sum }}
 echo "- \`brew bundle\`"
