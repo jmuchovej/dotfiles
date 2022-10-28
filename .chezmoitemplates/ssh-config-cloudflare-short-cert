@@ -1,0 +1,19 @@
+{{- $rootname := .cloudflared.rootname -}}
+Host *.{{ $rootname }} !cfpipe-*.{{ $rootname }}
+  User {{ .cloudflared.user }}
+  ForwardAgent yes
+  ProxyCommand bash -c '{{ .brew.path }}/bin/cloudflared access ssh-gen --hostname %h; ssh -tt -o "ForwardAgent yes" %r@cfpipe-%h >&2 <&1'
+
+
+{{- range $host := .cloudflared.hostnames }}
+Host cfpipe-{{ $host }}.{{ $rootname }}
+  HostName {{ $host }}.{{ $rootname }}
+{{ end -}}
+
+
+Host cfpipe-*.{{ $rootname }}
+  User {{ .cloudflared.user }}
+  ForwardAgent yes
+  ProxyCommand {{ .brew.path }}/bin/cloudflared access ssh --hostname %h
+  IdentityFile ~/.cloudflared/%h-cf_key
+  CertificateFile ~/.cloudflared/%h-cf_key-cert.pub
