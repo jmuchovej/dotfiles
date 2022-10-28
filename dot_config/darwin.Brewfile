@@ -12,14 +12,34 @@ tap "ubuntu/microk8s"
 tap "zerotier/tap"
 # Run your GitHub Actions locally 🚀
 brew "act"
+# GNU database manager
+brew "gdbm"
+# GNU internationalization (i18n) and localization (l10n) library
+brew "gettext"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
+# Automate deployment, configuration, and upgrading
+brew "ansible"
 # Automatically restart SSH sessions and tunnels
 brew "autossh"
+# XML-based font configuration API for X Windows
+brew "fontconfig"
+# Core application library for C
+brew "glib"
+# Manage compile and link flags for libraries
+brew "pkg-config"
+# Vector graphics library with cross-device output support
+brew "cairo"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
 # Cloudflare Tunnel client (formerly Argo Tunnel)
 brew "cloudflared"
 # Cross-platform make
 brew "cmake"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
 # Maintain consistent coding style between multiple editors
 brew "editorconfig"
 # Simple, fast and user-friendly alternative to find
@@ -28,10 +48,16 @@ brew "fd"
 brew "findutils"
 # Command-line tools for fly.io services
 brew "flyctl"
-# GNU database manager
-brew "gdbm"
+# Automatic updates of GeoIP2 and GeoIP Legacy databases
+brew "geoipupdate"
 # GitHub command-line tool
 brew "gh"
+# Distributed revision control system
+brew "git"
+# Interactive command-line tool for using emoji in commit messages
+brew "gitmoji"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg"
 # Terminal based graphical activity monitor inspired by gtop and vtop
 brew "gotop"
 # GNU grep, egrep and fgrep
@@ -40,40 +66,96 @@ brew "grep"
 brew "handbrake"
 # Kubernetes package manager
 brew "helm"
+# Improved top (interactive process viewer)
+brew "htop"
 # Configurable static site generator
 brew "hugo"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Network authentication protocol
+brew "krb5"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
 # Mac App Store command-line interface
 brew "mas"
+# Graphics Library
+brew "mesa"
 # Run a Kubernetes cluster locally
 brew "minikube"
+# Open source relational database management system
+brew "mysql-client"
+# NCurses Disk Usage
+brew "ncdu"
 # Fast, highly customisable system info script
 brew "neofetch"
-# Manage compile and link flags for libraries
-brew "pkg-config"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Port scanning utility for large networks
+brew "nmap"
+# Open client for Cisco AnyConnect VPN
+brew "openconnect"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# Python package management tool
+brew "poetry"
+# Object-relational database system
+brew "postgresql@14"
+# File browser
+brew "ranger"
 # Find duplicate files based on content (NOT file names)
 brew "rdfind"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Utility that provides fast incremental file transfer
+brew "rsync"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
+# Command-line interface for https://speedtest.net bandwidth tests
+brew "speedtest-cli"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Crypto and x509 Swiss-Army-Knife
 brew "step"
+# Version control system designed to be a better CVS
+brew "subversion"
 # Open source continuous file synchronization application
 brew "syncthing", link: false
 # Manipulate and query tags on macOS files
 brew "tag"
 # Command-line tool to interact with Gitea servers
 brew "tea"
+# Modern SSH server for teams managing distributed infrastructure
+brew "teleport"
+# Terminal multiplexer
+brew "tmux"
+# Tmux session manager. Built on libtmux
+brew "tmuxp"
+# Command-line interface to the freedesktop.org trashcan
+brew "trash-cli"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Vi 'workalike' with many additional features
+brew "vim"
+# Executes a program periodically, showing output fullscreen
+brew "watch"
+# Display word differences between text files
+brew "wdiff"
+# Internet file retriever
+brew "wget"
 # Process YAML documents from the CLI
 brew "yq"
+# UNIX shell (command interpreter)
+brew "zsh"
+# Everything you need to get started with Heroku
+brew "heroku/brew/heroku"
+# Netbird project.
+brew "netbirdio/tap/netbird"
+# The PlanetScale CLI
+brew "planetscale/tap/pscale"
+# Name service for ZeroTier Central
+brew "zerotier/tap/zeronsd"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Command-line helper for the 1Password password manager
@@ -170,6 +252,8 @@ cask "r"
 cask "raindropio"
 # Kubernetes and container management on the desktop
 cask "rancher"
+# Data science software focusing on R and Python
+cask "rstudio"
 # Client for Old School RuneScape
 cask "runelite"
 cask "runescape"
