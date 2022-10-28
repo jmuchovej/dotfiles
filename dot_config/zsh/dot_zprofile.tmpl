@@ -15,7 +15,7 @@ export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
 export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
 export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-$HOME/.xdg}
 
-{{- if (eq .chezmoi.os "darwin") -}}
+{{- if (eq .chezmoi.os "darwin") }}
 export XDG_DESKTOP_DIR=${XDG_DESKTOP_DIR:-$HOME/Desktop}
 export XDG_DOCUMENTS_DIR=${XDG_DOCUMENTS_DIR:-$HOME/Documents}
 export XDG_DOWNLOAD_DIR=${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
@@ -25,7 +25,7 @@ export XDG_VIDEOS_DIR=${XDG_VIDEOS_DIR:-$HOME/Videos}
 export XDG_PROJECTS_DIR=${XDG_PROJECTS_DIR:-$HOME/Projects}
 
 export BROWSER='open'
-{{- end -}}
+{{- end }}
 
 # Set the default Less options
 # Mouse-wheel scrolling has been disabled by -X (disable screen clearing)
@@ -74,3 +74,4 @@ path=(
 # )
 
 export SHELL_SESSIONS_DISABLE=1
+export ABBR_TMPDIR="${XDG_RUNTIME_DIR}"

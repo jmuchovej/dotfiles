@@ -4,6 +4,11 @@ export XDG_CONFIG_HOME="${HOME}/.config"
 export ZSH="${XDG_CONFIG_HOME}/zsh"
 export ZDOTDIR="${ZSH}"
 
+export HISTFILE="${ZDOTDIR}/.history"
+export HISTSIZE=100000
+export SAVEHIST="${HISTSIZE}"
+export ZSH_AUTOSUGGEST_STRATEGY="history"
+
 [[ -f ${ZDOTDIR}/.zshenv ]] && source ${ZDOTDIR}/.zshenv
 
 # source ~/.profile

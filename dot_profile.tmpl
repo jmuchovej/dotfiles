@@ -10,7 +10,7 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 
 export GOPATH="${XDG_DATA_HOME}/go"
 
-[ -d "{{ .brew.path }/bin" ] && PATH="{{ .brew.path }}/bin:${PATH}"
+[ -d "{{ .brew.path }}/bin" ] && PATH="{{ .brew.path }}/bin:${PATH}"
 [ -d "{{ .brew.path }}/sbin" ] && PATH="{{ .brew.path }}/sbin:${PATH}"
 
 PATH="${GOPATH}/bin:${PATH}"
