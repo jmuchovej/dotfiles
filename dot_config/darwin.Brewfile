@@ -52,6 +52,8 @@ brew "mas"
 brew "minikube"
 # Fast, highly customisable system info script
 brew "neofetch"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # Find duplicate files based on content (NOT file names)
 brew "rdfind"
 # Search tool like grep and The Silver Searcher
