@@ -80,6 +80,10 @@ brew "jq"
 brew "krb5"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
+# Emulator for x86 and PowerPC
+brew "qemu"
+# Linux virtual machines
+brew "lima"
 # Mac App Store command-line interface
 brew "mas"
 # Graphics Library
