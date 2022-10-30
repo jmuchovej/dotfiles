@@ -188,6 +188,8 @@ cask "chromium"
 cask "cloudflare-warp"
 # Download and manage your addons and mods
 cask "curseforge"
+# App to build and share containerized applications and microservices
+cask "docker"
 # Web browser focusing on privacy
 cask "duckduckgo"
 # Matrix collaboration client
