@@ -80,6 +80,8 @@ brew "jq"
 brew "krb5"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
+# Lazier way to manage everything docker
+brew "lazydocker"
 # Emulator for x86 and PowerPC
 brew "qemu"
 # Linux virtual machines
