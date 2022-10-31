@@ -178,6 +178,8 @@ cask "alacritty"
 cask "alfred"
 # Multi-track audio editor and recorder
 cask "audacity"
+# Tool to flash OS images to SD cards & USB drives
+cask "balenaetcher"
 # Menu bar icon organizer
 cask "bartender"
 # Web browser focusing on privacy
