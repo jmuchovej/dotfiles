@@ -302,6 +302,8 @@ cask "whatsapp"
 cask "zerotier-one"
 # Video communication and virtual meeting platform
 cask "zoom"
+# Collect, organize, cite, and share research sources
+cask "zotero"
 mas "1Password for Safari", id: 1569813296
 mas "AdBlock Pro", id: 1018301773
 mas "AdGuard for Safari", id: 1440147259
