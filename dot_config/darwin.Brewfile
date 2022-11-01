@@ -92,6 +92,8 @@ brew "mas"
 brew "mesa"
 # Run a Kubernetes cluster locally
 brew "minikube"
+# Collection of tools that nobody wrote when UNIX was young
+brew "moreutils"
 # Open source relational database management system
 brew "mysql-client"
 # NCurses Disk Usage
