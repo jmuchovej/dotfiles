@@ -300,6 +300,8 @@ cask "vivaldi"
 cask "vlc"
 # Desktop client for WhatsApp
 cask "whatsapp"
+# Open-source version of the X.Org X Window System
+cask "xquartz"
 # Mesh VPN client
 cask "zerotier-one"
 # Video communication and virtual meeting platform
