@@ -76,6 +76,8 @@ brew "hugo"
 brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Julia installer and version multiplexer
+brew "juliaup"
 # Network authentication protocol
 brew "krb5"
 # Kubernetes command-line interface
@@ -310,3 +312,17 @@ cask "zerotier-one"
 cask "zoom"
 # Collect, organize, cite, and share research sources
 cask "zotero"
+mas "1Password for Safari", id: 1569813296
+mas "AdBlock Pro", id: 1018301773
+mas "AdGuard for Safari", id: 1440147259
+mas "Affinity Designer", id: 824171161
+mas "GarageBand", id: 682658836
+mas "Grocy Mobile", id: 1567803209
+mas "iMovie", id: 408981434
+mas "Infuse", id: 1136220934
+mas "iStat Menus", id: 1319778037
+mas "Keynote", id: 409183694
+mas "Magnet", id: 441258766
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "SimpleLogin", id: 1494051017
