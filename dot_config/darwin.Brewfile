@@ -106,6 +106,8 @@ brew "neofetch"
 brew "neovim"
 # Port scanning utility for large networks
 brew "nmap"
+# Platform built on V8 to build network applications
+brew "node@16"
 # Open client for Cisco AnyConnect VPN
 brew "openconnect"
 # Cryptography and SSL/TLS Toolkit
@@ -325,4 +327,5 @@ mas "Keynote", id: 409183694
 mas "Magnet", id: 441258766
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "Save to Raindrop.io", id: 1549370672
 mas "SimpleLogin", id: 1494051017
