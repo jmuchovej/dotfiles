@@ -298,6 +298,8 @@ cask "tiled"
 cask "timing"
 # To-do list
 cask "todoist"
+# Virtual machines UI using QEMU
+cask "utm"
 # Open-source code editor
 cask "visual-studio-code"
 # Web browser with built-in email client focusing on customization and control
