@@ -56,8 +56,6 @@ brew "geoipupdate"
 brew "gh"
 # Distributed revision control system
 brew "git"
-# Interactive command-line tool for using emoji in commit messages
-brew "gitmoji"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
 # Terminal based graphical activity monitor inspired by gtop and vtop
