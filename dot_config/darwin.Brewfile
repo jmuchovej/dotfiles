@@ -76,8 +76,6 @@ brew "imagemagick"
 brew "jq"
 # Julia installer and version multiplexer
 brew "juliaup"
-# Interactive environments for writing and running code
-brew "jupyterlab"
 # Network authentication protocol
 brew "krb5"
 # Kubernetes command-line interface
