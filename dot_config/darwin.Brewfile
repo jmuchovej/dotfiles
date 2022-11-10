@@ -132,6 +132,18 @@ brew "ripgrep"
 brew "rsync"
 # Low-level access to audio, keyboard, mouse, joystick, and graphics
 brew "sdl2"
+# SDL2 graphics drawing primitives and other support functions
+brew "sdl2_gfx"
+# Library for loading images as SDL surfaces and textures
+brew "sdl2_image"
+# Sample multi-channel audio mixer library
+brew "sdl2_mixer"
+# Small sample cross-platform networking library
+brew "sdl2_net"
+# Abstract soundfile decoder for SDL
+brew "sdl2_sound"
+# Library for using TrueType fonts in SDL applications
+brew "sdl2_ttf"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Command-line interface for https://speedtest.net bandwidth tests
