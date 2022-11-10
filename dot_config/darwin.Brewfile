@@ -130,6 +130,8 @@ brew "rdfind"
 brew "ripgrep"
 # Utility that provides fast incremental file transfer
 brew "rsync"
+# Low-level access to audio, keyboard, mouse, joystick, and graphics
+brew "sdl2"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Command-line interface for https://speedtest.net bandwidth tests
