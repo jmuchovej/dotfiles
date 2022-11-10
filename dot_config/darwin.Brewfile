@@ -100,6 +100,8 @@ brew "minikube"
 brew "moreutils"
 # Open source relational database management system
 brew "mysql-client"
+# Node version management
+brew "n"
 # NCurses Disk Usage
 brew "ncdu"
 # Fast, highly customisable system info script
@@ -120,6 +122,8 @@ brew "openssl@3"
 brew "poetry"
 # Object-relational database system
 brew "postgresql@14"
+# Python version management
+brew "pyenv"
 # File browser
 brew "ranger"
 # Rsync for cloud storage
