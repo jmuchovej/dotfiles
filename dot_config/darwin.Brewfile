@@ -78,6 +78,8 @@ brew "imagemagick"
 brew "jq"
 # Julia installer and version multiplexer
 brew "juliaup"
+# Interactive environments for writing and running code
+brew "jupyterlab"
 # Network authentication protocol
 brew "krb5"
 # Kubernetes command-line interface
@@ -108,6 +110,8 @@ brew "neovim"
 brew "nmap"
 # Platform built on V8 to build network applications
 brew "node@16"
+# Platform built on V8 to build network applications
+brew "node@18"
 # Open client for Cisco AnyConnect VPN
 brew "openconnect"
 # Cryptography and SSL/TLS Toolkit
