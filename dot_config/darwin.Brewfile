@@ -38,6 +38,12 @@ brew "chezmoi"
 brew "cloudflared"
 # Cross-platform make
 brew "cmake"
+# Emulator for x86 and PowerPC
+brew "qemu"
+# Linux virtual machines
+brew "lima"
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew "colima"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
@@ -82,10 +88,6 @@ brew "krb5"
 brew "kubernetes-cli"
 # Lazier way to manage everything docker
 brew "lazydocker"
-# Emulator for x86 and PowerPC
-brew "qemu"
-# Linux virtual machines
-brew "lima"
 # Mac App Store command-line interface
 brew "mas"
 # Graphics Library
@@ -208,6 +210,8 @@ cask "audacity"
 cask "balenaetcher"
 # Menu bar icon organizer
 cask "bartender"
+# Cloud based collaboration and management platform focusing on security
+cask "box-sync"
 # Web browser focusing on privacy
 cask "brave-browser"
 # Free and open-source web browser
