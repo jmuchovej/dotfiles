@@ -63,8 +63,13 @@ source {{ .conda.path }}/etc/profile.d/conda.sh
 source {{ .conda.path }}/etc/profile.d/mamba.sh
 {{- end }}
 
+export PYENV_ROOT="{{ .appdir }}/pyenv"
+export N_PREFIX="{{ .appdir }}/n"
+
 path=(
-  ~/.local/bin
+  {{ .chezmoi.homeDir }}/.local/bin
+  {{ .appdir }}/pyenv/shims
+  {{ .appdir }}/n/bin
   $path
 )
 
@@ -75,3 +80,5 @@ path=(
 
 export SHELL_SESSIONS_DISABLE=1
 export ABBR_TMPDIR="${XDG_RUNTIME_DIR}/zsh-abbr/"
+
+export NODE_REPL_HISTORY="${XDG_RUNTIME_DIR}/npm_history"
