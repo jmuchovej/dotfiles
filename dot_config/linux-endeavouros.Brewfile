@@ -16,10 +16,6 @@ brew "gitmoji"
 brew "neovim"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
-# Python dependency management tool
-brew "pipenv"
-# Python version management
-brew "pyenv"
 # Terminal multiplexer
 brew "tmux"
 # JavaScript package manager
