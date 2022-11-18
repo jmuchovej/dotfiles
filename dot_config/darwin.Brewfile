@@ -38,6 +38,12 @@ brew "chezmoi"
 brew "cloudflared"
 # Cross-platform make
 brew "cmake"
+# Emulator for x86 and PowerPC
+brew "qemu"
+# Linux virtual machines
+brew "lima"
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew "colima"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
@@ -56,8 +62,6 @@ brew "geoipupdate"
 brew "gh"
 # Distributed revision control system
 brew "git"
-# Interactive command-line tool for using emoji in commit messages
-brew "gitmoji"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
 # Terminal based graphical activity monitor inspired by gtop and vtop
@@ -76,16 +80,14 @@ brew "hugo"
 brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Julia installer and version multiplexer
+brew "juliaup"
 # Network authentication protocol
 brew "krb5"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
 # Lazier way to manage everything docker
 brew "lazydocker"
-# Emulator for x86 and PowerPC
-brew "qemu"
-# Linux virtual machines
-brew "lima"
 # Mac App Store command-line interface
 brew "mas"
 # Graphics Library
@@ -96,6 +98,8 @@ brew "minikube"
 brew "moreutils"
 # Open source relational database management system
 brew "mysql-client"
+# Node version management
+brew "n"
 # NCurses Disk Usage
 brew "ncdu"
 # Fast, highly customisable system info script
@@ -104,6 +108,10 @@ brew "neofetch"
 brew "neovim"
 # Port scanning utility for large networks
 brew "nmap"
+# Platform built on V8 to build network applications
+brew "node@16"
+# Platform built on V8 to build network applications
+brew "node@18"
 # Open client for Cisco AnyConnect VPN
 brew "openconnect"
 # Cryptography and SSL/TLS Toolkit
@@ -112,6 +120,8 @@ brew "openssl@3"
 brew "poetry"
 # Object-relational database system
 brew "postgresql@14"
+# Python version management
+brew "pyenv"
 # File browser
 brew "ranger"
 # Rsync for cloud storage
@@ -122,6 +132,20 @@ brew "rdfind"
 brew "ripgrep"
 # Utility that provides fast incremental file transfer
 brew "rsync"
+# Low-level access to audio, keyboard, mouse, joystick, and graphics
+brew "sdl2"
+# SDL2 graphics drawing primitives and other support functions
+brew "sdl2_gfx"
+# Library for loading images as SDL surfaces and textures
+brew "sdl2_image"
+# Sample multi-channel audio mixer library
+brew "sdl2_mixer"
+# Small sample cross-platform networking library
+brew "sdl2_net"
+# Abstract soundfile decoder for SDL
+brew "sdl2_sound"
+# Library for using TrueType fonts in SDL applications
+brew "sdl2_ttf"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Command-line interface for https://speedtest.net bandwidth tests
@@ -186,6 +210,8 @@ cask "audacity"
 cask "balenaetcher"
 # Menu bar icon organizer
 cask "bartender"
+# Cloud based collaboration and management platform focusing on security
+cask "box-sync"
 # Web browser focusing on privacy
 cask "brave-browser"
 # Free and open-source web browser
@@ -294,6 +320,8 @@ cask "tiled"
 cask "timing"
 # To-do list
 cask "todoist"
+# Virtual machines UI using QEMU
+cask "utm"
 # Open-source code editor
 cask "visual-studio-code"
 # Web browser with built-in email client focusing on customization and control
@@ -310,3 +338,18 @@ cask "zerotier-one"
 cask "zoom"
 # Collect, organize, cite, and share research sources
 cask "zotero"
+mas "1Password for Safari", id: 1569813296
+mas "AdBlock Pro", id: 1018301773
+mas "AdGuard for Safari", id: 1440147259
+mas "Affinity Designer", id: 824171161
+mas "GarageBand", id: 682658836
+mas "Grocy Mobile", id: 1567803209
+mas "iMovie", id: 408981434
+mas "Infuse", id: 1136220934
+mas "iStat Menus", id: 1319778037
+mas "Keynote", id: 409183694
+mas "Magnet", id: 441258766
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Save to Raindrop.io", id: 1549370672
+mas "SimpleLogin", id: 1494051017
