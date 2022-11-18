@@ -12,6 +12,8 @@ brew "gcc"
 brew "gh"
 # Interactive command-line tool for using emoji in commit messages
 brew "gitmoji"
+# Node version management
+brew "n"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Cryptography and SSL/TLS Toolkit
