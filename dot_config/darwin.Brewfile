@@ -180,7 +180,7 @@ brew "watch"
 brew "wdiff"
 # Internet file retriever
 brew "wget"
-# Process YAML documents from the CLI
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
 # UNIX shell (command interpreter)
 brew "zsh"
@@ -235,6 +235,7 @@ cask "font-jetbrains-mono"
 # Developer targeted fonts with a high number of glyphs
 cask "font-jetbrains-mono-nerd-font"
 cask "font-lato"
+cask "font-noto-emoji"
 cask "font-pt-sans"
 # Client for the Google Drive storage service
 cask "google-drive"
@@ -338,18 +339,3 @@ cask "zerotier-one"
 cask "zoom"
 # Collect, organize, cite, and share research sources
 cask "zotero"
-mas "1Password for Safari", id: 1569813296
-mas "AdBlock Pro", id: 1018301773
-mas "AdGuard for Safari", id: 1440147259
-mas "Affinity Designer", id: 824171161
-mas "GarageBand", id: 682658836
-mas "Grocy Mobile", id: 1567803209
-mas "iMovie", id: 408981434
-mas "Infuse", id: 1136220934
-mas "iStat Menus", id: 1319778037
-mas "Keynote", id: 409183694
-mas "Magnet", id: 441258766
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Save to Raindrop.io", id: 1549370672
-mas "SimpleLogin", id: 1494051017
