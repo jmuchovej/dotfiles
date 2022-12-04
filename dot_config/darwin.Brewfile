@@ -236,6 +236,8 @@ cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-lato"
 cask "font-pt-sans"
+# Web browser
+cask "google-chrome"
 # Client for the Google Drive storage service
 cask "google-drive"
 # Access the HEY email service
@@ -343,6 +345,7 @@ mas "Actions", id: 1586435171
 mas "AdBlock Pro", id: 1018301773
 mas "AdGuard for Safari", id: 1440147259
 mas "Affinity Designer", id: 824171161
+mas "Glasp - Social Web Highlighter", id: 1605690124
 mas "Grocy Mobile", id: 1567803209
 mas "Highlights", id: 1498912833
 mas "HP Smart", id: 1474276998
