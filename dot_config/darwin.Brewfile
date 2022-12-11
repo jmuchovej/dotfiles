@@ -22,10 +22,10 @@ brew "python@3.10"
 brew "ansible"
 # Automatically restart SSH sessions and tunnels
 brew "autossh"
-# XML-based font configuration API for X Windows
-brew "fontconfig"
 # Official Amazon AWS command-line interface
 brew "awscli"
+# XML-based font configuration API for X Windows
+brew "fontconfig"
 # Core application library for C
 brew "glib"
 # Manage compile and link flags for libraries
@@ -296,6 +296,8 @@ cask "r"
 cask "raindropio"
 # Kubernetes and container management on the desktop
 cask "rancher"
+# Imaging utility to install operating systems to a microSD card
+cask "raspberry-pi-imager"
 # Data science software focusing on R and Python
 cask "rstudio"
 # Client for Old School RuneScape
