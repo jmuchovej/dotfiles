@@ -254,6 +254,8 @@ cask "logseq"
 cask "macfuse"
 # Install, use, and try Maxon products
 cask "maxon"
+# Software used to make Minecraft Java Edition mods
+cask "mcreator"
 # Provides updates to various Microsoft products
 cask "microsoft-auto-update"
 # Spreadsheet software
