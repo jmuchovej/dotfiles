@@ -44,6 +44,8 @@ brew "qemu"
 brew "lima"
 # Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima"
+# Tool for service discovery, monitoring and configuration
+brew "consul"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
@@ -112,6 +114,8 @@ brew "nmap"
 brew "node@16"
 # Platform built on V8 to build network applications
 brew "node@18"
+# Distributed, Highly Available, Datacenter-Aware Scheduler
+brew "nomad"
 # Open client for Cisco AnyConnect VPN
 brew "openconnect"
 # Cryptography and SSL/TLS Toolkit
