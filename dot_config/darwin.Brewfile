@@ -126,6 +126,8 @@ brew "poetry"
 brew "postgresql@14"
 # Python version management
 brew "pyenv"
+# Software environment for statistical computing
+brew "r", link: false
 # File browser
 brew "ranger"
 # Rsync for cloud storage
