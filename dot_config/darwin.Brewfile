@@ -12,16 +12,12 @@ tap "ubuntu/microk8s"
 tap "zerotier/tap"
 # Run your GitHub Actions locally 🚀
 brew "act"
+# Automatically restart SSH sessions and tunnels
+brew "autossh"
 # GNU database manager
 brew "gdbm"
 # GNU internationalization (i18n) and localization (l10n) library
 brew "gettext"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.10"
-# Automate deployment, configuration, and upgrading
-brew "ansible"
-# Automatically restart SSH sessions and tunnels
-brew "autossh"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # XML-based font configuration API for X Windows
@@ -80,6 +76,8 @@ brew "htop"
 brew "hugo"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Julia installer and version multiplexer
@@ -319,6 +317,7 @@ cask "slack"
 cask "steam"
 # Text editor for code, markup and prose
 cask "sublime-text"
+# Daily planner and calendar
 cask "sunsama"
 # Real time file synchronization software
 cask "syncthing"
