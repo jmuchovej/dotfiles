@@ -208,6 +208,8 @@ cask "affinity-designer"
 cask "alacritty"
 # Application launcher and productivity software
 cask "alfred"
+# Slicer for AnkerMake 3D printers
+cask "ankerslicer"
 # Multi-track audio editor and recorder
 cask "audacity"
 # Tool to flash OS images to SD cards & USB drives
