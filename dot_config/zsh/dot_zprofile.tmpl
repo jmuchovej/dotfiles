@@ -14,6 +14,7 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
 export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
 export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-$HOME/.xdg}
+export XDG_STATE_HOME=${XDG_STATE_HOME:-${HOME}/.local/state}
 
 {{- if (eq .chezmoi.os "darwin") }}
 export XDG_DESKTOP_DIR=${XDG_DESKTOP_DIR:-$HOME/Desktop}
@@ -23,6 +24,7 @@ export XDG_MUSIC_DIR=${XDG_MUSIC_DIR:-$HOME/Music}
 export XDG_PICTURES_DIR=${XDG_PICTURES_DIR:-$HOME/Pictures}
 export XDG_VIDEOS_DIR=${XDG_VIDEOS_DIR:-$HOME/Videos}
 export XDG_PROJECTS_DIR=${XDG_PROJECTS_DIR:-$HOME/Projects}
+export DOCKER_HOST="unix://$HOME/.colima/docker.sock"
 
 export BROWSER='open'
 {{- end }}
@@ -51,25 +53,30 @@ export LANGUAGE="en"
 export LC_ALL="en_US.UTF-8"
 
 # Ensure path arrays do not contain duplicates
-typeset -gU cdpath fpath mailpath path
+typeset -gU cdpath fpath mailpath path PATH
 
 path=(
   {{ .brew.path }}/{bin,sbin}
   $path
 )
 
-{{ if .conda.install -}}
-source {{ .conda.path }}/etc/profile.d/conda.sh
-source {{ .conda.path }}/etc/profile.d/mamba.sh
-{{- end }}
 
-export PYENV_ROOT="{{ .appdir }}/pyenv"
-export N_PREFIX="{{ .appdir }}/n"
+# alias brew="env PATH=$(echo $path | tr '[:space:]' ':') \brew"
+alias brew="env PATH=${PATH} \brew"
+
+export PYENV_ROOT="{{ .pyenv.prefix }}"
+export N_PREFIX="{{ .n.prefix }}"
+export NVM_DIR="{{ .nvm.prefix }}"
+export CARGO_HOME="{{ .cargo.prefix }}"
+export DENO_ROOT="{{ .deno.prefix }}"
 
 path=(
   {{ .chezmoi.homeDir }}/.local/bin
-  {{ .appdir }}/pyenv/shims
-  {{ .appdir }}/n/bin
+  {{ .cargo.prefix }}/bin
+  {{ .deno.prefix }}/bin
+  {{ .juliaup.prefix }}/bin
+  {{ .pyenv.prefix }}/bin
+  {{ .n.prefix }}/bin
   $path
 )
 
@@ -82,3 +89,5 @@ export SHELL_SESSIONS_DISABLE=1
 export ABBR_TMPDIR="${XDG_RUNTIME_DIR}/zsh-abbr/"
 
 export NODE_REPL_HISTORY="${XDG_RUNTIME_DIR}/npm_history"
+
+# export PIPENV_VENV_IN_PROJECT=1

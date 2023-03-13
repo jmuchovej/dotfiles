@@ -12,9 +12,6 @@ source ${ZDOTDIR}/.zplugins.zsh
 # local settings
 [[ -f ${ZDOTDIR}/.zshrc.local ]] && source ${ZDOTDIR}/.zshrc.local
 
-{{ if .conda.install -}}
-mamba activate base
-{{- end }}
-
+. "{{ .appdir }}/asdf/asdf.sh"
 eval "$(starship init zsh)"
-
+eval "$(pyenv init -)"
