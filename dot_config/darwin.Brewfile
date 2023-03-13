@@ -61,7 +61,7 @@ brew "gh"
 # Distributed revision control system
 brew "git"
 # GNU Pretty Good Privacy (PGP) package
-brew "gnupg"
+brew "gnupg", link: false
 # Terminal based graphical activity monitor inspired by gtop and vtop
 brew "gotop"
 # GNU grep, egrep and fgrep
@@ -80,8 +80,6 @@ brew "imagemagick"
 brew "python@3.10"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
-# Julia installer and version multiplexer
-brew "juliaup"
 # Network authentication protocol
 brew "krb5"
 # Kubernetes command-line interface
@@ -90,16 +88,12 @@ brew "kubernetes-cli"
 brew "lazydocker"
 # Mac App Store command-line interface
 brew "mas"
-# Graphics Library
-brew "mesa"
 # Run a Kubernetes cluster locally
 brew "minikube"
 # Collection of tools that nobody wrote when UNIX was young
 brew "moreutils"
 # Open source relational database management system
 brew "mysql-client"
-# Node version management
-brew "n"
 # NCurses Disk Usage
 brew "ncdu"
 # Fast, highly customisable system info script
@@ -118,12 +112,8 @@ brew "nomad"
 brew "openconnect"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
-# Python package management tool
-brew "poetry"
 # Object-relational database system
 brew "postgresql@14"
-# Python version management
-brew "pyenv"
 # Software environment for statistical computing
 brew "r", link: false
 # File browser
