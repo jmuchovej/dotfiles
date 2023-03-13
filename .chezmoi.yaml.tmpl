@@ -17,9 +17,23 @@
 
 {{- $appdir := printf "%s/.local/opt" .chezmoi.homeDir -}}
 
+# https://github.com/twpayne/dotfiles/blob/master/home/.chezmoi.toml.tmpl
+{{/* detect GitHub codespaces, VSCode remote containers, Docker containers, Multipass VMs, and Vagrant boxes */}}
+{{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "root" "ubuntu" "vagrant" "vscode") -}}
+{{-   $ephemeral = true -}}
+{{-   $headless = true -}}
+{{- end -}}
+
 encryption: "age"
 age:
   passphrase: true
+
+scriptEnv:
+  N_PREFIX: "{{ $appdir }}/n"
+  NVM_DIR: "{{ $appdir }}/nvm"
+  PYENV_ROOT: "{{ $appdir }}/pyenv"
+  DENO_ROOT: "{{ $appdir }}/deno"
+  RUSTUP_HOME: "{{ $appdir }}/rustup"
 
 data:
   osid: {{ $osid | quote }}
@@ -28,7 +42,11 @@ data:
   brew:
     path: "{{ $appdir }}/brew" 
     file: "{{ .chezmoi.homeDir }}/.config/{{ $osid }}.Brewfile"
+{{- if not $ephemeral -}}
     install: {{ promptBool "Install Homebrew" true }}
+{{- else -}}
+    install: false
+{{- end -}}
   macos:
     iterm:
       theme:
@@ -39,6 +57,23 @@ data:
     clean: {{ promptBool "Clear current conda installation" false }}
     path: "{{ $appdir }}/conda"
     install: {{ promptBool "Install Conda/Mamba" true }}
+
+  pyenv:
+    prefix: "{{ $appdir }}/pyenv"
+  juliaup:
+    # prefix: "{{ $appdir }}/juliaup"  # desired prefix, but unsupported
+    prefix: "{{ .chezmoi.homeDir }}/.juliaup"
+  n:
+    prefix: "{{ $appdir }}/n"
+  nvm:
+    prefix: "{{ $appdir }}/nvm"
+  deno:
+    prefix: "{{ $appdir }}/deno"
+  cargo:
+    prefix: "{{ $appdir }}/cargo"
+  rustup:
+    prefix: "{{ $appdir }}/rustup"
+
   cloudflared:
     homelab:
       rootname: "muchovej.net"
