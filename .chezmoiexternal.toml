@@ -2,6 +2,7 @@
   type = "file"
   url = "https://github.com/gpakosz/.tmux/raw/master/.tmux.conf"
   exact = true
+  refreshPeriod = "168h"
 
 [".local/src/z.sh"]
   type = "git-repo"
@@ -63,6 +64,7 @@
   type = "file"
   url = "https://github.com/starship/starship/releases/latest/download/starship-{{ $ship_arch }}-{{ $ship_vendor }}-{{ $ship_os }}.tar.gz" 
   executable = true
+  refreshPeriod = "168h"
   [".local/bin/starship".filter]
     command = "tar"
     args = ["--extract", "--gzip", "--file", "/dev/stdin", "--to-stdout", "starship"]
@@ -93,14 +95,15 @@
 [".local/bin/age"]
     type = "file"
     url = "https://github.com/FiloSottile/age/releases/download/v{{ $ageVersion }}/age-v{{ $ageVersion }}-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz"
-    executable = true
+    command = true
     [".local/bin/age".filter]
         command = "tar"
         args = ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "age/age"]
 [".local/bin/age-keygen"]
     type = "file"
     url = "https://github.com/FiloSottile/age/releases/download/v{{ $ageVersion }}/age-v{{ $ageVersion }}-{{ .chezmoi.os }}-{{ .chezmoi.arch }}.tar.gz"
-    executable = true
+    command = true
     [".local/bin/age-keygen".filter]
         command = "tar"
         args = ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "age/age-keygen"]
+
