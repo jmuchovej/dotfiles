@@ -1,8 +1,12 @@
-# This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
-    name = John Muchovej
-    email = jmuchovej@users.noreply.github.com
+  name = John Muchovej
+  email = jmuchovej@users.noreply.github.com
 
 [pull]
-	rebase = false
+  rebase = false
+
+[push]
+  autoSetupRemote = true
+
+[init]
+  defaultBranch = main
