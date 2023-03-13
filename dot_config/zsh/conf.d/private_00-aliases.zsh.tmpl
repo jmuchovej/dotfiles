@@ -2,10 +2,6 @@
 
 alias v="${VISUAL}"
 
-#: SSH
-alias discovery="ssh discovery.ionlights.zt"
-alias enterprise="ssh enterprise.ionlights.zt"
-
 alias sshcfg="v ~/.ssh/config"
 
 alias zrc="v ~/.zshrc && source ~/.zshrc"
@@ -14,8 +10,10 @@ alias zrc="v ~/.zshrc && source ~/.zshrc"
 alias doom="$HOME/Applications/doom-emacs/bin/doom"
 
 #: ls
-[ $(uname) = "Darwin" ] && alias -g ls="gls"
-[ $(uname) = "Darwin" ] && alias -g grep="ggrep"
+{{ if eq .chezmoi.os "darwin" }}
+alias ls="gls"
+alias grep="ggrep"
+{{ end }}
 
 alias ll="ls --color --group-directories-first -lhFv"
 alias la="ll -A"
@@ -32,10 +30,10 @@ alias size="du -ch -d 1 2> >(grep -v \"${ignoreRegex}\") | sort -h"
 [ $(command -v trash-put) ] && alias rmdir="trash-put"
 
 #: Anaconda
-alias ca="conda activate"
-alias ce="conda env create -f"
-alias cl="conda list"
-alias cel="conda env list"
+alias ca="mamba activate"
+alias ce="mamba env create -f"
+alias cl="mamba list"
+alias cel="mamba env list"
 
 #: tmux
 # alias tmux="TERM='xterm-256color' command tmux -u"
