@@ -1,0 +1,101 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC1054,SC1056,SC1072,SC1073,SC1083
+
+# region Install my[py] #######################################################
+pipx install mypy
+# endregion ###################################################################
+
+{{- if .homelab }}
+# region Install Pipenv #######################################################
+pipx install pipenv
+# endregion ###################################################################
+
+# region Install SaltStack ####################################################
+pipx install salt
+pipx inject salt docker --include-deps --include-apps
+# endregion ###################################################################
+
+# region Install Ansible ######################################################
+pipx install ansible
+pipx inject ansible docker --include-deps --include-apps
+# endregion ###################################################################
+# shellcheck disable=SC1009
+{{- end }}
+
+# region Install pre-commit ###################################################
+pipx install pre-commit --include-deps
+pipx inject pre-commit identify-cli --include-deps --include-apps
+# endregion ###################################################################
+
+# region Install JupyterLab ###################################################
+pipx install "jupyterlab>=3" --include-deps
+
+# NOTE: Adding the PyTorch CPU to index URLs so the CPU version of PyTorch can install
+grep -v "^#" <<-"DEPS" | xargs -n1 pipx inject jupyterlab \
+    --include-deps --include-apps \
+    --index-url https://download.pytorch.org/whl/cpu
+  # Jupyter-related tools
+  "jupyterlab-lsp>=4"
+  "nbformat>=5"
+  "nbconvert>=7"
+  "nbgrader>=0.8"
+  "ipython>=8"
+
+  # Tools for Data Science
+  "jax[cpu]>=0.4"
+  "jaxlib>=0.4"
+  "numpy>=1"
+  "scipy>=1"
+  "pandas>=1"
+  # HDF5 Library (from conda-forge: hdf5)
+  "h5py>=1"
+  "fastparquet>=2022"
+  "pyarrow>=11"
+
+  # Parallelization
+  "distributed>=2022"
+  "dask>=2022"
+  "dask-ml>=2022"
+
+  # Data Visualization
+  "plotly>=5"
+  "seaborn>=0.12"
+  "matplotlib>=3"
+  "bokeh>=3"
+  "altair>=4"
+  # TODO: Keep track of `graph-tool`: https://graph-tool.skewed.de/
+  "networkx>=3"
+
+  # Machine Learning & PPLs
+  "torch>=2"
+  "lightning>=2"  # Formerly `pytorch-lightning`
+  # NOTE: On MacOS, TF 2.5+ supports Metal GPUs
+  #   Source: https://www.tensorflow.org/install/gpu_plugins#available_devices
+  #   Setup: https://developer.apple.com/metal/tensorflow-plugin/
+  "tensorflow>=2.5"
+  # "tensorflow-cpu>=2"
+  "flax>=0.6"
+  "scikit-learn>=1"
+  "pyro>=1"
+  "transformers>=4"
+  "spacy[lookups,transformers{{ if eq .osarch "darwin-arm64" }},apple{{ end }}]>=3"
+
+  # Generally useful tools to have on JupyterLab
+  "requests>=2"
+  "beautifulsoup4>=4"
+  "jinja2>=3"
+  "docker>=6"
+  "tqdm>=4"
+
+  # Configuration
+  "hydra-core>=1"
+  "omegaconf>=2"
+
+  # Code Formatting
+  "black[all]>=23"  # Includes Jupyter support
+  "isort>=5"
+  "pylint[all]>=2"
+  "python-lsp-server>=1"
+  "python-lsp-server[pylint]>=1"
+DEPS
+# endregion ###################################################################
