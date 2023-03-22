@@ -39,30 +39,16 @@
   url = "https://github.com/plexus/chemacs2.git"
   refreshPeriod = "168h"
 
-{{- $ship_vendor := "" }}
+{{- $starship_vendor_os := "" }}
 {{- if eq .chezmoi.os "darwin" }}
-  {{ $ship_vendor = "apple" }}
+  {{ $starship_vendor_os = "apple-darwin" }}
 {{- else if eq .chezmoi.os "linux" }}
-  {{ $ship_vendor = "unknown" }}
-{{- end }}
-
-{{- $ship_arch := "" }}
-{{- if eq .chezmoi.arch "amd64" }}
-  {{ $ship_arch = "x86_64" }}
-{{- else if eq .chezmoi.arch "arm64" }}
-  {{ $ship_arch = "aarch64" }}
-{{- end }}
-
-{{- $ship_os := "" }}
-{{- if eq .chezmoi.os "darwin" }}
-  {{ $ship_os = "darwin" }}
-{{- else if eq .chezmoi.os "linux" }}
-  {{ $ship_os = "linux-musl" }}
+  {{ $starship_vendor_os = "unknown-linux-musl" }}
 {{- end }}
 
 [".local/bin/starship"]
   type = "file"
-  url = "https://github.com/starship/starship/releases/latest/download/starship-{{ $ship_arch }}-{{ $ship_vendor }}-{{ $ship_os }}.tar.gz" 
+  url = "https://github.com/starship/starship/releases/latest/download/starship-{{ .alt.arch }}-{{ $starship_vendor_os }}.tar.gz" 
   executable = true
   refreshPeriod = "168h"
   [".local/bin/starship".filter]
@@ -75,20 +61,18 @@
   executable = true
   refreshPeriod = "168h"
 
-# {{- $rclone_os := "" }}
-# {{- if eq .chezmoi.os "darwin" }}
-#   {{ $rclone_os = "osx" }}
-# {{- else if eq .chezmoi.os "linux" }}
-#   {{ $rclone_os = "linux" }}
-# {{- end }}
-# [".local/bin/rclone"]
-#   type = "file"
-#   url = "https://downloads.rclone.org/rclone-current-{{ $rclone_os }}-{{ .chezmoi.arch }}.zip"
-#   executable = true
-#   refreshPeriod = "168h"
-#   [".local/bin/rclone".filter]
-#     command = "tar"
-#     args = ["--extract", "--file", "/dev/stdin", "--to-stdout", "**/rclone"]
+[".local/opt/asdf"]
+  type = "git-repo"
+  url = "https://github.com/asdf-vm/asdf.git"
+  refreshPeriod = "168h"
+
+# TODO: Figure out how to avoid putting RClone into `~/.local/bin` to ensure it's an unused key...
+[".local/bin"]
+  type = "archive"
+  url = "https://downloads.rclone.org/rclone-current-{{ .alt.os }}-{{ .chezmoi.arch }}.zip"
+  refreshPeriod = "168h"
+  include = ["*/rclone"]
+  stripComponents = 1
 
 # Pulled from https://github.com/twpayne/dotfiles/blob/master/home/.chezmoiexternal.toml#L23-L37
 {{- $ageVersion := "1.0.0" }}

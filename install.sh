@@ -23,7 +23,9 @@ fi
 # POSIX way to get script's dir: https://stackoverflow.com/a/29834779/12156188
 script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
 
-set -- init --apply --source="${script_dir}"
+# TODO figure out why I can't include encrypted files on the first-pass >.>
+# Exclude encrypted files on the first pass
+set -- init --apply --source="${script_dir}" --exclude encrypted
 
 echo "Running 'chezmoi $*'" >&2
 # exec: replace current process with chezmoi
