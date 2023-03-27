@@ -1,67 +1,43 @@
-add_anaconda_token: True
-add_pip_as_python_dependency: True
-aggressive_update_packages:
-  - ca-certificates
-  - certifi
-  - openssl
-auto_activate_base: True
+{{- $condaPrefix := joinPath .chezmoi.homeDir ".local" "conda" }}
+root_prefix: {{ $condaPrefix }}
+
+auto_activate_base: true
 auto_stack: 0
-auto_update_conda: True
-changeps1: False
+auto_update_conda: true
+changeps1: false
+show_channel_urls: true
+add_pip_as_python_dependency: true
+use_pip: true
+
+create_default_packages:
+  - python=3
+
+default_python: 3.10
+env_prompt: ""
+
+# https://conda.github.io/conda-libmamba-solver/
+experimental_solver: "libmamba"
+notify_outdated_conda: true
+path_conflict: clobber
+
+unsatisfiable_hints: True
+unsatisfiable_hints_check_depth: 2
+
 channel_alias: https://conda.anaconda.org
 channel_priority: flexible
 channels:
-  - conda-forge
-create_default_packages:
-  - python=3
-  - nodejs
-croot: {{ .conda.path }}/conda-bld
-custom_channels:
-  pkgs/main: https://repo.anaconda.com
-  pkgs/r: https://repo.anaconda.com
-  pkgs/pro: https://repo.anaconda.com
-custom_multichannels:
-  defaults: 
-    - https://repo.anaconda.com/pkgs/main
-    - https://repo.anaconda.com/pkgs/r
-  local: 
-debug: False
+  - "conda-forge"
 default_channels:
-  - https://repo.anaconda.com/pkgs/main
-  - https://repo.anaconda.com/pkgs/r
-default_python: 3.10
-default_threads: 8
-env_prompt: ({default_env}) 
-envs_dirs:
-  - {{ .conda.path }}/envs
-  - {{ .chezmoi.homeDir }}/.conda/envs
-error_upload_url: https://conda.io/conda-post/unexpected-error
-execute_threads: 4
-experimental_solver: classic
-notify_outdated_conda: True
-override_channels_enabled: True
-path_conflict: clobber
-pip_interop_enabled: True
-pkgs_dirs:
-  - {{ .conda.path }}/pkgs
-  - {{ .chezmoi.homeDir }}/.conda/pkgs
-repodata_fns:
-  - current_repodata.json
-  - repodata.json
-repodata_threads: 4
-root_prefix: {{ .conda.path }}
-safety_checks: warn
-shortcuts: True
-solver_ignore_timestamps: False
-ssl_verify: True
-subdir: {{ .conda.subdir }}
-subdirs:
-  - {{ .conda.subdir }}
-  - noarch
-unsatisfiable_hints: True
-unsatisfiable_hints_check_depth: 2
-update_modifier: update_specs
-verbosity: 0
-verify_threads: 4
+  - "https://repo.anaconda.com/pkgs/main"
+  - "https://repo.anaconda.com/pkgs/r"
 whitelist_channels:
   - "conda-forge"
+  - "javascript"
+
+{{- $threads := output "nproc" }}
+default_threads: {{ $threads }}
+repodata_threads: {{ $threads }}
+verify_threads: {{ $threads }}
+execute_threads: {{ $threads }}
+
+{{/* vim: set filetype=yaml.chezmoitmpl: sw=2 ts=2 et */}}
