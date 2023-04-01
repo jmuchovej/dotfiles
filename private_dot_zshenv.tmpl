@@ -80,4 +80,25 @@ source {{ joinPath .conda.path "etc" "profile.d" "conda.sh" | quote }}
 source {{ joinPath .conda.path "etc" "profile.d" "mamba.sh" | quote }}
 {{- end }}
 
+{{- if hasKey . "brew" }}
+export HOMEBREW_NO_ANALYTICS=1
+{{- end }}
+
+#: tmux
+export ZSH_TMUX_UNICODE=true
+# alias tmux="TERM=\"xterm-256color\" command tmux"
+alias tmux="TERM=\"screen-256color\" \tmux"
+
+#: jupyter / # ipython
+export JUPYTER_CONFIG_DIR="${XDG_CONFIG_HOME}/jupyter"
+export IPYTHONDIR="${XDG_CONFIG_HOME}/ipython"
+
+#: nodejs
+# https://stackoverflow.com/a/52316526/2714651
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
+export NODE_REPL_HISTORY="${XDG_DATA_HOME}/node.js/repl_history"
+
+#: docker
+export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
+
 # export PIPENV_VENV_IN_PROJECT=1

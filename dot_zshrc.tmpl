@@ -1,6 +1,57 @@
 zstyle ":omz:update" mode auto
 zstyle ":omz:update" frequency 7
-zstyle ":completion:*" menu select
+
+# region Completions ##########################################################
+#: enable approx matches for complextion
+zstyle ":completion:*" completer _expand _complete _ignored _approximate
+#: select completions w/ arrow keys
+zstyle ':completion:*' menu select
+#: group results by category
+zstyle ':completion:*' group-name ''
+#: enable approx matches for completion
+zstyle ':completion:*' completer _expand _complete _ignored _approximate
+
+zstyle ':completion:*:manuals'    separate-sections true
+zstyle ':completion:*:manuals.*'  insert-sections   true
+zstyle ':completion:*:man:*'      menu yes select
+
+# https://stackoverflow.com/a/22627273/2714651; all for mid-word completion
+zstyle ':completion:*' completer _complete
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
+# endregion ###################################################################
+
+# region Key Bindings #########################################################
+bindkey "[D" backward-word
+bindkey "[C" forward-word
+
+bindkey "^[a" beginning-of-line
+bindkey "^[e" end-of-line
+
+bindkey '^[[3~' delete-char
+bindkey '^[3;5~' delete-char
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+# endregion ###################################################################
+
+# region ZSH Options ##########################################################
+setopt autocd               #: cd by typing dir name, if it\'s not a cmd
+setopt autolist             #: auto-list choices on ambiguous completion
+setopt automenu             #: auto use menu completion
+setopt always_to_end        #: move cursor to end if word as one match
+setopt hist_ignore_all_dups #: remove older duplicate entries from hist
+setopt hist_reduce_blanks   #: remove blanks from hist
+setopt inc_append_history   #: save hist entries as soon as they're entered
+setopt share_history        #: share hist between diff instances
+setopt correct_all          #: autocorrect cmds
+setopt interactive_comments #: allow commends in interactive shells
+setopt completeinword
+# endregion ###################################################################
+
+zstyle ":omz:plugins:ssh-agent" agent-forwarding on
+zstyle ":omz:plugins:nvm" autoload yes
 
 export ZSH_THEME=""
 export ZSH_CUSTOM={{ joinPath .appdir "oh-my-zsh" | quote }}
@@ -41,6 +92,13 @@ plugins=(
 # local settings
 [[ -f {{ joinPath .chezmoi.homeDir ".zshrc.local" | quote }} ]] && source {{ joinPath .chezmoi.homeDir ".zshrc.local" | quote }}
 
+alias sudo="\sudo -E"
+alias ps="\ps -ef"
+
 eval "$(starship init zsh)"
 
 source {{ joinPath .chezmoi.homeDir ".oh-my-zsh" "oh-my-zsh.sh" | quote }}
+
+{{- if and (eq .chezmoi.os "darwin") (hasKey . "brew") }}
+source "$(brew --prefix)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
+{{- end }}
