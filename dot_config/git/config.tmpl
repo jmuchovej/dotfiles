@@ -1,0 +1,29 @@
+[user]
+  name = John Muchovej
+  email = jmuchovej@users.noreply.github.com
+
+[pull]
+  rebase = false
+
+[push]
+  autoSetupRemote = true
+
+[init]
+  defaultBranch = main
+
+{{/* TODO: Customize the signing key by the directory we're in */}}
+{{- if eq .chezmoi.os "darwin" }}
+[user]
+  signingKey = {{- onepasswordRead "op://Personal/github.pem/public key" | quote }}
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+  gpgsign = true
+{{- end }}
+
+{{/* vim: set filetype=gitconfig.chezmoitmpl: sw=2 ts=2 et */}}
