@@ -72,13 +72,6 @@ encryption: "age"
 age:
   passphrase: true
 
-scriptEnv:
-  N_PREFIX: "{{ $appdir }}/n"
-  NVM_DIR: "{{ $appdir }}/nvm"
-  PYENV_ROOT: "{{ $appdir }}/pyenv"
-  DENO_ROOT: "{{ $appdir }}/deno"
-  RUSTUP_HOME: "{{ $appdir }}/rustup"
-
 data:
   cluster: {{ $cluster }}
   headless: {{ $headless }}
