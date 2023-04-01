@@ -1,42 +1,31 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC1054,SC1056,SC1072,SC1073,SC1083
+{{- if hasKey . "conda" }}
+{{- $condaPath := joinPath .appdir "conda" }}
 set -e
 
 echo "Running... \`conda-installer\`..."
 
-{{- $conda_os := "" }}
-{{- if eq .chezmoi.os "darwin" }}
-  {{ $conda_os = "MacOSX" }}
-{{- else if eq .chezmoi.os "linux" }}
-  {{ $conda_os = "Linux" }}
-{{- end }}
-
-{{- $conda_arch := "" }}
-{{- if eq .chezmoi.arch "arm64" }}
-  {{ $conda_arch = "arm64" }}
-{{- else if eq .chezmoi.arch "amd64" }}
-  {{ $conda_arch = "x86_64" }}
-{{- end }}
-
-echo "  - Cleaning existing conda install (if it exists)"
-{{- if .conda.clean -}}
-\rm -rf ~/.local/opt/conda
-{{- end }}
-
-{{- if .conda.install -}}
+# shellcheck disable=SC1009,SC1036
+{{ $script := printf "Mambaforge-%s-%s.sh" (output "uname" | trim) (output "uname" "-m" | trim) }}
 #: Setting up MambaForge
 echo "  - Installing MambaForge..."
-curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
-bash Mambaforge-$(uname)-$(uname -m).sh -b -u -p {{ .conda.path }}
-rm Mambaforge-$(uname)-$(uname -m).sh
+curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/{{ $script }}"
+bash {{ $script }} -b -u -p {{ $condaPath }}
+rm {{ $script }}
 
 export CONDA_ALWAYS_YES="true"
 
 echo "  - Activate \`conda\`/\`mamba\`..."
-source {{ .conda.path }}/etc/profile.d/conda.sh
-source {{ .conda.path }}/etc/profile.d/mamba.sh
+source {{ $condaPath }}/etc/profile.d/conda.sh
+source {{ $condaPath }}/etc/profile.d/mamba.sh
+# https://conda.github.io/conda-libmamba-solver/getting-started/
+# Ensure that the `libmamba` solver is installed
+mamba install -q -n base -c conda-forge conda-libmamba-solver --solver classic
 
 echo "- Installing base packages..."
-mamba env update -q -n base -f ~/.config/conda/env.yaml
+mamba env update -q -n base -f {{ joinPath .chezmoi.homeDir ".config" "conda" "env.yaml" }}
 
 unset CONDA_ALWAYS_YES
-{{- end }}
+# shellcheck disable=SC1009
+{{- end -}}
