@@ -4,4 +4,17 @@
 .config/zsh/.zcompdump
 .config/zsh/.zsh_sessions/
 .config/zsh/.zplugins.zsh
+
 install.sh
+getlibc.sh
+
+{{- if ne .chezmoi.os "darwin" }}
+.1password/
+Library/
+{{- end }}
+
+{{- if ne .chezmoi.os "linux" }}
+{{- end }}
+
+{{- if ne .chezmoi.os "windows" }}
+{{- end }}

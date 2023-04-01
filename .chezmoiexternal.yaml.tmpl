@@ -163,4 +163,16 @@
     args: ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "age/age-keygen"]
 {{- end }}
 
+{{- $pyenvV := (gitHubLatestRelease "pyenv/pyenv").TagName }}
+.local/pyenv:
+  type: "archive"
+  url: "https://github.com/pyenv/pyenv/archive/refs/tags/{{ $pyenvV }}.tar.gz"
+  refreshPeriod: "168h"
+
+{{- $juliaupV := (gitHubLatestRelease "JuliaLang/juliaup").TagName }}
+.local/juliaup:
+  type: "archive"
+  url: "https://github.com/JuliaLang/juliaup/archive/refs/tags/{{ $juliaupV }}.tar.gz"
+  refreshPeriod: "168h"
+
 {{/* vim: set filetype=yaml.chezmoitmpl: sw=2 ts=2 et */}}

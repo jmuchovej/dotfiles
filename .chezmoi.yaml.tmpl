@@ -1,29 +1,71 @@
-{{- $osid := .chezmoi.os -}}
+{{- $ephemeral := false }}{{/* This machine will be relatively short-lived. */}}
+{{- $homelab := false }}{{/* This machine is part of my Homelab. */}}
+{{- $cluster := false }}{{/* This machine is part of a research cluster. */}}
+{{- $headless := false }}{{/* This machine doesn't have a screen. */}}
+{{- $personal := false }}{{/* Should this machine have personal secrets? */}}
+{{- $installBrew := false -}}{{/* Should `brew` be installed? */}}
+{{- $installConda := false -}}{{/* Should `conda/mamba` be installed? */}}
+
+{{- $idOS := .chezmoi.os -}}
 {{- if (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id")) -}}
-  {{- $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{-   $idOS = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
 {{- $altOS := .chezmoi.os }}
 {{- if eq .chezmoi.os "darwin" }}
-  {{- $altOS = "osx" -}}
+{{-   $altOS = "osx" -}}
 {{- end -}}
 
 {{- $altarch := "" -}}
 {{- if eq .chezmoi.arch "amd64" }}
-  {{ $altarch = "x86_64" }}
+{{   $altarch = "x86_64" }}
 {{- else if eq .chezmoi.arch "arm64" }}
-  {{ $altarch = "aarch64" }}
+{{   $altarch = "aarch64" }}
 {{- end }}
 
-{{- $appdir := joinPath .chezmoi.homeDir ".local" "opt" -}}
+{{- $libc := "" -}}
+{{- if eq .chezmoi.os "linux" -}}
+{{-   $getlibc := joinPath .chezmoi.sourcePath "getlibc.sh" -}}
+{{-   $libc = output $getlibc -}}
+{{- end -}}
 
-# https://github.com/twpayne/dotfiles/blob/master/home/.chezmoi.toml.tmpl
-{{- $ephemeral := false }}
-{{- $headless := false }}
-{{/* detect GitHub codespaces, VSCode remote containers, Docker containers, Multipass VMs, and Vagrant boxes */}}
+{{- $appdir := joinPath .chezmoi.homeDir ".local" -}}
+
+{{/* Detect GitHub codespaces, VSCode Remote COntainers, Docker containers */}}
 {{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "root" "ubuntu" "vagrant" "vscode") -}}
 {{-   $ephemeral = true -}}
 {{-   $headless = true -}}
+{{- end -}}
+
+{{- $hostname := .chezmoi.hostname -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   $computerName := output "scutil" "--get" "ComputerName" | trim -}}
+{{-   $hostname = $computerName -}}
+{{- end -}}
+
+{{- if eq .chezmoi.os "windows" -}}
+{{-   $ephemeral = true -}}
+{{- end -}}
+
+{{- $desktops := list "voyager" "discovery" "alpha-centauri" -}}
+{{- $servers := list "starbase-01" "starbase-02" "redmatter" "section-31" -}}
+{{- $machines := concat $desktops $servers -}}
+{{- $labusers := list "lab" "homelab" -}}
+{{- if not $ephemeral -}}
+{{-   $personal = has $hostname $desktops -}}
+{{-   $homelab = or (has $hostname $machines) (has .chezmoi.username $labusers) -}}
+{{- end -}}
+
+{{- if not (or $personal $homelab $ephemeral) -}}
+{{-   $cluster = promptBoolOnce . "cluster" "On a compute cluster" -}}
+{{- end -}}
+
+{{- if and (not $ephemeral) (not $cluster) -}}
+{{-   $installBrew = promptBoolOnce . "installBrew" "Install Brew" -}}
+{{- end -}}
+
+{{- if not $ephemeral -}}
+{{-   $installConda = promptBoolOnce . "installConda" "Install Conda (Mamba)" -}}
 {{- end -}}
 
 encryption: "age"
@@ -38,53 +80,29 @@ scriptEnv:
   RUSTUP_HOME: "{{ $appdir }}/rustup"
 
 data:
-  ephemeral: {{ $ephemeral }}
+  cluster: {{ $cluster }}
   headless: {{ $headless }}
-  osid: {{ $osid | quote }}
-  alt:
-    arch: {{ $altarch | quote}}
-    os:  {{ $altOS | quote }}
+  ephemeral: {{ $ephemeral }}
+  homelab: {{ $homelab }}
+  os:
+    id: {{ $idOS | quote }}
+    alt: {{ $altOS | quote }}
+  arch:
+    id: {{ .chezmoi.arch | quote }}
+    alt: {{ $altarch | quote }}
+  osarch: {{ printf "%s-%s" $idOS .chezmoi.arch | quote }}
   appdir:  {{ $appdir | quote }}
-  cluster: {{ promptBool "On a compute cluster" false }}
+{{- if $installBrew }}
+  Brewfile: {{ joinPath .chezmoi.homeDir ".config" (printf "%s.Brewfile" $idOS) | quote }}
   brew:
     path: {{ joinPath $appdir "brew" | quote }}
-    file: "{{ .chezmoi.homeDir }}/.config/{{ $osid }}.Brewfile"
-{{- if not $ephemeral }}
-    install: {{ promptBool "Install Homebrew" true }}
-{{ else }}
-    install: false
 {{- end }}
-  macos:
-    iterm:
-      theme:
-        dark: "Smoooooth"
-        light: "Smoooooth"
+{{- if $installBrew }}
   conda:
-    clean: {{ promptBool "Clear current conda installation" false }}
     path: {{ joinPath $appdir "conda" | quote }}
-    install: {{ promptBool "Install Conda/Mamba" true }}
-
-  pyenv:
-    prefix: "{{ $appdir }}/pyenv"
-  juliaup:
-    # prefix: "{{ $appdir }}/juliaup"  # desired prefix, but unsupported
-    prefix: "{{ .chezmoi.homeDir }}/.juliaup"
-  n:
-    prefix: "{{ $appdir }}/n"
-  nvm:
-    prefix: "{{ $appdir }}/nvm"
-  deno:
-    prefix: "{{ $appdir }}/deno"
-  cargo:
-    prefix: "{{ $appdir }}/cargo"
-  rustup:
-    prefix: "{{ $appdir }}/rustup"
-
-  cloudflared:
-    homelab:
-      rootname: "muchovej.net"
-      user: "john"
-      hostnames: ["redmatter", "section-31", "discovery", "starbase-01", "starbase-02"]
+{{- end }}
+  op:
+    account: "XY5OHSMKDRERVDUEX4RNSWSOGU"
 
 diff:
   exclude: 
