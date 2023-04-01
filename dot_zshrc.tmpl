@@ -1,0 +1,45 @@
+zstyle ":omz:update" mode auto
+zstyle ":omz:update" frequency 7
+zstyle ":completion:*" menu select
+
+export ZSH_THEME=""
+
+export HIST_STAMPS="yyyy-mm-dd"
+
+plugins=(
+  #* NOTE: Not super useful as of Mar 2023 since I don't use the CLI for logging in,
+  #*   but might be in the future...
+  # 1password
+  asdf
+{{- if hasKey . "brew" }}
+  brew
+{{- end }}
+  git
+  command-not-found
+  direnv
+  docker
+  fast-syntax-highlighting
+  gh
+{{- if eq .chezmoi.os "darwin" }}
+  gnu-utils
+  macos
+{{- end }}
+  pre-commit
+  pipenv
+  pyenv
+  systemadmin
+  tmux
+  vi-mode
+  vscode
+  z
+  zsh-interactive-cd
+  zsh-autosuggestions
+  zsh-history-substring-search
+)
+
+# local settings
+[[ -f ${ZDOTDIR}/.zshrc.local ]] && source ${ZDOTDIR}/.zshrc.local
+
+eval "$(starship init zsh)"
+
+source {{ joinPath .appdir "oh-my-zsh" "oh-my-zsh.sh" | quote }}

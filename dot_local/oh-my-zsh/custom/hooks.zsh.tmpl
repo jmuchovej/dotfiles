@@ -1,0 +1,27 @@
+#!/usr/bin/env zsh
+# shellcheck disable=SC1036,SC1054,SC1056,SC1072,SC1073,SC1083
+autoload -Uz add-zsh-hooks
+
+function set-last-hist() {
+  # Prevent the command from being written to history before execution, instead
+  #   save it to $LASTHIST. Write it to history in `precmd` and `zshexit` hooks.
+  LASTHIST="${1}"
+
+  # Returning `2`: "... the history line will be saved on the internal history
+  #   list, but not written to the history file."
+  return 2
+}
+
+function save-last-cmd-if-successful() {
+  # Write the value of $LASTHIST if successful (or closed with signal 2), using
+  #   the buffered history from `set-last-hist()`.
+  if [[ ($? == 0 || $? == 130) && -n $LASTHIST && -n $HISTFILE ]]; then
+    print -sr -- ${=${LASTHIST%%'\n'}}
+  fi
+}
+
+add-zsh-hook precmd save-last-cmd-if-successful
+add-zsh-hook zshexit save-last-cmd-if-successful
+add-zsh-hook zshaddhistory set-last-hist
+
+{{/* vim: set filetype=zsh.chezmoitmpl: sw=2 ts=2 et */}}
