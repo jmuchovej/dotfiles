@@ -92,6 +92,9 @@ plugins=(
 # local settings
 [[ -f {{ joinPath .chezmoi.homeDir ".zshrc.local" | quote }} ]] && source {{ joinPath .chezmoi.homeDir ".zshrc.local" | quote }}
 
+{{- if eq .chezmoi.os "darwin" }}
+alias flushdns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+{{- end }}
 alias sudo="\sudo -E"
 alias ps="\ps -ef"
 
@@ -102,3 +105,4 @@ source {{ joinPath .chezmoi.homeDir ".oh-my-zsh" "oh-my-zsh.sh" | quote }}
 {{- if and (eq .chezmoi.os "darwin") (hasKey . "brew") }}
 source "$(brew --prefix)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
 {{- end }}
+
