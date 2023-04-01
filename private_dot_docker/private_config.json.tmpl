@@ -1,0 +1,19 @@
+{
+	"auths": {
+{{- $dockerUser := onepasswordRead "op://Personal/Docker/username" .op.account | trim }}
+{{- $dockerPass := onepasswordRead "op://Personal/Docker/registry-token" .op.account | trim }}
+    "docker.io": {
+      "auth": {{ printf "%s:%s" $dockerUser $dockerPass | b64enc | quote }}
+    },
+{{- $ghcrUser := onepasswordRead "op://Personal/GitHub/username" .op.account | trim }}
+{{- $ghcrPass := onepasswordRead "op://Personal/GitHub/registry-token" .op.account | trim }}
+    "ghcr.io": {
+      "auth": {{ printf "%s:%s" $ghcrUser $ghcrPass | b64enc | quote }}
+    },
+{{- $quayUser := onepasswordRead "op://Personal/Quay.io/username" .op.account | trim }}
+{{- $quayPass := onepasswordRead "op://Personal/Quay.io/registry-token" .op.account | trim }}
+    "quay.io": {
+      "auth": {{ printf "%s:%s" $quayUser $quayPass | b64enc | quote }}
+    }
+  }
+}
