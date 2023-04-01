@@ -1,4 +1,6 @@
 tap "homebrew/bundle"
+# Record and share terminal sessions
+brew "asciinema"
 # Yet another cross-platform graphical process/system monitor
 brew "bottom"
 # XML-based font configuration API for X Windows
@@ -29,8 +31,6 @@ brew "editorconfig"
 brew "fd"
 # Collection of GNU find, xargs, and locate
 brew "findutils"
-# User-friendly command-line shell for UNIX-like operating systems
-brew "fish"
 # GNU database manager
 brew "gdbm"
 # Distributed revision control system
@@ -43,6 +43,8 @@ brew "gotop"
 brew "htop"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
+# Julia installer and version multiplexer
+brew "juliaup"
 # Network authentication protocol
 brew "krb5"
 # Lazier way to manage everything docker
@@ -75,3 +77,5 @@ brew "tmuxp"
 brew "wget"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"
