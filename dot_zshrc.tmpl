@@ -3,6 +3,7 @@ zstyle ":omz:update" frequency 7
 zstyle ":completion:*" menu select
 
 export ZSH_THEME=""
+export ZSH_CUSTOM={{ joinPath .appdir "oh-my-zsh" | quote }}
 
 export HIST_STAMPS="yyyy-mm-dd"
 
@@ -38,8 +39,8 @@ plugins=(
 )
 
 # local settings
-[[ -f ${ZDOTDIR}/.zshrc.local ]] && source ${ZDOTDIR}/.zshrc.local
+[[ -f {{ joinPath .chezmoi.homeDir ".zshrc.local" | quote }} ]] && source {{ joinPath .chezmoi.homeDir ".zshrc.local" | quote }}
 
 eval "$(starship init zsh)"
 
-source {{ joinPath .appdir "oh-my-zsh" "oh-my-zsh.sh" | quote }}
+source {{ joinPath .chezmoi.homeDir ".oh-my-zsh" "oh-my-zsh.sh" | quote }}
