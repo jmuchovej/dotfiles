@@ -19,8 +19,12 @@ echo "  - Adding, committing, and pushing"
 cd {{ .chezmoi.sourceDir }}
 gitmojiHook=$(grep "gitmoji" {{ joinPath .chezmoi.sourceDir ".git" "hooks" "prepare-commit-msg" | quote }})
 [ "${gitmojiHooks}" != "" ] && gitmoji -r > /dev/null 2>&1
+{{- $realpath := "realpath" }}
+{{- if eq .chezmoi.os "darwin" }}
+{{-   $realpath = "grealpath" }}
+{{- end }}
 git add \
-  $(realpath --relative-to {{ .chezmoi.sourceDir | quote }} $(chezmoi source-path {{ .Brewfile | quote }}))
+  $({{ $realpath }} --relative-to {{ .chezmoi.sourceDir | quote }} $(chezmoi source-path {{ .Brewfile | quote }}))
 git commit -m "📌 Update Brewfile for darwin"
 git push -u origin main
 [ "${gitmojiHooks}" != "" ] && gitmoji -i > /dev/null 2>&1
