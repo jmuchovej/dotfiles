@@ -25,7 +25,7 @@
 
 {{- $libc := "" -}}
 {{- if eq .chezmoi.os "linux" -}}
-{{-   $getlibc := joinPath .chezmoi.sourcePath "getlibc.sh" -}}
+{{-   $getlibc := joinPath .chezmoi.sourceDir "getlibc.sh" -}}
 {{-   $libc = output $getlibc -}}
 {{- end -}}
 
