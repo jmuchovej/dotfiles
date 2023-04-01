@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+# Make a folder, then touch the file
+file=${1}
+mkdir -p $(dirname $file) && touch $file

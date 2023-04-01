@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+query="${1}"
+firstChar="$(echo ${query} | cut -c 1-1)"
+restChars="$(echo ${query} | cut -c 2-)"
+
+#* NOTE: Nifty trick from the comment by "Mike S" on "01 Sep 2016 14:50"
+#*   https://askubuntu.com/a/201308/585721
+ps | grep "[${firstChar}]${restChars}"
