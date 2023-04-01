@@ -1,0 +1,12 @@
+{{- if hasKey . "brew" -}}
+#!/usr/bin/env zsh
+
+set -e
+
+brew "${@:1}"
+
+case "${1}" in
+  install | uninstall | reinstall) brew-dump ;;
+esac
+{{- end -}}
+{{/* vim: set filetype=zsh.chezmoitmpl: sw=2 ts=2 et */}}

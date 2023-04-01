@@ -1,9 +1,0 @@
-#!/usr/bin/env zsh
-
-set -e
-
-{{ .brew.path }}/bin/brew "${@:1}"
-
-if [[ "${1}" = "install" || "${1}" = "uninstall" || "${1}" = "reinstall" ]]; then
-  brew-dump
-fi

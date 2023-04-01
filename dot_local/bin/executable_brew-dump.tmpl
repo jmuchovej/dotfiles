@@ -1,24 +1,30 @@
+{{- if hasKey . "brew" -}}
 #!/usr/bin/env zsh
-
+# shellcheck disable=SC1036,SC1054,SC1056,SC1072,SC1073,SC1083
 set -e
-
+  
 echo "=> Attempting to update Brewfile"
 
 #: Dump updates to Brewfile
-echo "  - Dumping new dependencies to {{ .brew.file }}"
-[ -f "{{ .brew.file }}" ] && rm {{ .brew.file }}
-brew bundle dump --describe --file {{ .brew.file }}
+echo "  - Dumping new dependencies to {{ .Brewfile }}"
+[ -f {{ .Brewfile | quote }} ] && rm {{ .Brewfile | quote }}
+brew bundle dump --describe --file {{ .Brewfile | quote }}
 
 #: Push updates to dotfiles
 echo "  - Attempting to update the \`chezmoi\` copy"
-chezmoi add {{ .brew.file }}
-brewfilePath="$(echo "$(chezmoi source-path {{ .brew.file }})" | sed "s|$(chezmoi source-path)/||g")"
-cd $(chezmoi source-path)
+chezmoi add {{ .Brewfile | quote }} --autotemplate --template-symlinks
 
 #: Add and push to git repo
 echo "  - Adding, committing, and pushing"
-git add ${brewfilePath}
-git commit --no-verify -m "📌 Update Brewfile for {{ .osid }}"
+cd {{ .chezmoi.sourceDir }}
+gitmojiHook=$(grep "gitmoji" {{ joinPath .chezmoi.sourceDir ".git" "hooks" "prepare-commit-msg" | quote }})
+[ "${gitmojiHooks}" != "" ] && gitmoji -r > /dev/null 2>&1
+git add \
+  $(realpath --relative-to {{ .chezmoi.sourceDir | quote }} $(chezmoi source-path {{ .Brewfile | quote }}))
+git commit -m "📌 Update Brewfile for darwin"
 git push -u origin main
+[ "${gitmojiHooks}" != "" ] && gitmoji -i > /dev/null 2>&1
 
 echo "  🎉 Completed Brewfile update"
+{{- end -}}
+{{/* vim: set filetype=zsh.chezmoitmpl: sw=2 ts=2 et */}}
