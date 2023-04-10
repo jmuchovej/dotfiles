@@ -1,4 +1,4 @@
-{{- $condaPrefix := joinPath .chezmoi.homeDir ".local" "conda" }}
+{{ $condaPrefix := joinPath .appdir "conda" -}}
 root_prefix: {{ $condaPrefix }}
 
 auto_activate_base: true
@@ -15,8 +15,10 @@ create_default_packages:
 default_python: 3.10
 env_prompt: ""
 
+#! On `conda>=22.11`, we can now use `libmamba` as a solver!
+#* Source: https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community
 # https://conda.github.io/conda-libmamba-solver/
-experimental_solver: "libmamba"
+solver: "libmamba"
 notify_outdated_conda: true
 path_conflict: clobber
 

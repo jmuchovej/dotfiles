@@ -77,7 +77,6 @@ export NODE_REPL_HISTORY="${XDG_STATE_HOME}/npm/history"
 
 {{- if hasKey . "conda" }}
 source {{ joinPath .conda.path "etc" "profile.d" "conda.sh" | quote }}
-source {{ joinPath .conda.path "etc" "profile.d" "mamba.sh" | quote }}
 {{- end }}
 
 {{- if hasKey . "brew" }}
