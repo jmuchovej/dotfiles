@@ -48,7 +48,7 @@
 {{- end -}}
 
 {{- $desktops := list "voyager" "discovery" "alpha-centauri" -}}
-{{- $servers := list "starbase-01" "starbase-02" "redmatter" "section-31" -}}
+{{- $servers := list "starbase-01" "starbase-02" "redmatter" "section-31" "janeway" -}}
 {{- $machines := concat $desktops $servers -}}
 {{- $labusers := list "lab" "homelab" -}}
 {{- if not $ephemeral -}}
@@ -77,6 +77,7 @@ data:
   headless: {{ $headless }}
   ephemeral: {{ $ephemeral }}
   homelab: {{ $homelab }}
+  personal: {{ $personal }}
   os:
     id: {{ $idOS | quote }}
     alt: {{ $altOS | quote }}

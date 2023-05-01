@@ -18,3 +18,7 @@ Library/
 
 {{- if ne .chezmoi.os "windows" }}
 {{- end }}
+
+{{- if not .personal }}
+.docker/config.json
+{{- end }}
