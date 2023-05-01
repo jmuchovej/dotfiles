@@ -6,9 +6,11 @@
 
 # region oh-my-zsh extras ###############################################################
 .local/oh-my-zsh:
-  type: "git-repo"
-  url: "https://github.com/ohmyzsh/ohmyzsh.git"
+  type: "archive"
+  url: "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
   exact: true
+  stripComponents: 1
+  refreshPeriod: "168h"
 .local/oh-my-zsh/custom/plugins/zsh-syntax-highlighting:
   type: "archive"
   url: "https://github.com/zsh-users/zsh-syntax-highlighting/archive/master.tar.gz"
@@ -108,24 +110,24 @@
   executable: true
   refreshPeriod: "168h"
 
-{{- $ghV := (gitHubLatestRelease "cli/cli").TagName | replace "v" "" }}
-{{- $ghOS := .chezmoi.os }}
-{{- if eq $ghOS "darwin" }}
-{{-   $ghOS = "macOS" }}
-{{- end }}
-.local/bin/gh:
-  type: "archive"
-  url: "https://github.com/cli/cli/releases/latest/download/gh_{{ $ghV }}_{{ $ghOS }}_{{ .arch.id }}.tar.gz"
-  refreshPeriod: "168h"
-  stripComponents: 1
-  exact: true
-  include: ["bin/gh"]
-.local/share/man/man1/gh:
-  type: "archive"
-  url: "https://github.com/cli/cli/releases/latest/download/gh_{{ $ghV }}_{{ $ghOS }}_{{ .arch.id }}.tar.gz"
-  refreshPeriod: "168h"
-  stripComponents: 3
-  include: ["share/man/man1/*.1"]
+# {{- $ghV := (gitHubLatestRelease "cli/cli").TagName | replace "v" "" }}
+# {{- $ghOS := .chezmoi.os }}
+# {{- if eq $ghOS "darwin" }}
+# {{-   $ghOS = "macOS" }}
+# {{- end }}
+# .local/bin/gh:
+#   type: "archive"
+#   url: "https://github.com/cli/cli/releases/latest/download/gh_{{ $ghV }}_{{ $ghOS }}_{{ .arch.id }}.tar.gz"
+#   refreshPeriod: "168h"
+#   stripComponents: 1
+#   exact: true
+#   include: ["bin/gh"]
+# .local/share/man/man1/gh:
+#   type: "archive"
+#   url: "https://github.com/cli/cli/releases/latest/download/gh_{{ $ghV }}_{{ $ghOS }}_{{ .arch.id }}.tar.gz"
+#   refreshPeriod: "168h"
+#   stripComponents: 3
+#   include: ["share/man/man1/*.1"]
 
 {{- $asdfV := (gitHubLatestRelease "asdf-vm/asdf").TagName }}
 .local/asdf:
