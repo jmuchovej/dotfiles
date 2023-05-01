@@ -83,14 +83,14 @@ data:
   arch:
     id: {{ .chezmoi.arch | quote }}
     alt: {{ $altarch | quote }}
-  osarch: {{ printf "%s-%s" $idOS .chezmoi.arch | quote }}
+  osarch: {{ printf "%s-%s" .chezmoi.os .chezmoi.arch | quote }}
   appdir:  {{ $appdir | quote }}
 {{- if $installBrew }}
   Brewfile: {{ joinPath .chezmoi.homeDir ".config" (printf "%s.Brewfile" $idOS) | quote }}
   brew:
     path: {{ joinPath $appdir "brew" | quote }}
 {{- end }}
-{{- if $installBrew }}
+{{- if $installConda }}
   conda:
     path: {{ joinPath $appdir "conda" | quote }}
 {{- end }}

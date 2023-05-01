@@ -10,19 +10,19 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 
 export GOPATH="${XDG_DATA_HOME}/go"
 
+{{- if hasKey . "brew" }}
 [ -d "{{ .brew.path }}/bin" ] && PATH="{{ .brew.path }}/bin:${PATH}"
 [ -d "{{ .brew.path }}/sbin" ] && PATH="{{ .brew.path }}/sbin:${PATH}"
+{{- end }}
 
 PATH="${GOPATH}/bin:${PATH}"
 PATH="${HOME}/.cargo/bin:${PATH}"
 
+{{- if hasKey . "conda" }}
 _conda="{{ .conda.path }}/etc/profile.d/conda.sh"
 [ -f "${_conda}" ] && source "${_conda}"
 unset _conda
-
-_mamba="{{ .conda.path }}/etc/profile.d/conda.sh"
-[ -f "${_mamba}" ] && source "${_mamba}"
-unset _mamba
+{{- end }}
 
 PATH="${HOME}/.local/bin:${PATH}"
 
