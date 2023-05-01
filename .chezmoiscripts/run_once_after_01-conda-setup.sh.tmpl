@@ -1,6 +1,6 @@
+{{- if hasKey . "conda" -}}
 #!/usr/bin/env bash
 # shellcheck disable=SC1054,SC1056,SC1072,SC1073,SC1083
-{{- if hasKey . "conda" }}
 set -e
 
 echo "Setup \`conda\`..."
@@ -8,7 +8,14 @@ echo "Setup \`conda\`..."
 # region Download & Install Miniforge #################################################
 # shellcheck disable=SC1009,SC1036
 {{- $releases := "https://github.com/conda-forge/miniforge/releases/latest/download" }}
-{{- $script := printf "Miniforge3-%s-%s.sh" (title .os.id) .arch.id }}
+{{- $arch := ""}}
+{{- if eq .chezmoi.os "linux" }}
+{{-   $arch = .arch.alt }}
+{{- else if eq .chezmoi.os "darwin" }}
+{{-   $arch = .arch.id }}
+{{- end }}
+{{- $script := printf "Miniforge3-%s-%s.sh" (title .chezmoi.os) $arch }}
+
 echo "  - Installing MiniForge from {{ $script }}..."
 curl -L -O {{ printf "%s/%s" $releases $script | quote }}
 bash {{ $script }} -b -u -p {{ .conda.path }}

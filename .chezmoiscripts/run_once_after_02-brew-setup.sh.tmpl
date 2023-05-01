@@ -1,0 +1,27 @@
+{{- if and (not .ephemeral) (hasKey . "brew") -}}
+#!/usr/bin/env bash
+# shellcheck disable=SC1036,SC1054,SC1056,SC1072,SC1073,SC1083
+set -e
+
+{{- $brewPath := "" }}
+{{- if eq .chezmoi.os "linux" }}
+echo "Installing \`brew\` on Linux"
+{{-   $brewPath = joinPath .chezmoi.homeDir ".linuxbrew" }}
+{{- else if eq .chezmoi.os "darwin" }}
+echo "Installing \`brew\` on MacOS"
+{{-   $brewPath = "/opt/homebrew" }}
+{{- end }}
+
+[ ! -d "{{ $brewPath }}" ] && git clone https://github.com/Homebrew/brew {{ $brewPath | quote }}
+eval "$({{ $brewPath }}/bin/brew shellenv)"
+
+brew update --force --quiet
+chmod -R go-w "$(brew --prefix)/share/zsh"
+
+# {{ .os.id }}.Brewfile hash: {{ include .Brewfile | sha256sum }}
+echo "- \`brew bundle\`"
+# shellcheck disable=SC1009
+brew bundle install --file {{ .Brewfile }}
+
+# shellcheck disable=SC1009
+{{- end -}}
