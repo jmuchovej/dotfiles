@@ -1,6 +1,3 @@
-{{ $condaPrefix := joinPath .appdir "conda" -}}
-root_prefix: {{ $condaPrefix }}
-
 auto_activate_base: true
 auto_stack: 1
 auto_update_conda: true
@@ -8,12 +5,16 @@ changeps1: false
 show_channel_urls: true
 add_pip_as_python_dependency: true
 use_pip: true
+env_prompt: ""
+
+{{- if hasKey . "conda" -}}
+{{- $condaPrefix := joinPath .appdir "conda" -}}
+root_prefix: {{ $condaPrefix }}
 
 create_default_packages:
   - python=3
 
 default_python: 3.10
-env_prompt: ""
 
 #! On `conda>=22.11`, we can now use `libmamba` as a solver!
 #* Source: https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community
@@ -36,10 +37,10 @@ whitelist_channels:
   - "conda-forge"
   - "javascript"
 
-{{- $threads := output "nproc" }}
-default_threads: {{ $threads }}
-repodata_threads: {{ $threads }}
-verify_threads: {{ $threads }}
-execute_threads: {{ $threads }}
-
+{{ $threads := output "nproc" -}}
+default_threads: {{ $threads -}}
+repodata_threads: {{ $threads -}}
+verify_threads: {{ $threads -}}
+execute_threads: {{ $threads -}}
 {{/* vim: set filetype=yaml.chezmoitmpl: sw=2 ts=2 et */}}
+{{- end -}}
