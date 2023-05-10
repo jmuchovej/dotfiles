@@ -8,7 +8,7 @@ use_pip: true
 env_prompt: ""
 
 {{- if hasKey . "conda" -}}
-{{- $condaPrefix := joinPath .appdir "conda" -}}
+{{- $condaPrefix := joinPath .appdir "conda" }}
 root_prefix: {{ $condaPrefix }}
 
 create_default_packages:
