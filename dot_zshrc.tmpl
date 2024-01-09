@@ -92,6 +92,8 @@ setopt interactive_comments #: allow commends in interactive shells
 setopt completeinword
 # endregion ###########################################################################
 
+alias ls="ls --color=tty --group-directories-first"
+
 # Local Settings
 {{- $localzshrc := joinPath .chezmoi.homeDir ".zshrc.local" }}
 [[ -f {{ $localzshrc | quote }} ]] && source {{ $localzshrc | quote }}

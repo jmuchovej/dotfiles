@@ -27,7 +27,6 @@ export XDG_TEMPLATES_DIR={{ joinPath .chezmoi.homeDir "Templates" | quote }}
 export XDG_VIDEOS_DIR={{ joinPath .chezmoi.homeDir "Videos" | quote }}
 
 {{- if eq .chezmoi.os "darwin" }}
-export DOCKER_HOST="unix://{{ .chezmoi.homeDir }}/.colima/docker.sock"
 export BROWSER="open"
 
 # Disables ZSH Shell Sessions on MacOS
