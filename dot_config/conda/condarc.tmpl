@@ -37,7 +37,12 @@ whitelist_channels:
   - "conda-forge"
   - "javascript"
 
-{{ $threads := output "nproc" -}}
+{{ $threads := "" -}}
+{{ if eq .chezmoi.os "linux" -}}
+{{   $threads = output "nproc" -}}
+{{ else if eq .chezmoi.os "darwin" -}}
+{{   $threads = output "sysctl" "-n" "hw.physicalcpu" -}}
+{{ end -}}
 default_threads: {{ $threads -}}
 repodata_threads: {{ $threads -}}
 verify_threads: {{ $threads -}}
