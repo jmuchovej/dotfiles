@@ -1,0 +1,278 @@
+tap "homebrew{{ .chezmoi.pathSeparator }}bundle"
+tap "homebrew{{ .chezmoi.pathSeparator }}cask-fonts"
+tap "homebrew{{ .chezmoi.pathSeparator }}command-not-found"
+tap "homebrew{{ .chezmoi.pathSeparator }}services"
+# Record and share terminal sessions
+brew "asciinema"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Lightweight DNS forwarder and DHCP server
+brew "dnsmasq"
+# GitHub command-line tool
+brew "gh"
+# Interactive command-line tool for using emoji in commit messages
+brew "gitmoji"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg"
+# Task is a task runner{{ .chezmoi.pathSeparator }}build tool that aims to be simpler and easier to use
+brew "go-task"
+# Run local Kubernetes cluster in Docker
+brew "kind"
+# Bare libuv bindings for lua
+brew "luv"
+# Mac App Store command-line interface
+brew "mas"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Tool for creating identical machine images for multiple platforms
+brew "packer"
+# Generic machine emulator and virtualizer
+brew "qemu"
+# Open source continuous file synchronization application
+brew "syncthing", restart_service{{ .chezmoi.pathListSeparator }} true
+# Tool to build, change, and version infrastructure
+brew "terraform"
+# Terminal multiplexer
+brew "tmux"
+# Internet file retriever
+brew "wget"
+# Library to create, extract, and modify Windows Imaging files
+brew "wimlib"
+# Download YouTube videos from the command-line
+brew "youtube-dl"
+# Password manager that keeps all passwords secure behind one password
+cask "1password"
+# Command-line interface for 1Password
+cask "1password-cli"
+# Collection of apps and services for photography, design, video, web, and UX
+cask "adobe-creative-cloud"
+# Professional graphic design software
+cask "affinity-designer"
+# Application launcher and productivity software
+cask "alfred"
+# Local-first and end-to-end encrypted notes app
+cask "anytype"
+# Chromium based browser
+cask "arc"
+# Integrated CAD, CAM, CAE, and PCB software
+cask "autodesk-fusion360"
+# Tool to flash OS images to SD cards & USB drives
+cask "balenaetcher"
+# Menu bar icon organizer
+cask "bartender"
+# Cloud based collaboration and management platform focusing on security
+cask "box-sync"
+# Web browser focusing on privacy
+cask "brave-browser"
+# App to build and share containerized applications and microservices
+cask "docker"
+# Web browser focusing on privacy
+cask "duckduckgo"
+# Store securely encrypted backups in the cloud
+cask "duplicati"
+# Free monospaced font with programming ligatures
+cask "font-fira-code"
+# Developer targeted fonts with a high number of glyphs
+cask "font-fira-code-nerd-font"
+# Typeface made for developers
+cask "font-jetbrains-mono"
+# Developer targeted fonts with a high number of glyphs
+cask "font-jetbrains-mono-nerd-font"
+cask "font-lato"
+# Desktop client for GitHub repositories
+cask "github"
+# Web browser
+cask "google-chrome"
+# Client for the Google Drive storage service
+cask "google-drive"
+# Vector graphics editor
+cask "inkscape"
+# Software for Logitech devices
+cask "logi-options-plus"
+# Privacy-first, open-source platform for knowledge sharing and management
+cask "logseq"
+# Provides updates to various Microsoft products
+cask "microsoft-auto-update"
+# Spreadsheet software
+cask "microsoft-excel"
+# Presentation software
+cask "microsoft-powerpoint"
+# Remote desktop client
+cask "microsoft-remote-desktop"
+# Word processor
+cask "microsoft-word"
+# Web browser focused on privacy and on minimizing tracking and fingerprinting
+cask "mullvad-browser"
+# VPN client
+cask "mullvadvpn"
+# App to write, plan, collaborate, and get organized
+cask "notion"
+# Cloud storage client
+cask "onedrive"
+# Desktop virtualization software
+cask "parallels"
+# Create, edit, convert and sign PDF documents
+cask "pdfelement"
+# Home media player
+cask "plex"
+# Music player focusing on visuals
+cask "plexamp"
+# Import emails to your secure ProtonMail inbox or make offline backups
+cask "protonmail-import-export"
+# VPN client focusing on security
+cask "protonvpn"
+# Client for Old School RuneScape
+cask "runelite"
+cask "runescape"
+# Collection of apps available by subscription
+cask "setapp"
+# Web browser
+cask "sigmaos"
+# Instant messaging application focusing on security
+cask "signal"
+# Digital design and prototyping platform
+cask "sketch"
+# Team communication and collaboration software
+cask "slack"
+# Music streaming service
+cask "spotify"
+# Video game digital distribution service
+cask "steam"
+# Mesh VPN based on Wireguard
+cask "tailscale"
+# Messaging app with a focus on speed and security
+cask "telegram"
+# Development environment
+cask "vagrant"
+# 3D without boundaries
+cask "virtualgl"
+# Open-source code editor
+cask "visual-studio-code"
+# Web browser with built-in email client focusing on customization and control
+cask "vivaldi"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"
+# Open-source version of the X.Org X Window System
+cask "xquartz"
+# Mesh VPN client
+cask "zerotier-one"
+# Video communication and virtual meeting platform
+cask "zoom"
+mas "1Blocker", id{{ .chezmoi.pathListSeparator }} 1365531024
+mas "1Password for Safari", id{{ .chezmoi.pathListSeparator }} 1569813296
+mas "AdBlock Pro", id{{ .chezmoi.pathListSeparator }} 1018301773
+mas "AdGuard for Safari", id{{ .chezmoi.pathListSeparator }} 1440147259
+mas "Bitwarden", id{{ .chezmoi.pathListSeparator }} 1352778147
+mas "Grocy Mobile", id{{ .chezmoi.pathListSeparator }} 1567803209
+mas "HP Smart", id{{ .chezmoi.pathListSeparator }} 1474276998
+mas "Hush", id{{ .chezmoi.pathListSeparator }} 1544743900
+mas "Infuse", id{{ .chezmoi.pathListSeparator }} 1136220934
+mas "Magnet", id{{ .chezmoi.pathListSeparator }} 441258766
+mas "Save to Raindrop.io", id{{ .chezmoi.pathListSeparator }} 1549370672
+mas "SimpleLogin", id{{ .chezmoi.pathListSeparator }} 1494051017
+mas "TestFlight", id{{ .chezmoi.pathListSeparator }} 899247664
+mas "Velja", id{{ .chezmoi.pathListSeparator }} 1607635845
+mas "WhatsApp", id{{ .chezmoi.pathListSeparator }} 1147396723
+vscode "aaron-bond.better-comments"
+vscode "antfu.slidev"
+vscode "brittanychiang.halcyon-vscode"
+vscode "Catppuccin.catppuccin-vsc"
+vscode "EditorConfig.EditorConfig"
+vscode "esbenp.prettier-vscode"
+vscode "FedericoVarela.pipenv-scripts"
+vscode "frenco.vscode-notion"
+vscode "GitHub.copilot"
+vscode "GitHub.copilot-chat"
+vscode "GitHub.github-vscode-theme"
+vscode "GitHub.remotehub"
+vscode "github.vscode-github-actions"
+vscode "GitHub.vscode-pull-request-github"
+vscode "gitpod.gitpod-desktop"
+vscode "golang.go"
+vscode "GraphQL.vscode-graphql"
+vscode "GraphQL.vscode-graphql-execution"
+vscode "GraphQL.vscode-graphql-syntax"
+vscode "hashicorp.hcl"
+vscode "hashicorp.terraform"
+vscode "j4ng5y.charactercount"
+vscode "James-Yu.latex-workshop"
+vscode "jock.svg"
+vscode "johnpapa.winteriscoming"
+vscode "juliacomputing.pluto-vscode"
+vscode "julialang.language-julia"
+vscode "keifererikson.nightfox"
+vscode "korekontrol.saltstack"
+vscode "Levertion.mcjson"
+vscode "lextudio.restructuredtext"
+vscode "mattn.Lisp"
+vscode "mechatroner.rainbow-csv"
+vscode "merithayan.polar"
+vscode "miguelsolorio.fluent-icons"
+vscode "mikestead.dotenv"
+vscode "Mikhail-Arkhipov.r"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-python.black-formatter"
+vscode "ms-python.flake8"
+vscode "ms-python.isort"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-toolsai.jupyter"
+vscode "ms-toolsai.jupyter-keymap"
+vscode "ms-toolsai.jupyter-renderers"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "ms-vscode-remote.remote-wsl"
+vscode "ms-vscode-remote.vscode-remote-extensionpack"
+vscode "ms-vscode.live-server"
+vscode "ms-vscode.powershell"
+vscode "ms-vscode.remote-explorer"
+vscode "ms-vscode.remote-repositories"
+vscode "ms-vscode.remote-server"
+vscode "ms-vscode.wordcount"
+vscode "ms-vsliveshare.vsliveshare"
+vscode "octref.vetur"
+vscode "onnovalkering.vscode-singularity"
+vscode "PawelBorkar.jellyfish"
+vscode "{{ .chezmoi.config.passhole.command }}-hawkins.arc-plus"
+vscode "quarto.quarto"
+vscode "RapidAPI.vscode-rapidapi-client"
+vscode "rapidapi.vscode-services"
+vscode "redhat.ansible"
+vscode "redhat.vscode-xml"
+vscode "redhat.vscode-yaml"
+vscode "REditorSupport.r"
+vscode "ritwickdey.LiveServer"
+vscode "ronnidc.nunjucks"
+vscode "rust-lang.rust-analyzer"
+vscode "samuelcolvin.jinjahtml"
+vscode "sdras.night-owl"
+vscode "searKing.preview-vscode"
+vscode "shardulm94.trailing-spaces"
+vscode "shd101wyy.markdown-preview-enhanced"
+vscode "Shopify.ruby-lsp"
+vscode "sianglim.slim"
+vscode "sjhuangx.vscode-scheme"
+vscode "Stevertus.mcscript"
+vscode "stkb.rewrap"
+vscode "svelte.svelte-vscode"
+vscode "tamasfe.even-better-toml"
+vscode "teabyii.ayu"
+vscode "tecosaur.latex-utilities"
+vscode "tinkertrain.theme-panda"
+vscode "tommorris.mako"
+vscode "tomoki1207.pdf"
+vscode "vscode-icons-team.vscode-icons"
+vscode "vscodevim.vim"
+vscode "Vue.volar"
+vscode "whizkydee.material-palenight-theme"
+vscode "wholroyd.jinja"
+vscode "william-voyek.vscode-nginx"
+vscode "yzhang.markdown-all-in-one"
+vscode "zhuangtongfa.material-theme"
+vscode "zxh404.vscode-proto3"
+vscode "zz5840.minecraft-lang-colorizer"
