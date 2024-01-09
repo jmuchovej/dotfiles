@@ -6,11 +6,11 @@ MY_ENVS="$(conda info --json | jq -r '.envs[]' | grep envs | xargs -n1 basename)
 
 for env in "base" ${MY_ENVS[@]}; do
   echo "=> Searching \`${env}\` for Python, R, or Julia..."
-  pkgs="$(mamba list -n ${env} --json)"
+  pkgs="$(conda list -n ${env} --json)"
 
   _python="$(echo "${pkgs}" | jq -r '.[] | select(.name == "python")')"
   if [ "${_python}" ]; then
-    mamba install -n ${env} -yq ipykernel > /dev/null
+    conda install -n ${env} -yq ipykernel > /dev/null 2>&1
     pythonV="$(echo "${_python}" | jq -r ".version")"
     echo "    Adding Python ${pythonV} from ${env} to Kernels..."
     conda run -n ${env} \
@@ -22,10 +22,10 @@ for env in "base" ${MY_ENVS[@]}; do
   _julia="$(echo "${pkgs}" | jq -r '.[] | select(.name == "juliaup")')"
   if [ "${_julia}" ]; then
     # https://stackoverflow.com/a/23658810/2714651
-    juliaV="$(julialauncher --version | grep -Eo "([0-9]{1,}\.)+[0-9]{1,}")"
+    juliaV="$(julia --version | grep -Eo "([0-9]{1,}\.)+[0-9]{1,}")"
     echo "    Adding Julia ${juliaV} from ${env} to Kernels..."
     conda run -n ${env} \
-      julialauncher -E "import Pkg; Pkg.add(\"IJulia\"); import IJulia; IJulia.installkernel(\"${env} ~ Julia\"; specname=\"${env}-julia\")" \
+      julia -E "import Pkg; Pkg.add(\"IJulia\"); import IJulia; IJulia.installkernel(\"${env} ~ Julia\"; specname=\"${env}-julia\")" \
       > /dev/null 2> /dev/null
     echo "    Success!"
   fi
@@ -33,7 +33,7 @@ for env in "base" ${MY_ENVS[@]}; do
   _R="$(echo "${pkgs}" | jq -r '.[] | select(.name == "r-base")')"
   if [ "${_R}" ]; then
     rV="$(echo "${_R}" | jq -r ".version")"
-    mamba install -n ${env} -yq r-irkernel
+    conda install -n ${env} -yq r-irkernel > /dev/null 2>&1
     echo "    Adding R ${rV} from ${env} to Kernels..."
     conda run -n ${env} \
       R -e "IRkernel::installspec(name='${env}-r', displayname='${env} ~ R ${rV}', user=TRUE)" \
