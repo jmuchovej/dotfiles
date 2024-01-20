@@ -1,3 +1,4 @@
+{{- if hasKey . "op" }}
 {
 	"auths": {
 {{- $dockerUser := onepasswordRead "op://Personal/Docker/username" .op.account | trim }}
@@ -17,3 +18,4 @@
     }
   }
 }
+{{- end }}
