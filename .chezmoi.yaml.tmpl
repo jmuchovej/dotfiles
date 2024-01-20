@@ -90,9 +90,9 @@ data:
 {{- if or $installConda (env "CONDA_DIR") }}
   conda:
 {{-   if env "CONDA_DIR" }}
-    path: {{- env "CONDA_DIR" | quote }}
+    path: {{ env "CONDA_DIR" | quote }}
 {{-   else }}
-    path: {{- joinPath $appdir "conda" | quote }}
+    path: {{ joinPath $appdir "conda" | quote }}
 {{-   end }}
 {{- end }}
 {{- if env "OPCLI_INSTALLED" }}
