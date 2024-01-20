@@ -1,0 +1,8 @@
+[global]
+load_dotenv = true
+strict_env = true
+
+[whitelist]
+prefix = [
+  {{ joinPath .chezmoi.homeDir "Documents" | quote }},
+]

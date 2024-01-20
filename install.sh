@@ -31,8 +31,6 @@ else
   src="jmuchovej"
 fi
 
-# TODO figure out why I can't include encrypted files on the first-pass >.>
-# Exclude encrypted files on the first pass
 set -- init --apply "${src}"
 
 echo "Running 'chezmoi $*'" >&2
