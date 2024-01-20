@@ -20,12 +20,20 @@ if ! chezmoi="$(command -v chezmoi)"; then
 	unset chezmoi_install_script bin_dir
 fi
 
+OPCLI_INSTALLED="$(command -v op > /dev/null 2>&1 && echo true || echo false)"
+export OPCLI_INSTALLED
+
 # POSIX way to get script's dir: https://stackoverflow.com/a/29834779/12156188
 script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
+if (cd ${script_dir} && git rev-parse --git-dir >/dev/null 2>&1); then
+  src="--source=${script_dir}"
+else
+  src="jmuchovej"
+fi
 
 # TODO figure out why I can't include encrypted files on the first-pass >.>
 # Exclude encrypted files on the first pass
-set -- init --apply --source="${script_dir}" --exclude encrypted
+set -- init --apply "${src}"
 
 echo "Running 'chezmoi $*'" >&2
 # exec: replace current process with chezmoi
