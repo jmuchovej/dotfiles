@@ -131,9 +131,10 @@
 
 {{- $ghRelease := gitHubLatestRelease "cli/cli" }}
 {{- $ghOS := (eq $os "darwin") | ternary "macOS" .chezmoi.os }}
+{{- $ghSuffix := (eq $os "darwin") | ternary ".zip" ".tar.gz" }}
 {{- $gh := "" }}
 {{- range $asset := $ghRelease.Assets }} 
-{{-   if and (contains ".tar.gz" $asset.Name) (contains $ghOS $asset.Name) (contains $arch $asset.Name) }}
+{{-   if and (contains $ghSuffix $asset.Name) (contains $ghOS $asset.Name) (contains $arch $asset.Name) }}
 {{-     $gh = $asset }}
 {{-     break }}
 {{-   end }}
