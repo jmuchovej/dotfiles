@@ -1,6 +1,5 @@
 # region Oh My Zsh Configuration ######################################################
-zstyle ":omz:update" mode auto
-zstyle ":omz:update" frequency 7
+zstyle ":omz:update" mode disabled
 
 zstyle ":omz:plugins:ssh-agent" agent-forwarding on
 zstyle ":omz:plugins:nvm" autoload yes
@@ -92,7 +91,11 @@ setopt interactive_comments #: allow commends in interactive shells
 setopt completeinword
 # endregion ###########################################################################
 
-alias ls="ls --color=tty --group-directories-first"
+{{- $ls := lookPath "eza" | default (lookPath "gls") | default (lookPath "ls") }}
+alias ls="{{ $ls }} --group-directories-first"
+
+{{- $du := lookPath "gdu" | default (lookPath "du") }}
+alias du={{ $du | quote }}
 
 # Local Settings
 {{- $localzshrc := joinPath .chezmoi.homeDir ".zshrc.local" }}
@@ -112,3 +115,4 @@ conda activate
 {{- end }}
 
 eval "$(starship init zsh)"
+{{/* vim: set filetype=zsh.chezmoitmpl: sw=2 ts=2 et */}}
