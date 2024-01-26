@@ -5,8 +5,10 @@
 {{- $os_arch := .osarch }}
 
 {{- $libc := "" }}
+{{- $libc_alt := "" }}
 {{- if eq $os "linux" }}
 {{-   $libc = output (joinPath .chezmoi.sourceDir "getlibc.sh") }}
+{{-   $libc_alt = (eq $libc "glibc") | ternary "gnu" "musl" }}
 {{- end }}
 
 .tmux.conf:
@@ -129,9 +131,10 @@
 
 {{- $ghRelease := gitHubLatestRelease "cli/cli" }}
 {{- $ghOS := (eq $os "darwin") | ternary "macOS" .chezmoi.os }}
+{{- $ghSuffix := (eq $os "darwin") | ternary ".zip" ".tar.gz" }}
 {{- $gh := "" }}
 {{- range $asset := $ghRelease.Assets }} 
-{{-   if and (contains $ghOS $asset.Name) (contains $arch $asset.Name) }}
+{{-   if and (contains $ghSuffix $asset.Name) (contains $ghOS $asset.Name) (contains $arch $asset.Name) }}
 {{-     $gh = $asset }}
 {{-     break }}
 {{-   end }}
@@ -211,8 +214,8 @@
 
 {{- $ezaRelease := gitHubLatestRelease "eza-community/eza" }}
 {{- $eza := "" }}
-{{- range $asset := $eza.Assets }}
-{{-   if and (contains $os $asset.Name) (contains $arch_alt $asset.Name) (contains $libc $asset.Name) }}
+{{- range $asset := $ezaRelease.Assets }}
+{{-   if and (contains $os $asset.Name) (contains $arch_alt $asset.Name) (contains $libc_alt $asset.Name) }}
 {{-     $eza = $asset }}
 {{-     break }}
 {{-   end }}
@@ -225,8 +228,8 @@
 
 {{- $gduRelease := gitHubLatestRelease "dundee/gdu" }}
 {{- $gdu := "" }}
-{{- range $asset := $eza.Assets }}
-{{-   if and (contains $os $asset.Name) (contains $arch_alt $asset.Name) }}
+{{- range $asset := $gduRelease.Assets }}
+{{-   if and (contains ".tgz" $asset.Name) (contains $os $asset.Name) (contains $arch $asset.Name) }}
 {{-     $gdu = $asset }}
 {{-     break }}
 {{-   end }}
@@ -235,7 +238,7 @@
     type: "archive-file"
     url: {{ $gdu.BrowserDownloadURL }}
     executable:  true
-    path: {{ (split "." $gdu.Name) | first }}
+    path: {{ (splitList "." $gdu.Name) | first }}
 {{- end }}
 
 {{/* vim: set filetype=yaml.chezmoitmpl: sw=2 ts=2 et */}}

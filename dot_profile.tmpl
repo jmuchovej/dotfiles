@@ -1,9 +1,11 @@
 LD_LIBRARY_PATH="/usr/lib64:/usr/lib"
+{{- if not .ephemeral }}
 PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+{{- end }}
 
-{{- if (eq .chezmoi.os "darwin") -}}
+{{- if (eq .chezmoi.os "darwin") }}
 export CLICOLOR=1
-{{- end -}}
+{{- end }}
 
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_DATA_HOME="${HOME}/.local/share"
@@ -32,11 +34,30 @@ export LD_LIBRARY_PATH
 
 export LC_COLLATE=C
 
-export DATA="${HOME}/Data"
-export LOGS="${HOME}/Logs"
+DATA="${HOME}/Data"
+export DATA
+LOGS="${HOME}/Logs"
+export LOGS
 
-export EDITOR="vim"
-export VISUAL="vim" # "emacsclient -nc"
+{{- $editor := "" }}
+{{- range $e := (list "nvim" "vim" "vi") }}
+{{-   if lookPath $e }}
+{{-     $editor = $e }}
+{{-     break }}
+{{-   end }}
+{{- end }}
+EDITOR={{ $editor | quote }}
+export EDITOR
+
+{{- $visual := "" }}
+{{- range $v := (list "code" "nvim" "vim" "vi") }}
+{{-   if lookPath $v }}
+{{-     $visual = $v }}
+{{-     break }}
+{{-   end }}
+{{- end }}
+VISUAL={{ $visual | quote }}
+export VISUAL
 
 export PATH
 
@@ -46,3 +67,4 @@ export _Z_OWNER=$(whoami)
 export _Z_NO_RESOLVE_SYMLINKS="true"
 
 export MAMBA_NO_BANNER="1"
+{{/* vim: set filetype=bash.chezmoitmpl: sw=2 ts=2 et */}}

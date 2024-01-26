@@ -1,4 +1,4 @@
-{{- if hasKey . "conda" -}}
+{{- if and (hasKey . "conda") (not (env "CONDA_DIR")) -}}
 #!/usr/bin/env bash
 # shellcheck disable=SC1054,SC1056,SC1072,SC1073,SC1083
 set -e
@@ -52,3 +52,4 @@ conda env update -q -n base -f {{ $baseEnv | quote }}
 unset CONDA_ALWAYS_YES
 # shellcheck disable=SC1009
 {{- end -}}
+{{/* vim: set filetype=bash.chezmoitmpl: sw=2 ts=2 et */}}

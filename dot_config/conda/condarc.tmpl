@@ -7,9 +7,8 @@ add_pip_as_python_dependency: true
 use_pip: true
 env_prompt: ""
 
-{{- if hasKey . "conda" -}}
-{{- $condaPrefix := joinPath .appdir "conda" }}
-root_prefix: {{ $condaPrefix }}
+{{- if hasKey . "conda" }}
+root_prefix: {{ .conda.path | quote }}
 
 create_default_packages:
   - python=3
@@ -37,15 +36,15 @@ whitelist_channels:
   - "conda-forge"
   - "javascript"
 
-{{ $threads := "" -}}
-{{ if eq .chezmoi.os "linux" -}}
-{{   $threads = output "nproc" -}}
-{{ else if eq .chezmoi.os "darwin" -}}
-{{   $threads = output "sysctl" "-n" "hw.physicalcpu" -}}
-{{ end -}}
+{{- $threads := "" }}
+{{- if eq .chezmoi.os "linux" }}
+{{-   $threads = output "nproc" }}
+{{- else if eq .chezmoi.os "darwin" }}
+{{-   $threads = output "sysctl" "-n" "hw.physicalcpu" }}
+{{- end }}
 default_threads: {{ $threads -}}
 repodata_threads: {{ $threads -}}
 verify_threads: {{ $threads -}}
 execute_threads: {{ $threads -}}
-{{/* vim: set filetype=yaml.chezmoitmpl: sw=2 ts=2 et */}}
 {{- end -}}
+{{/* vim: set filetype=yaml.chezmoitmpl: sw=2 ts=2 et */}}
