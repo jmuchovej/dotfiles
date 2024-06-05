@@ -1,0 +1,3 @@
+default-channels = ["conda-forge"]
+change-ps1 = false
+
