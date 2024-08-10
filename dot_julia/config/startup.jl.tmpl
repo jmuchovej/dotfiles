@@ -36,4 +36,29 @@ catch e
     @warn "Error initializing Revise" exception = (e, catch_backtrace())
 end
 
+using PkgTemplates
+newpkg = Template(
+  dir=pwd(),
+  user="jmuchovej",
+  plugins=[
+    ProjectFile(; version=v"0.1.0-DEV"),
+    SrcDir(),
+    Tests(; aqua=true, jet=true),
+    Readme(),
+    License(; name="MIT"),
+    Git(),
+    GitHubActions(),
+    CompatHelper(),
+    TagBot(),
+    Dependabot(),
+    Documenter{GitHubActions}(),
+    BlueStyleBadge(),
+    ColPracBadge(),
+    PkgEvalBadge(),
+    RegisterAction(),
+    Formatter(; style="blue"),
+  ],
+)
+
 Pkg.activate(orig_project)
+{{/* vim: set filetype=julia.chezmoitmpl: sw=2 ts=2 et */}}

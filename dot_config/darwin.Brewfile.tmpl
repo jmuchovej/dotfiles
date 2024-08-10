@@ -2,43 +2,67 @@ tap "homebrew{{ .chezmoi.pathSeparator }}bundle"
 tap "homebrew{{ .chezmoi.pathSeparator }}cask-fonts"
 tap "homebrew{{ .chezmoi.pathSeparator }}command-not-found"
 tap "homebrew{{ .chezmoi.pathSeparator }}services"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
 # Record and share terminal sessions
 brew "asciinema"
+# Yet another cross-platform graphical process{{ .chezmoi.pathSeparator }}system monitor
+brew "bottom"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Lightweight DNS forwarder and DHCP server
 brew "dnsmasq"
+# Modern, maintained replacement for ls
+brew "eza"
+# Disk usage analyzer with console interface written in Go
+brew "gdu"
 # GitHub command-line tool
 brew "gh"
+# Platform built on V8 to build network applications
+brew "node"
 # Interactive command-line tool for using emoji in commit messages
 brew "gitmoji"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
 # Task is a task runner{{ .chezmoi.pathSeparator }}build tool that aims to be simpler and easier to use
 brew "go-task"
+# Tool to download photos from iCloud
+brew "icloudpd"
+# Interactive computing in Python
+brew "ipython"
 # Run local Kubernetes cluster in Docker
 brew "kind"
 # Bare libuv bindings for lua
 brew "luv"
 # Mac App Store command-line interface
 brew "mas"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.11"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Port scanning utility for large networks
+brew "nmap"
+# Drop-in replacement for Terraform. Infrastructure as Code Tool
+brew "opentofu"
 # Tool for creating identical machine images for multiple platforms
 brew "packer"
+# Package management made easy
+brew "pixi"
+# Fast, disk space efficient package manager
+brew "pnpm"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
 # Generic machine emulator and virtualizer
 brew "qemu"
-# Open source continuous file synchronization application
+# Open source continuous {{ .chezmoi.config.mode }} synchronization application
 brew "syncthing", restart_service{{ .chezmoi.pathListSeparator }} true
 # Tool to build, change, and version infrastructure
 brew "terraform"
 # Terminal multiplexer
 brew "tmux"
-# Internet file retriever
+# Command-line interface to the freedesktop.org trashcan
+brew "trash-cli"
+# Internet {{ .chezmoi.config.mode }} retriever
 brew "wget"
 # Library to create, extract, and modify Windows Imaging files
 brew "wimlib"
@@ -54,35 +78,41 @@ cask "adobe-creative-cloud"
 cask "affinity-designer"
 # Application launcher and productivity software
 cask "alfred"
+# Slicer for AnkerMake 3D printers
+cask "ankermake"
 # Local-first and end-to-end encrypted notes app
 cask "anytype"
 # Chromium based browser
 cask "arc"
 # Integrated CAD, CAM, CAE, and PCB software
-cask "autodesk-fusion360"
+cask "autodesk-fusion"
 # Tool to flash OS images to SD cards & USB drives
 cask "balenaetcher"
-# Menu bar icon organizer
+# 3D model slicing software for 3D printers, maintained by Bambu Lab
+cask "bambu-studio"
+# Menu bar icon organiser
 cask "bartender"
 # Cloud based collaboration and management platform focusing on security
 cask "box-sync"
 # Web browser focusing on privacy
 cask "brave-browser"
-# App to build and share containerized applications and microservices
+# Free app that makes your Internet safer
+cask "cloudflare-warp"
+# Native document editor
+cask "craft"
+# App to build and share containerised applications and microservices
 cask "docker"
 # Web browser focusing on privacy
 cask "duckduckgo"
 # Store securely encrypted backups in the cloud
 cask "duplicati"
-# Free monospaced font with programming ligatures
 cask "font-fira-code"
-# Developer targeted fonts with a high number of glyphs
 cask "font-fira-code-nerd-font"
-# Typeface made for developers
 cask "font-jetbrains-mono"
-# Developer targeted fonts with a high number of glyphs
 cask "font-jetbrains-mono-nerd-font"
 cask "font-lato"
+cask "font-noto-color-emoji"
+cask "font-noto-emoji"
 # Desktop client for GitHub repositories
 cask "github"
 # Web browser
@@ -91,12 +121,16 @@ cask "google-chrome"
 cask "google-drive"
 # Vector graphics editor
 cask "inkscape"
+# App to manage software development and track bugs
+cask "linear-linear"
 # Software for Logitech devices
 cask "logi-options-plus"
 # Privacy-first, open-source platform for knowledge sharing and management
 cask "logseq"
+# Fork of Nylas Mail
+cask "mailspring"
 # Provides updates to various Microsoft products
-cask "microsoft-auto-update"
+cask "microsoft-{{ .chezmoi.config.color }}-update"
 # Spreadsheet software
 cask "microsoft-excel"
 # Presentation software
@@ -109,25 +143,37 @@ cask "microsoft-word"
 cask "mullvad-browser"
 # VPN client
 cask "mullvadvpn"
-# App to write, plan, collaborate, and get organized
+# App to write, plan, collaborate, and get organised
 cask "notion"
 # Cloud storage client
 cask "onedrive"
+# Programmable solid 3D CAD modeller
+cask "openscad"
 # Desktop virtualization software
 cask "parallels"
+# Remote desktop
+cask "parsec"
 # Create, edit, convert and sign PDF documents
 cask "pdfelement"
 # Home media player
 cask "plex"
 # Music player focusing on visuals
 cask "plexamp"
+# Client for Proton Drive
+cask "proton-drive"
+# Client for Proton Mail and Proton Calendar
+cask "proton-mail"
 # Import emails to your secure ProtonMail inbox or make offline backups
 cask "protonmail-import-export"
 # VPN client focusing on security
 cask "protonvpn"
+# Email client
+cask "readdle-spark"
 # Client for Old School RuneScape
 cask "runelite"
 cask "runescape"
+# Automation and infrastructure management engine
+cask "salt"
 # Collection of apps available by subscription
 cask "setapp"
 # Web browser
@@ -140,12 +186,20 @@ cask "sketch"
 cask "slack"
 # Music streaming service
 cask "spotify"
+# Free, open-source, and completely encrypted notes app
+cask "standard-notes"
 # Video game digital distribution service
 cask "steam"
-# Mesh VPN based on Wireguard
+# Mesh VPN based on WireGuard
 cask "tailscale"
 # Messaging app with a focus on speed and security
 cask "telegram"
+# To-do & task list manager
+cask "ticktick"
+# Flexible level editor
+cask "tiled"
+# To-do list
+cask "todoist"
 # Development environment
 cask "vagrant"
 # 3D without boundaries
@@ -158,64 +212,74 @@ cask "vivaldi"
 cask "wezterm"
 # Open-source version of the X.Org X Window System
 cask "xquartz"
+# App wrapper for music.youtube.com
+cask "yt-music"
+# Multiplayer code editor
+cask "zed"
 # Mesh VPN client
 cask "zerotier-one"
 # Video communication and virtual meeting platform
 cask "zoom"
+# Desktop client for the Zulip team chat platform
+cask "zulip"
 mas "1Blocker", id{{ .chezmoi.pathListSeparator }} 1365531024
 mas "1Password for Safari", id{{ .chezmoi.pathListSeparator }} 1569813296
 mas "AdBlock Pro", id{{ .chezmoi.pathListSeparator }} 1018301773
 mas "AdGuard for Safari", id{{ .chezmoi.pathListSeparator }} 1440147259
+mas "Agenda", id{{ .chezmoi.pathListSeparator }} 1287445660
 mas "Bitwarden", id{{ .chezmoi.pathListSeparator }} 1352778147
 mas "Grocy Mobile", id{{ .chezmoi.pathListSeparator }} 1567803209
 mas "HP Smart", id{{ .chezmoi.pathListSeparator }} 1474276998
 mas "Hush", id{{ .chezmoi.pathListSeparator }} 1544743900
 mas "Infuse", id{{ .chezmoi.pathListSeparator }} 1136220934
+mas "Keynote", id{{ .chezmoi.pathListSeparator }} 409183694
 mas "Magnet", id{{ .chezmoi.pathListSeparator }} 441258766
+mas "Numbers", id{{ .chezmoi.pathListSeparator }} 409203825
+mas "Pages", id{{ .chezmoi.pathListSeparator }} 409201541
 mas "Save to Raindrop.io", id{{ .chezmoi.pathListSeparator }} 1549370672
 mas "SimpleLogin", id{{ .chezmoi.pathListSeparator }} 1494051017
 mas "TestFlight", id{{ .chezmoi.pathListSeparator }} 899247664
+mas "Things", id{{ .chezmoi.pathListSeparator }} 904280696
 mas "Velja", id{{ .chezmoi.pathListSeparator }} 1607635845
 mas "WhatsApp", id{{ .chezmoi.pathListSeparator }} 1147396723
 vscode "aaron-bond.better-comments"
 vscode "antfu.slidev"
 vscode "brittanychiang.halcyon-vscode"
-vscode "Catppuccin.catppuccin-vsc"
-vscode "EditorConfig.EditorConfig"
+vscode "catppuccin.catppuccin-vsc"
+vscode "editorconfig.editorconfig"
 vscode "esbenp.prettier-vscode"
-vscode "FedericoVarela.pipenv-scripts"
+vscode "federicovarela.pipenv-scripts"
 vscode "frenco.vscode-notion"
-vscode "GitHub.copilot"
-vscode "GitHub.copilot-chat"
-vscode "GitHub.github-vscode-theme"
-vscode "GitHub.remotehub"
+vscode "github.github-vscode-theme"
+vscode "github.remotehub"
 vscode "github.vscode-github-actions"
-vscode "GitHub.vscode-pull-request-github"
+vscode "github.vscode-pull-request-github"
 vscode "gitpod.gitpod-desktop"
 vscode "golang.go"
-vscode "GraphQL.vscode-graphql"
-vscode "GraphQL.vscode-graphql-execution"
-vscode "GraphQL.vscode-graphql-syntax"
+vscode "graphql.vscode-graphql"
+vscode "graphql.vscode-graphql-execution"
+vscode "graphql.vscode-graphql-syntax"
 vscode "hashicorp.hcl"
 vscode "hashicorp.terraform"
 vscode "j4ng5y.charactercount"
-vscode "James-Yu.latex-workshop"
+vscode "james-yu.latex-workshop"
 vscode "jock.svg"
 vscode "johnpapa.winteriscoming"
 vscode "juliacomputing.pluto-vscode"
 vscode "julialang.language-julia"
 vscode "keifererikson.nightfox"
 vscode "korekontrol.saltstack"
-vscode "Levertion.mcjson"
+vscode "levertion.mcjson"
 vscode "lextudio.restructuredtext"
-vscode "mattn.Lisp"
+vscode "mattn.lisp"
 vscode "mechatroner.rainbow-csv"
 vscode "merithayan.polar"
 vscode "miguelsolorio.fluent-icons"
 vscode "mikestead.dotenv"
-vscode "Mikhail-Arkhipov.r"
+vscode "mikhail-arkhipov.r"
 vscode "ms-azuretools.vscode-docker"
 vscode "ms-python.black-formatter"
+vscode "ms-python.debugpy"
 vscode "ms-python.flake8"
 vscode "ms-python.isort"
 vscode "ms-python.python"
@@ -223,11 +287,14 @@ vscode "ms-python.vscode-pylance"
 vscode "ms-toolsai.jupyter"
 vscode "ms-toolsai.jupyter-keymap"
 vscode "ms-toolsai.jupyter-renderers"
+vscode "ms-toolsai.vscode-jupyter-cell-tags"
+vscode "ms-toolsai.vscode-jupyter-slideshow"
 vscode "ms-vscode-remote.remote-containers"
 vscode "ms-vscode-remote.remote-ssh"
 vscode "ms-vscode-remote.remote-ssh-edit"
 vscode "ms-vscode-remote.remote-wsl"
 vscode "ms-vscode-remote.vscode-remote-extensionpack"
+vscode "ms-vscode.azure-repos"
 vscode "ms-vscode.live-server"
 vscode "ms-vscode.powershell"
 vscode "ms-vscode.remote-explorer"
@@ -237,27 +304,29 @@ vscode "ms-vscode.wordcount"
 vscode "ms-vsliveshare.vsliveshare"
 vscode "octref.vetur"
 vscode "onnovalkering.vscode-singularity"
-vscode "PawelBorkar.jellyfish"
+vscode "parallelsdesktop.parallels-desktop"
+vscode "pawelborkar.jellyfish"
 vscode "{{ .chezmoi.config.passhole.command }}-hawkins.arc-plus"
+vscode "pkief.material-icon-theme"
 vscode "quarto.quarto"
-vscode "RapidAPI.vscode-rapidapi-client"
+vscode "rapidapi.vscode-rapidapi-client"
 vscode "rapidapi.vscode-services"
 vscode "redhat.ansible"
 vscode "redhat.vscode-xml"
 vscode "redhat.vscode-yaml"
-vscode "REditorSupport.r"
-vscode "ritwickdey.LiveServer"
+vscode "reditorsupport.r"
+vscode "ritwickdey.liveserver"
 vscode "ronnidc.nunjucks"
 vscode "rust-lang.rust-analyzer"
 vscode "samuelcolvin.jinjahtml"
 vscode "sdras.night-owl"
-vscode "searKing.preview-vscode"
+vscode "searking.preview-vscode"
 vscode "shardulm94.trailing-spaces"
 vscode "shd101wyy.markdown-preview-enhanced"
-vscode "Shopify.ruby-lsp"
+vscode "shopify.ruby-lsp"
 vscode "sianglim.slim"
 vscode "sjhuangx.vscode-scheme"
-vscode "Stevertus.mcscript"
+vscode "stevertus.mcscript"
 vscode "stkb.rewrap"
 vscode "svelte.svelte-vscode"
 vscode "tamasfe.even-better-toml"
@@ -268,7 +337,7 @@ vscode "tommorris.mako"
 vscode "tomoki1207.pdf"
 vscode "vscode-icons-team.vscode-icons"
 vscode "vscodevim.vim"
-vscode "Vue.volar"
+vscode "vue.volar"
 vscode "whizkydee.material-palenight-theme"
 vscode "wholroyd.jinja"
 vscode "william-voyek.vscode-nginx"
