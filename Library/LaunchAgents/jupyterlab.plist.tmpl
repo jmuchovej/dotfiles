@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>jupyterlab</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>{{ .chezmoi.homeDir }}/.local/conda/bin/jupyter</string>
+      <string>lab</string>
+      <string>--no-browser</string>
+      <string>--debug</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>{{ .chezmoi.homeDir }}</string>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>{{ .chezmoi.homeDir }}/Library/Logs/jupyter.log</string>
+    <key>StandardErrorPath</key>
+    <string>{{ .chezmoi.homeDir }}/Library/Logs/jupyter.log</string>
+  </dict>
+</plist>
