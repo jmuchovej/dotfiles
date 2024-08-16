@@ -1,4 +1,4 @@
-Include config.d/* 
+Include config.d/*
 
 Host 192.168.192.*
   IdentitiesOnly yes
@@ -13,4 +13,7 @@ Host git*
 
 Host *
   ForwardAgent yes
+{{- if not (or .ephemeral .cluster) }}
   IdentityAgent ~/.1password/agent.sock
+{{- end }}
+{{- /* vim: set filetype=sshconfig.chezmoitmpl: sw=2 ts=2 et */}}
