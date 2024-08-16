@@ -47,8 +47,8 @@
 {{-   $ephemeral = true -}}
 {{- end -}}
 
-{{- $desktops := list "voyager" "discovery" "alpha-centauri" -}}
-{{- $servers := list "starbase-01" "starbase-02" "redmatter" "section-31" "janeway" -}}
+{{- $desktops := list "voyager" "discovery" -}}
+{{- $servers := list "s1" "starbase-01" "s2" "starbase-02" "redmatter" "section-31" "janeway" "picard" -}}
 {{- $machines := concat $desktops $servers -}}
 {{- $labusers := list "lab" "homelab" -}}
 {{- if not $ephemeral -}}
@@ -101,6 +101,7 @@ data:
 {{- end }}
 
 diff:
-  exclude: 
+  exclude:
     - "scripts"
 
+{{- /* vim: set filetype=yaml.chezmoitmpl: sw=2 ts=2 et */}}
