@@ -1,6 +1,6 @@
 Include config.d/*
 
-{{- if or (.personal .homelab) }}
+{{- if (or .personal .homelab) }}
 Host 192.168.192.*
   IdentitiesOnly yes
   IdentityFile   ~/.ssh/1p-homelab.pub
