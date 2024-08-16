@@ -1,5 +1,6 @@
 Include config.d/*
 
+{{- if or (.personal .homelab) }}
 Host 192.168.192.*
   IdentitiesOnly yes
   IdentityFile   ~/.ssh/1p-homelab.pub
@@ -10,6 +11,7 @@ Host git*
   IdentityFile   ~/.ssh/1p-github.pub
   IdentityFile   ~/.ssh/1p-gitlab.pub
   IdentityFile   ~/.ssh/1p-bitbucket.pub
+{{- end }}
 
 Host *
   ForwardAgent yes
