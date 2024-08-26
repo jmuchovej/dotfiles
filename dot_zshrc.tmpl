@@ -124,11 +124,5 @@ alias sudo="\sudo -E"
 alias ps="\ps -ef"
 # endregion ###########################################################################
 
-{{ if hasKey . "conda" -}}
-conda activate
-{{- end }}
-
 typeset -U path
-
-eval "$(starship init zsh)"
 {{/* vim: set filetype=zsh.chezmoitmpl: sw=2 ts=2 et */}}
