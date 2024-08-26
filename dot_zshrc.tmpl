@@ -4,6 +4,14 @@ zstyle ":omz:update" mode disabled
 zstyle ":omz:plugins:ssh-agent" agent-forwarding on
 zstyle ":omz:plugins:nvm" autoload yes
 
+zstyle ':omz:plugins:eza' 'dirs-first' yes
+zstyle ':omz:plugins:eza' 'git-status' yes
+zstyle ':omz:plugins:eza' 'header' yes
+zstyle ':omz:plugins:eza' 'show-group' yes
+zstyle ':omz:plugins:eza' 'icons' yes
+zstyle ':omz:plugins:eza' 'size-prefix' si
+zstyle ':omz:plugins:eza' 'hyperlink' yes
+
 export ZSH_THEME=""
 
 export HIST_STAMPS="yyyy-mm-dd"
@@ -22,21 +30,30 @@ plugins=(
   docker
   fast-syntax-highlighting
   gh
+  gitignore
 {{- if eq .chezmoi.os "darwin" }}
   gnu-utils
   macos
 {{- end }}
-  pre-commit
+  # pre-commit  # pre-commit aliases
   # pipenv
   # pyenv
-  systemadmin
-  tmux
-  vi-mode
+  systemadmin # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/systemadmin
+  tmux  # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tmux
+  vi-mode  # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/vi-mode
   vscode
   z
   zsh-interactive-cd
   zsh-autosuggestions
   zsh-history-substring-search
+  zsh-autopair
+  colored-man-pages
+  starship
+  colorize
+  eza
+  kubectl
+  lol  # catspeak aliases
+  # zsh-navigation-tools  # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/zsh-navigation-tools
 )
 
 source {{ joinPath .appdir "oh-my-zsh" "oh-my-zsh.sh" | quote }}
@@ -90,9 +107,6 @@ setopt correct_all          #: autocorrect cmds
 setopt interactive_comments #: allow commends in interactive shells
 setopt completeinword
 # endregion ###########################################################################
-
-{{- $ls := lookPath "eza" | default (lookPath "gls") | default (lookPath "ls") }}
-alias ls="{{ $ls }} --group-directories-first"
 
 {{- $du := lookPath "gdu" | default (lookPath "du") }}
 alias du={{ $du | quote }}
