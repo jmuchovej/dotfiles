@@ -5,7 +5,9 @@ zstyle ":omz:plugins:ssh-agent" agent-forwarding on
 zstyle ":omz:plugins:nvm" autoload yes
 
 zstyle ':omz:plugins:eza' 'dirs-first' yes
+{{- if not (and (eq .chezmoi.os "linux") (eq .chezmoi.arch "arm64")) }}
 zstyle ':omz:plugins:eza' 'git-status' yes
+{{- end }}
 zstyle ':omz:plugins:eza' 'header' yes
 zstyle ':omz:plugins:eza' 'show-group' yes
 zstyle ':omz:plugins:eza' 'icons' yes
@@ -125,4 +127,11 @@ alias ps="\ps -ef"
 # endregion ###########################################################################
 
 typeset -U path
+
+if type brew &>/dev/null; then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
 {{/* vim: set filetype=zsh.chezmoitmpl: sw=2 ts=2 et */}}
