@@ -1,3 +1,4 @@
 default-channels = ["conda-forge"]
-change-ps1 = false
 
+[shell]
+change-ps1 = false
